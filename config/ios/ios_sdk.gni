@@ -1,0 +1,68 @@
+# Copyright (c) 2023 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+declare_args() {
+  # SDK path to use. When empty this will use the default SDK based on the
+  # value of use_ios_simulator.
+  ios_sdk_path = ""
+
+  # Set to true when targeting a simulator build on iOS. False means that the
+  # target is for running on the device. The default value is to use the
+  # Simulator except when targeting GYP's Xcode builds (for compat with the
+  # existing GYP build).
+  use_ios_simulator = false
+
+  # Version of iOS that we're targeting.
+  # 不适配9的原因，是因为，iOS9版本sdk 不支持 #include <shared_mutex>
+  ios_deployment_target = "10.0"
+
+  # The path to the iOS device SDK.
+  ios_device_sdk_path = ""
+
+  # The path to the iOS simulator SDK.
+  ios_simulator_sdk_path = ""
+
+  # Version of iOS that we're targeting for tests.
+  ios_testing_deployment_target = "13.0"
+}
+
+if (ios_sdk_path == "") {
+  ios_sdk_args = []
+  if (!use_ios_simulator && ios_device_sdk_path == "") {
+    ios_sdk_args += [
+      "--sdk",
+      "iphoneos",
+    ]
+    _ios_device_sdk_result =
+        exec_script("ios_sdk.py", ios_sdk_args, "list lines")
+    ios_device_sdk_path = _ios_device_sdk_result[0]
+  }
+
+  if (use_ios_simulator && ios_simulator_sdk_path == "") {
+    ios_sdk_args += [
+      "--sdk",
+      "iphonesimulator",
+    ]
+    _ios_sim_sdk_result = exec_script("ios_sdk.py", ios_sdk_args, "list lines")
+    ios_simulator_sdk_path = _ios_sim_sdk_result[0]
+  }
+
+  # Compute default target.
+  if (use_ios_simulator) {
+    assert(ios_simulator_sdk_path != "")
+    ios_sdk_path = ios_simulator_sdk_path
+  } else {
+    assert(ios_device_sdk_path != "")
+    ios_sdk_path = ios_device_sdk_path
+  }
+}
