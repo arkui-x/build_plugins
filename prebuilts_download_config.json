@@ -1,0 +1,184 @@
+{
+  "prebuilts_download_dir": "../openharmony_prebuilts",
+  "npm_install_path": [
+    "developtools/ace_ets2bundle/compiler",
+    "developtools/ace_js2bundle/ace-loader",
+    "third_party/jsframework",
+    "arkcompiler/ets_frontend/ts2panda"
+  ],
+  "node_modules_copy": [
+    {
+      "src": "third_party/jsframework/node_modules",
+      "dest": "prebuilts/build-tools/common/js-framework/node_modules",
+      "use_symlink": "True"
+    },
+    {
+      "src": "arkcompiler/ets_frontend/ts2panda/node_modules",
+      "dest": "prebuilts/build-tools/common/ts2abc/node_modules",
+      "use_symlink": "True"
+    }
+  ],
+  "file_handle_config": [
+    {
+      "src": "/prebuilts/jdk/linux-x86_64/jdk8u252",
+      "dest": "/prebuilts/jdk/linux-x86_64/jdk8",
+      "rename": "true"
+    },
+    {
+      "src": "/prebuilts/jdk/linux-x86_64/jdk-11.0.2",
+      "dest": "/prebuilts/jdk/linux-x86_64/jdk11",
+      "rename": "true"
+    },
+    {
+      "src": "/prebuilts/jdk/darwin-x86_64/jdk-11.0.2.jdk",
+      "dest": "/prebuilts/jdk/darwin-x86_64/jdk11",
+      "rename": "true"
+    },
+    {
+      "src": "/prebuilts/clang/ohos/linux-x86_64/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04",
+      "dest": "/prebuilts/clang/ohos/linux-x86_64/llvm",
+      "rename": "true",
+      "symlink_src": "/lib/clang/14.0.0",
+      "symlink_dest": "/lib/clang/current"
+    },
+    {
+      "src": "/prebuilts/clang/ohos/darwin-x86_64/clang+llvm-14.0.0-x86_64-apple-darwin",
+      "dest": "/prebuilts/clang/ohos/darwin-x86_64/llvm",
+      "rename": "true",
+      "symlink_src": "/lib/clang/14.0.0",
+      "symlink_dest": "/lib/clang/current"
+    }
+  ],
+  "linux": {
+    "node_config": [
+      {
+        "unzip_dir": "prebuilts/build-tools/common/nodejs",
+        "file_path": "/nodejs/v12.18.4/node-v12.18.4-linux-x64.tar.gz",
+        "unzip_filename": "node-v12.18.4-linux-x64"
+      }
+    ],
+    "x86_64": {
+      "copy_config": [
+        {
+          "unzip_dir": "prebuilts/build-tools/linux-x86/bin",
+          "file_path": "/openharmony/compiler/gn/2024/linux/gn-linux-x86-20221108.tar.gz",
+          "unzip_filename": "gn"
+        },
+        {
+          "unzip_dir": "prebuilts/build-tools/linux-x86/bin",
+          "file_path": "/openharmony/compiler/ninja/1.11.0/linux/ninja-linux-x86-1.11.0.tar.gz",
+          "unzip_filename": "ninja"
+        },
+        {
+          "unzip_dir": "prebuilts/ark_tools",
+          "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_20230107.tar.gz",
+          "unzip_filename": "ark_js_prebuilts"
+        },
+        {
+          "unzip_dir": "prebuilts/python",
+          "file_path": "/openharmony/compiler/python/3.9.2/linux/python-linux-x86-3.9.2_20200510.tar.gz",
+          "unzip_filename": "linux-x86"
+        },
+        {
+          "unzip_dir": "prebuilts/clang/ohos/linux-x86_64",
+          "file_path": "/arkui-crossplatform/compiler/clang/14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz",
+          "unzip_filename": "llvm"
+        },
+        {
+          "unzip_dir": "prebuilts/jdk/linux-x86_64",
+          "file_path": "/openharmony/compiler/open-jdk/8u252/linux/jdk8u252+9-linux-amd64.tar.gz",
+          "unzip_filename": "jdk8"
+        }
+      ],
+      "linux_copy_config": [
+        {
+          "unzip_dir": "prebuilts/jdk/linux-x86_64",
+          "file_path": "/openjdk/11.0.2/openjdk-11.0.2_linux-x64_bin.tar.gz",
+          "unzip_filename": "jdk11"
+        }
+      ]
+    }
+  },
+  "darwin": {
+    "node_config": [
+      {
+        "unzip_dir": "prebuilts/build-tools/common/nodejs",
+        "file_path": "/nodejs/v12.18.4/node-v12.18.4-darwin-x64.tar.gz",
+        "unzip_filename": "node-v12.18.4-darwin-x64"
+      }
+    ],
+    "arm64": {
+      "copy_config": [
+        {
+          "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
+          "file_path": "/openharmony/compiler/gn/2024/darwin/gn-darwin-x86-20221123.tar.gz",
+          "unzip_filename": "gn"
+        },
+        {
+          "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
+          "file_path": "/openharmony/compiler/ninja/1.11.0/darwin/ninja-darwin-x86-1.11.0.tar.gz",
+          "unzip_filename": "ninja"
+        },
+        {
+          "unzip_dir": "prebuilts/ark_tools",
+          "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_darwin_arm64_20230209.tar.gz",
+          "unzip_filename": "ark_js_prebuilts"
+        },
+        {
+          "unzip_dir": "prebuilts/python",
+          "file_path": "/openharmony/compiler/python/3.9.2/darwin/python-darwin-x86-3.9.2_202205071615.tar.gz",
+          "unzip_filename": "darwin-x86"
+        },
+        {
+          "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
+          "file_path": "/arkui-crossplatform/compiler/clang/14.0.0/clang+llvm-14.0.0-x86_64-apple-darwin.tar.xz",
+          "unzip_filename": "llvm"
+        }
+      ],
+      "darwin_copy_config": [
+        {
+          "unzip_dir": "prebuilts/jdk/darwin-x86_64",
+          "file_path": "/openjdk/11.0.2/openjdk-11.0.2_osx-x64_bin.tar.gz",
+          "unzip_filename": "jdk11"
+        }
+      ]
+    },
+    "x86_64": {
+      "copy_config": [
+        {
+          "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
+          "file_path": "/openharmony/compiler/gn/2024/darwin/gn-darwin-x86-20221123.tar.gz",
+          "unzip_filename": "gn"
+        },
+        {
+          "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
+          "file_path": "/openharmony/compiler/ninja/1.11.0/darwin/ninja-darwin-x86-1.11.0.tar.gz",
+          "unzip_filename": "ninja"
+        },
+        {
+          "unzip_dir": "prebuilts/ark_tools",
+          "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_darwin_x64_20230209.tar.gz",
+          "unzip_filename": "ark_js_prebuilts"
+        },
+        {
+          "unzip_dir": "prebuilts/python",
+          "file_path": "/openharmony/compiler/python/3.9.2/darwin/python-darwin-x86-3.9.2_202205071615.tar.gz",
+          "unzip_filename": "darwin-x86"
+        },
+        {
+          "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
+          "file_path": "/arkui-crossplatform/compiler/clang/14.0.0/clang+llvm-14.0.0-x86_64-apple-darwin.tar.xz",
+          "unzip_filename": "llvm"
+        }
+      ],
+      "darwin_copy_config": [
+        {
+          "unzip_dir": "prebuilts/jdk/darwin-x86_64",
+          "file_path": "/openjdk/11.0.2/openjdk-11.0.2_osx-x64_bin.tar.gz",
+          "unzip_filename": "jdk11"
+        }
+      ]
+    }
+  }
+}
+
