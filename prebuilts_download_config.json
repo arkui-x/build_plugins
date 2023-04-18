@@ -166,7 +166,7 @@
           "unzip_filename": "darwin-x86"
         },
         {
-          "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
+          "unzip_dir": "prebuilts/clang/ohos/darwin-x86_64",
           "file_path": "/arkui-crossplatform/compiler/clang/14.0.0/clang+llvm-14.0.0-x86_64-apple-darwin.tar.xz",
           "unzip_filename": "llvm"
         }

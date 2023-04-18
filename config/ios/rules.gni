@@ -61,47 +61,52 @@ template("ohos_combine_darwin_framework") {
     _final_frameworks_path = invoker.jar_path
   }
 
+  has_header = defined(invoker._export_framework_headers)
   _target_name = target_name
-  group("universal_ace_framework") {
+  group("universal_ace_framework_${_target_name}") {
     visibility = [ ":*" ]
 
     deps = [
       # ":copy_and_verify_framework_module",
-      ":copy_dylib",
-      ":copy_framework_headers",
+      ":copy_dylib_${_target_name}",
 
       # ":copy_framework_icu",
-      ":copy_framework_info_plist",
-      ":copy_framework_module_map",
-      ":copy_framework_podspec",
-      ":copy_license",
+      ":copy_framework_info_plist_${_target_name}",
+      ":copy_framework_module_map_${_target_name}",
+      ":copy_framework_podspec_${_target_name}",
+      ":copy_license_${_target_name}",
     ]
+    if (has_header) {
+      deps += [ ":copy_framework_headers_${_target_name}" ]
+    }
 
     # if (is_asan) {
     # deps += [ ":copy_asan_runtime_dylib" ]
     # }
   }
 
-  action("copy_framework_headers") {
-    script = "//build_plugins/config/ios/tools/install_framework_headers.py"
-    visibility = [ ":*" ]
-    sources = get_path_info(invoker._export_framework_headers, "abspath")
-    outputs = []
-    foreach(header, sources) {
-      header_basename = get_path_info(header, "file")
-      print(header_basename)
-      outputs += [ "$_final_frameworks_path/Headers/$header_basename" ]
-    }
-    args = [
-             "--location",
-             rebase_path("$_final_frameworks_path/Headers"),
-             "--headers",
-           ] + rebase_path(sources, "", "//")
+  if (has_header) {
+    action("copy_framework_headers_${_target_name}") {
+      script = "//build_plugins/config/ios/tools/install_framework_headers.py"
+      visibility = [ ":*" ]
+      sources = get_path_info(invoker._export_framework_headers, "abspath")
+      outputs = []
+      foreach(header, sources) {
+        header_basename = get_path_info(header, "file")
+        print(header_basename)
+        outputs += [ "$_final_frameworks_path/Headers/$header_basename" ]
+      }
+      args = [
+               "--location",
+               rebase_path("$_final_frameworks_path/Headers"),
+               "--headers",
+             ] + rebase_path(sources, "", "//")
 
-    deps = invoker.deps
+      deps = invoker.deps
+    }
   }
 
-  copy("copy_dylib") {
+  copy("copy_dylib_${_target_name}") {
     visibility = [ ":*" ]
 
     sources =
@@ -111,7 +116,7 @@ template("ohos_combine_darwin_framework") {
     deps = invoker.deps
   }
 
-  action("copy_framework_info_plist") {
+  action("copy_framework_info_plist_${_target_name}") {
     visibility = [ ":*" ]
     script = "//build_plugins/config/ios/tools/copy_info_plist.py"
     sources = [ "//build_plugins/config/ios/framework/Info.plist" ]
@@ -123,6 +128,8 @@ template("ohos_combine_darwin_framework") {
       rebase_path(outputs[0]),
       "--minversion",
       ios_deployment_target,
+      "--name",
+      _target_name,
     ]
 
     #   if (enable_bitcode) {
@@ -132,7 +139,7 @@ template("ohos_combine_darwin_framework") {
     deps = invoker.deps
   }
 
-  copy("copy_framework_module_map") {
+  copy("copy_framework_module_map_${_target_name}") {
     visibility = [ ":*" ]
     sources = [ "//build_plugins/config/ios/framework/module.modulemap" ]
     outputs = [ "$_final_frameworks_path/Modules/module.modulemap" ]
@@ -140,15 +147,15 @@ template("ohos_combine_darwin_framework") {
     deps = invoker.deps
   }
 
-  copy("copy_framework_podspec") {
+  copy("copy_framework_podspec_${_target_name}") {
     visibility = [ ":*" ]
-    sources = [ "//build_plugins/config/ios/framework/libace_ios.podspec" ]
-    outputs = [ "$_final_frameworks_path/libace_ios.podspec" ]
+    sources = [ "//build_plugins/config/ios/framework/libarkui_ios.podspec" ]
+    outputs = [ "$_final_frameworks_path/libarkui_ios.podspec" ]
 
     deps = invoker.deps
   }
 
-  copy("copy_license") {
+  copy("copy_license_${_target_name}") {
     visibility = [ ":*" ]
     sources = [ "//build_plugins/config/ios/framework/LICENSE" ]
     outputs = [ "$_final_frameworks_path/LICENSE" ]
@@ -156,7 +163,7 @@ template("ohos_combine_darwin_framework") {
     deps = invoker.deps
   }
 
-  action("create_ios_framework") {
+  action("${_target_name}") {
     script = "//build_plugins/config/ios/tools/create_xcframework.py"
     outputs = [ "$root_out_dir/$_target_name.xcframework" ]
     args = [
@@ -169,6 +176,6 @@ template("ohos_combine_darwin_framework") {
     ]
 
     deps = invoker.deps
-    deps += [ ":universal_ace_framework" ]
+    deps += [ ":universal_ace_framework_${_target_name}" ]
   }
 }

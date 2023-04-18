@@ -36,6 +36,7 @@ def main():
   parser.add_argument('--destination', help='Path to destination Info.plist', type=str, required=True)
   parser.add_argument('--bitcode', help='Built with bitcode', action='store_true')
   parser.add_argument('--minversion', help='Minimum device OS version like "9.0"', type=str)
+  parser.add_argument('--name', help='name of the framework', type=str)
 
   args = parser.parse_args()
 
@@ -44,7 +45,7 @@ def main():
   # revision = git_revision.GetRepositoryVersion(engine_path)
   bitcode = args.bitcode is not None;
   clang_version = GetClangVersion(bitcode)
-  text = text.format(revision = "1.0.0", clang_version = clang_version, min_version = args.minversion)
+  text = text.format(framework_name = args.name, revision = "1.0.0", clang_version = clang_version, min_version = args.minversion)
 
   with open(args.destination, "w") as outfile:
     outfile.write(text)
