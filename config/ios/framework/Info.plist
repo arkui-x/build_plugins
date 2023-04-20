@@ -18,15 +18,15 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>libarkui_ios</string>
+	<string>{framework_name}</string>
 	<key>CFBundleExecutable</key>
-	<string>libarkui_ios</string>
+	<string>{framework_name}</string>
 	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<string>com.arkui-x.{framework_name}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>libarkui_ios</string>
+	<string>{framework_name}</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>

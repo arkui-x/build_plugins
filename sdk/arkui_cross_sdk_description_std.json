@@ -1,7 +1,7 @@
 [
     {
         "install_dir": "arkui-x/engine/lib/android-arm64",
-        "module_label": "//foundation/arkui/ace_engine/adapter/android/build:libace_android",
+        "module_label": "//foundation/arkui/ace_engine/adapter/android/build:libarkui_android",
         "target_os": [
             "linux"
         ]
