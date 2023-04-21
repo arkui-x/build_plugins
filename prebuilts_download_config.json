@@ -47,6 +47,13 @@
       "rename": "true",
       "symlink_src": "/lib/clang/14.0.0",
       "symlink_dest": "/lib/clang/current"
+    },
+    {
+      "src": "/prebuilts/clang/ohos/darwin-arm64/clang+llvm-14.0.0-x86_64-apple-darwin",
+      "dest": "/prebuilts/clang/ohos/darwin-arm64/llvm",
+      "rename": "true",
+      "symlink_src": "/lib/clang/14.0.0",
+      "symlink_dest": "/lib/clang/current"
     }
   ],
   "linux": {
