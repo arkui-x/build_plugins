@@ -164,8 +164,26 @@ def parse_description_file(options):
     sdk_types = []
     sdk_targets = []
     build_only_targets = []
+    sdk_items = []
+    arch_dict = data.get('arch_dict')
+    multi_arch_items = data.get(options.platform)
+    for item in multi_arch_items:
+        install_dir = item.get('install_dir')
+        module_label = item.get('module_label')
+        target_os = item.get('target_os')
+        for os_name in target_os:
+            arch_list = arch_dict.get(os_name)
+            for arch in arch_list:
+                tmp_item = dict()
+                platform_arch = '{}-{}'.format(options.platform, arch)
+                toolchain = data.get('toolchains').get(os_name).get(platform_arch)
+                new_install_dir = install_dir.replace('arch_type', platform_arch)
+                tmp_item['install_dir'] = new_install_dir
+                tmp_item['module_label'] = '{}({})'.format(module_label, toolchain)
+                tmp_item['target_os'] = [os_name]
+                sdk_items.append(tmp_item)
 
-    for d in data:
+    for d in sdk_items:
         check_keys(d.keys())
 
         label = d.get('module_label')
@@ -228,6 +246,7 @@ def main():
     parser.add_argument('--source-root-dir', required=True)
     parser.add_argument('--variant-to-product', required=True)
     parser.add_argument('--node-js', required=True)
+    parser.add_argument('--platform', required=True)
 
     options = parser.parse_args()
 
