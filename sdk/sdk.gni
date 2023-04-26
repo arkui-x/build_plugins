@@ -16,6 +16,10 @@ import("//build/ohos/build_var.gni")
 import("//build/ohos/notice/notice.gni")
 import("//build/version.gni")
 
+declare_args() {
+  enable_auto_pack = false
+}
+
 sdk_base_build_gn = "//build/ohos/sdk/BUILD.gn"
 generated_files_dir = get_path_info(sdk_base_build_gn, "gen_dir")
 generated_sdk_module_install_paths =
@@ -27,17 +31,6 @@ sdk_system_darwin = "darwin"
 
 arkui_cross_sdk_out_dir = "$product_output_dir/${product_name}"
 arkui_cross_sdk_copy_dir = "$root_build_dir/${product_name}"
-
-sdk_toolchains = {
-  if (target_cpu == "arm64") {
-    linux = "//build_plugins/toolchain/aosp:aosp_clang_arm64"
-    darwin = "//build_plugins/toolchain/ios:ios_clang_arm64"
-  } else if (target_cpu == "arm") {
-    linux = "//build_plugins/toolchain/aosp:aosp_clang_arm"
-    darwin = "//build_plugins/toolchain/ios:ios_clang_arm"
-  }
-  windows = "//build/toolchain/mingw:mingw_x86_64"
-}
 
 if (host_cpu == "arm64") {
   arch = "arm64"
@@ -107,13 +100,9 @@ template("copy_and_archive") {
 template("make_sdk_modules") {
   assert(defined(invoker.zipfile_name))
   assert(defined(invoker.sdk_modules))
-  assert(defined(invoker.sdk_toolchain))
   assert(defined(invoker.sdk_type))
   assert(defined(invoker.sdk_system))
 
-  if (invoker.sdk_modules == []) {
-    not_needed(invoker, [ "sdk_toolchain" ])
-  }
   copy_and_archive(target_name) {
     forward_variables_from(invoker,
                            [
@@ -126,23 +115,15 @@ template("make_sdk_modules") {
     _sdk_module_infos = []
 
     foreach(_label, invoker.sdk_modules) {
-      _target_label = get_label_info(_label, "label_no_toolchain")
-      sources = [ _target_label ]
-      if (sources == []) {
-        _sdk_modules += [ _target_label ]
-      } else {
-        _sdk_modules += [ "${_target_label}(${invoker.sdk_toolchain})" ]
-      }
-      sources = []
+      _sdk_modules += [ _label ]
     }
-    not_needed(invoker, [ "sdk_toolchain" ])
 
     foreach(_label, _sdk_modules) {
       _module_info_file = get_label_info(_label, "target_out_dir") + "/" +
                           get_label_info(_label, "name") + "_module_info.json"
       _sdk_module_infos += [
         {
-          label = get_label_info(_label, "label_no_toolchain")
+          label = _label
           module_info_file = rebase_path(_module_info_file, root_build_dir)
         },
       ]
@@ -169,7 +150,6 @@ template("make_linux_sdk_modules") {
                              "sdk_type",
                              "deps",
                            ])
-    sdk_toolchain = sdk_toolchains.linux
     sdk_system = sdk_system_linux
   }
 }
@@ -184,7 +164,6 @@ template("make_windows_sdk_modules") {
                              "sdk_type",
                              "deps",
                            ])
-    sdk_toolchain = sdk_toolchains.windows
     sdk_system = sdk_system_windows
   }
 }
@@ -199,7 +178,6 @@ template("make_darwin_sdk_modules") {
                              "sdk_type",
                              "deps",
                            ])
-    sdk_toolchain = sdk_toolchains.darwin
     sdk_system = sdk_system_darwin
   }
 }

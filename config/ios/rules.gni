@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import("//build/templates/metadata/module_info.gni")
 import("//build_plugins/config/ios/ios_sdk.gni")
 
 template("ohos_combine_darwin_framework") {
@@ -71,6 +72,7 @@ template("ohos_combine_darwin_framework") {
       ":copy_dylib_${_target_name}",
 
       # ":copy_framework_icu",
+      ":${_target_name}_info",
       ":copy_framework_info_plist_${_target_name}",
       ":copy_framework_module_map_${_target_name}",
       ":copy_framework_podspec_${_target_name}",
@@ -177,5 +179,13 @@ template("ohos_combine_darwin_framework") {
 
     deps = invoker.deps
     deps += [ ":universal_ace_framework_${_target_name}" ]
+  }
+
+  generate_module_info("${_target_name}_info") {
+    module_type = "framework"
+    module_install_name = ""
+    module_name = _target_name
+    module_source_dir = _final_frameworks_path
+    install_enable = false
   }
 }
