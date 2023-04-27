@@ -167,7 +167,7 @@ template("ohos_combine_darwin_framework") {
 
   action("${_target_name}") {
     script = "//build_plugins/config/ios/tools/create_xcframework.py"
-    outputs = [ "$root_out_dir/$_target_name.xcframework" ]
+    outputs = [ "$_base_frameworks_path/$_target_name.xcframework" ]
     args = [
       "--frameworks",
       rebase_path("$_final_frameworks_path"),

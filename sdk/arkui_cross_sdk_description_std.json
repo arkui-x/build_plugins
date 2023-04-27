@@ -497,7 +497,7 @@
         },
 	    {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/device_info",
-            "module_label": "//interface/sdk:device_info_android_jar",
+            "module_label": "//plugins/device_info/android/java:device_info_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -578,7 +578,7 @@
         },
 	    {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
-            "module_label": "//interface/sdk:http_android_jar",
+            "module_label": "//plugins/net/http/android/java:http_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -686,7 +686,7 @@
         },
         {
             "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//interface/sdk:android_adapter_java_jar",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ace_android_adapter_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -695,7 +695,7 @@
         },
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/ability_access_ctrl",
-            "module_label": "//interface/sdk:ability_access_ctrl_java_jar",
+            "module_label": "//plugins/ability_access_ctrl/android/java:ability_access_ctrl_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -704,7 +704,7 @@
         },
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/common_event",
-            "module_label": "//interface/sdk:common_event_java_jar",
+            "module_label": "//plugins/common_event/android/java:common_event_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -713,7 +713,7 @@
         },
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/display",
-            "module_label": "//interface/sdk:display_java_jar",
+            "module_label": "//plugins/display/android/java:display_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -722,7 +722,7 @@
         },
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/i18n",
-            "module_label": "//interface/sdk:i18n_plugin_java_jar",
+            "module_label": "//plugins/i18n/android/java:i18n_plugin_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -731,7 +731,7 @@
         },
 	    {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/running_lock",
-            "module_label": "//interface/sdk:runninglock_java_jar",
+            "module_label": "//plugins/running_lock/android/java:runninglock_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -740,7 +740,7 @@
         },
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/test_plugin",
-            "module_label": "//interface/sdk:test_plugin_java_jar",
+            "module_label": "//plugins/test_plugin/android/java:test_plugin_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -752,6 +752,13 @@
         {
             "install_dir": "ArkUI-X/engine/framework/arch_type/libarkui_ios.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_ios",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/engine/xcframework/libarkui_ios.xcframework",
+            "module_label": "//interface/sdk:copy_libarkui_ios_xcframework",
             "target_os": [
                 "darwin"
              ]
