@@ -449,7 +449,8 @@ if (enable_java_templates) {
                                  "visibility",
                                ])
 
-        deps = _deps
+        deps = [ ":${_main_target_name}_info" ]
+        deps += _deps
         public_deps = _public_deps
       }
     }
