@@ -746,6 +746,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "ArkUI-X/engine/lib/arch_type",
+            "module_label": "//third_party/giflib:libgif",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
