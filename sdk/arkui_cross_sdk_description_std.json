@@ -200,15 +200,6 @@
         },
         {
             "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/libexif:libexif",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:font",
             "target_os": [
                 "linux",
@@ -254,24 +245,6 @@
         },
         {
             "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/multimedia/image_framework/interfaces/innerkits:image_native",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/multimedia/image_framework/frameworks/innerkitsimpl/utils:image_utils",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:measure",
             "target_os": [
                 "linux",
@@ -290,34 +263,7 @@
         },
         {
             "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/multimedia/image_framework/interfaces/kits/js/common:multimedia_image",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
             "module_label": "//third_party/nghttp2/lib:libnghttp2_shared",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/multimedia/image_framework/frameworks/innerkitsimpl/pixelconverter:pixelconvertadapter",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/multimedia/image_framework/plugins/manager:pluginmanager",
             "target_os": [
                 "linux",
                 "windows",
@@ -372,24 +318,6 @@
         {
             "install_dir": "ArkUI-X/engine/lib/arch_type",
             "module_label": "//third_party/openssl:libssl_shared",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//commonlibrary/c_utils/base:utils",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/libuv:uv",
             "target_os": [
                 "linux",
                 "windows",
@@ -552,15 +480,6 @@
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/i18n",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:i18n",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/multimedia_image",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:multimediaimage",
             "target_os": [
                 "linux",
                 "windows",
