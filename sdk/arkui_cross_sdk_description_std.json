@@ -492,6 +492,118 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libanimator.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libanimator",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libanimator.xcframework",
+            "module_label": "//interface/sdk:copy_libanimator_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libarkui_componentsnapshot.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_componentsnapshot",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libarkui_componentsnapshot.xcframework",
+            "module_label": "//interface/sdk:copy_libarkui_componentsnapshot_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libconfiguration.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libconfiguration",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libconfiguration.xcframework",
+            "module_label": "//interface/sdk:copy_libconfiguration_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libfont.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfont",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libfont.xcframework",
+            "module_label": "//interface/sdk:copy_libfont_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libmeasure.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmeasure",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libmeasure.xcframework",
+            "module_label": "//interface/sdk:copy_libmeasure_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libmediaquery.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmediaquery",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libmediaquery.xcframework",
+            "module_label": "//interface/sdk:copy_libmediaquery_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libpromptaction.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libpromptaction",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libpromptaction.xcframework",
+            "module_label": "//interface/sdk:copy_libpromptaction_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/librouter.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:librouter",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/librouter.xcframework",
+            "module_label": "//interface/sdk:copy_librouter_xcframework",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
