@@ -177,6 +177,8 @@ def parse_description_file(options):
                 tmp_item = dict()
                 platform_arch = '{}-{}'.format(options.platform, arch)
                 toolchain = data.get('toolchains').get(os_name).get(platform_arch)
+                if not toolchain:
+                    continue
                 new_install_dir = install_dir.replace('arch_type', platform_arch)
                 tmp_item['install_dir'] = new_install_dir
                 tmp_item['module_label'] = '{}({})'.format(module_label, toolchain)
