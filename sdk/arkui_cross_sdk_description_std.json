@@ -28,6 +28,24 @@
     },
     "android": [
         {
+            "install_dir": "ArkUI-X",
+            "module_label": "//interface/sdk:sdkconfig",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/engine",
+            "module_label": "//interface/sdk:engine_apiconfig",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "ArkUI-X/engine",
             "module_label": "//interface/sdk:ets",
             "target_os": [
@@ -36,116 +54,8 @@
                 "darwin"
             ]
         },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/interfaces/native:ace_ndk",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:animator",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/appframework/ability/ability_runtime/cross_platform/frameworks/js/napi/ability_stage:app_ability_abilitystage",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/appframework/ability/ability_runtime/cross_platform/frameworks/js/napi/ability:app_ability_uiability",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/appframework/ability/ability_runtime/cross_platform/frameworks/js/napi/ability_context:application_abilitycontext",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/appframework/ability/ability_runtime/cross_platform/frameworks/js/napi/ability_stage_context:application_abilitystagecontext",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/appframework/ability/ability_runtime/cross_platform/frameworks/js/napi/application_context:application_applicationcontext",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/appframework/ability/ability_runtime/cross_platform/frameworks/js/napi/context:application_context",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/appframework/window_manager/interfaces/kits/napi/window_runtime/window_stage_napi:libapplication_windowstage",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//arkcompiler/toolchain/inspector:ark_debugger",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//arkcompiler/toolchain/tooling:libark_ecma_debugger",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//arkcompiler/ets_runtime:libark_jsruntime",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
 	    {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
+            "install_dir": "ArkUI-X/engine/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:libarkui_android",
             "target_os": [
                 "linux",
@@ -154,170 +64,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_componentsnapshot",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/cJSON:cjson",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:configuration",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/openssl:libcrypto_shared",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:device",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:font",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:grid",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//base/hiviewdfx/hilog/interfaces/native/innerkits:libhilog_android",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/icu/icu4c:shared_icui18n",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/icu/icu4c:shared_icuuc",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:measure",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:mediaquery",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/nghttp2/lib:libnghttp2_shared",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:prompt",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:promptaction",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:router",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/bounds_checking_function:libsec_shared",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/zlib:shared_libz",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/openssl:libssl_shared",
+            "install_dir": "ArkUI-X/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ace_android_adapter_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -343,17 +91,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X",
-            "module_label": "//interface/sdk:sdkconfig",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/engine",
-            "module_label": "//interface/sdk:engine_apiconfig",
+            "install_dir": "ArkUI-X/plugins/api",
+            "module_label": "//interface/sdk:api_apiconfig",
             "target_os": [
                 "linux",
                 "windows",
@@ -369,9 +108,72 @@
                 "darwin"
             ]
         },
-	    {
-            "install_dir": "ArkUI-X/plugins/api",
-            "module_label": "//interface/sdk:api_apiconfig",
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/animator",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:animator",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/arkui",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_componentsnapshot",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/configuration",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:configuration",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/font",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:font",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/measure",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:measure",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/mediaquery",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:mediaquery",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/promptaction",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:promptaction",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/router",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:router",
             "target_os": [
                 "linux",
                 "windows",
@@ -381,6 +183,15 @@
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/ability_access_ctrl",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:abilityaccessctrl",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/ability_access_ctrl",
+            "module_label": "//plugins/ability_access_ctrl/android/java:ability_access_ctrl_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -408,6 +219,15 @@
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/common_event",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:commonevent",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/common_event",
+            "module_label": "//plugins/common_event/android/java:common_event_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -451,8 +271,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/file",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_fs",
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/display",
+            "module_label": "//plugins/display/android/java:display_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -487,6 +307,15 @@
             ]
         },
         {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/i18n",
+            "module_label": "//plugins/i18n/android/java:i18n_plugin_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/ndk_raw_file",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ndkrawfile",
             "target_os": [
@@ -507,15 +336,6 @@
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:net_http",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/plugin_utils",
-            "module_label": "//plugins/interfaces/native:ace_plugin_util_android",
             "target_os": [
                 "linux",
                 "windows",
@@ -559,8 +379,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/test_plugin",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:testplugin",
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/running_lock",
+            "module_label": "//plugins/running_lock/android/java:runninglock_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -604,8 +424,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ace_android_adapter_java",
+            "install_dir": "ArkUI-X/engine/lib/third_party/arch_type",
+            "module_label": "//third_party/zlib:shared_libz",
             "target_os": [
                 "linux",
                 "windows",
@@ -613,8 +433,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/ability_access_ctrl",
-            "module_label": "//plugins/ability_access_ctrl/android/java:ability_access_ctrl_java",
+            "install_dir": "ArkUI-X/engine/lib/third_party/arch_type",
+            "module_label": "//third_party/openssl:libssl_shared",
             "target_os": [
                 "linux",
                 "windows",
@@ -622,8 +442,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/common_event",
-            "module_label": "//plugins/common_event/android/java:common_event_java",
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/file",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_fs",
             "target_os": [
                 "linux",
                 "windows",
@@ -631,8 +451,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/display",
-            "module_label": "//plugins/display/android/java:display_java",
+            "install_dir": "ArkUI-X/engine/lib/third_party/arch_type",
+            "module_label": "//third_party/openssl:libcrypto_shared",
             "target_os": [
                 "linux",
                 "windows",
@@ -640,17 +460,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/i18n",
-            "module_label": "//plugins/i18n/android/java:i18n_plugin_java",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-	    {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/running_lock",
-            "module_label": "//plugins/running_lock/android/java:runninglock_java",
+            "install_dir": "ArkUI-X/engine/lib/third_party/arch_type",
+            "module_label": "//third_party/nghttp2/lib:libnghttp2_shared",
             "target_os": [
                 "linux",
                 "windows",
@@ -658,8 +469,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/test_plugin",
-            "module_label": "//plugins/test_plugin/android/java:test_plugin_java",
+            "install_dir": "ArkUI-X/engine/lib/utils/arch_type",
+            "module_label": "//plugins/interfaces/native:ace_plugin_util_android",
             "target_os": [
                 "linux",
                 "windows",
@@ -667,8 +478,8 @@
             ]
         },
         {
-            "install_dir": "ArkUI-X/engine/lib/arch_type",
-            "module_label": "//third_party/giflib:libgif",
+            "install_dir": "ArkUI-X/engine/lib/utils/arch_type",
+            "module_label": "//base/hiviewdfx/hilog/interfaces/native/innerkits:libhilog_android",
             "target_os": [
                 "linux",
                 "windows",
@@ -678,15 +489,127 @@
     ],
     "ios": [
         {
-            "install_dir": "ArkUI-X/engine/framework/arch_type/libarkui_ios.framework",
+            "install_dir": "ArkUI-X/engine/framework/arkui/arch_type/libarkui_ios.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_ios",
             "target_os": [
                 "darwin"
              ]
         },
         {
-            "install_dir": "ArkUI-X/engine/xcframework/libarkui_ios.xcframework",
+            "install_dir": "ArkUI-X/engine/xcframework/arkui/libarkui_ios.xcframework",
             "module_label": "//interface/sdk:copy_libarkui_ios_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libanimator.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libanimator",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libanimator.xcframework",
+            "module_label": "//interface/sdk:copy_libanimator_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libarkui_componentsnapshot.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_componentsnapshot",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libarkui_componentsnapshot.xcframework",
+            "module_label": "//interface/sdk:copy_libarkui_componentsnapshot_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libconfiguration.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libconfiguration",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libconfiguration.xcframework",
+            "module_label": "//interface/sdk:copy_libconfiguration_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libfont.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfont",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libfont.xcframework",
+            "module_label": "//interface/sdk:copy_libfont_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libmeasure.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmeasure",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libmeasure.xcframework",
+            "module_label": "//interface/sdk:copy_libmeasure_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libmediaquery.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmediaquery",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libmediaquery.xcframework",
+            "module_label": "//interface/sdk:copy_libmediaquery_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libpromptaction.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libpromptaction",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libpromptaction.xcframework",
+            "module_label": "//interface/sdk:copy_libpromptaction_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/librouter.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:librouter",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/librouter.xcframework",
+            "module_label": "//interface/sdk:copy_librouter_xcframework",
             "target_os": [
                 "darwin"
              ]
