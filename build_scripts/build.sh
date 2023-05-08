@@ -104,15 +104,18 @@ do
     break
   fi
 done
+
 if [[ ${flag} == "true" ]]; then
   ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build $args_list
+  build_result=$?
 fi
 
 if [[ ${flag} == "true" && ${build_android} == "true" ]]; then
   ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build --product-name arkui-cross --target-os android --gn-args enable_auto_pack=true
+  android_build_result=$?
 fi
 
-if [[ "$?" -ne 0 ]]; then
+if [[ $build_result -ne 0 || $android_build_result -ne 0 ]]; then
     echo -e "\033[31m=====build ${product_name} error=====\033[0m"
     exit 1
 fi
