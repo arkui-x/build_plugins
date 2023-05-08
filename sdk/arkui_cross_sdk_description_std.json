@@ -54,6 +54,15 @@
                 "darwin"
             ]
         },
+        {
+            "install_dir": "ArkUI-X/engine",
+            "module_label": "//interface/sdk:systemres",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
 	    {
             "install_dir": "ArkUI-X/engine/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:libarkui_android",
