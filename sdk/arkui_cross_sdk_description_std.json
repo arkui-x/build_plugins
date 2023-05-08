@@ -9,6 +9,7 @@
             "arm64"
         ],
         "darwin": [
+            "arm",
             "arm64"
         ]
     },
@@ -22,6 +23,7 @@
             "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64"
         },
         "darwin": {
+            "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm",
             "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64",
             "ios-arm64": "//build_plugins/toolchain/ios:ios_clang_arm64"
         }
