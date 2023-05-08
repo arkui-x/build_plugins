@@ -442,6 +442,15 @@
             ]
         },
         {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/file",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_fs",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "ArkUI-X/engine/lib/third_party/arch_type",
             "module_label": "//third_party/openssl:libcrypto_shared",
             "target_os": [
