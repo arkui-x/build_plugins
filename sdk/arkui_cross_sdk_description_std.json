@@ -363,6 +363,132 @@
             ]
         },
         {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/arraylist",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_arraylist",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/deque",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_deque",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/hashmap",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_hashmap",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/hashset",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_hashset",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/lightweightmap",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_lightweightmap",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/lightweightset",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_lightweightset",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/linkedlist",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_linkedlist",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/list",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_list",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/plainarray",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_plainarray",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/queue",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_queue",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/stack",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_stack",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/treeset",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_treeset",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/util/treemap",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_treemap",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/request",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:request",
             "target_os": [
