@@ -327,6 +327,24 @@
             ]
         },
         {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/intl",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:intl",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/intl",
+            "module_label": "//plugins/intl/android/java:intl_plugin_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/ndk_raw_file",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ndkrawfile",
             "target_os": [
