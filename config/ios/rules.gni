@@ -11,6 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import("//build/templates/common/copy.gni")
 import("//build/templates/metadata/module_info.gni")
 import("//build_plugins/config/ios/ios_sdk.gni")
 
@@ -79,7 +80,11 @@ template("ohos_combine_darwin_framework") {
       ":copy_license_${_target_name}",
     ]
     if (has_header) {
-      deps += [ ":copy_framework_headers_${_target_name}" ]
+      deps += [
+        ":copy_framework_headers_${_target_name}",
+        ":node_header_${_target_name}",
+        ":napi_header_${_target_name}",
+      ]
     }
 
     # if (is_asan) {
@@ -105,6 +110,22 @@ template("ohos_combine_darwin_framework") {
              ] + rebase_path(sources, "", "//")
 
       deps = invoker.deps
+    }
+    ohos_copy("node_header_${_target_name}") {
+      deps = [ ":copy_framework_headers_${_target_name}" ]
+      sources = [
+        "//third_party/node/src/js_native_api.h",
+        "//third_party/node/src/js_native_api_types.h",
+        "//third_party/node/src/node_api.h",
+        "//third_party/node/src/node_api_types.h",
+      ]
+      outputs = [ "$_final_frameworks_path/Headers/include/{{source_file_part}}" ]
+    }
+
+    ohos_copy("napi_header_${_target_name}") {
+      deps = [ ":copy_framework_headers_${_target_name}" ]
+      sources = [ "//foundation/arkui/napi/interfaces/kits/napi/native_api.h" ]
+      outputs = [ "$_final_frameworks_path/Headers/include/napi/{{source_file_part}}" ]
     }
   }
 
