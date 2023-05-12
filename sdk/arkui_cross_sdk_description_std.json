@@ -254,6 +254,24 @@
                 "darwin"
             ]
         },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/data",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:data_relationalstore",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/data",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:data_preferences",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
 	    {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/device_info",
             "module_label": "//plugins/device_info/android/java:device_info_java",
@@ -614,9 +632,27 @@
                 "darwin"
             ]
         },
+        {
+            "install_dir": "ArkUI-X/engine/lib/third_party/arch_type",
+            "module_label": "//third_party/libxml2:xml2",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
 	    {
             "install_dir": "ArkUI-X/toolchains",
             "module_label": "//interface/sdk:ace_tools",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/engine/lib/third_party/arch_type",
+            "module_label": "//third_party/icu/icu4c:shared_icuuc",
             "target_os": [
                 "linux",
                 "windows",
