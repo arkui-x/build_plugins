@@ -364,7 +364,52 @@
         },
         {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
+            "module_label": "//plugins/net/connection/android/java:netconnclient_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:net_http",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:net_connection",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:net_socket",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:net_websocket",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/net",
+            "module_label": "//plugins/net/utils:netstack_util_android",
             "target_os": [
                 "linux",
                 "windows",
