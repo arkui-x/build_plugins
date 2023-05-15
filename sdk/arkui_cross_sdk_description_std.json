@@ -877,6 +877,20 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libabilityaccessctrl.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libabilityaccessctrl",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libabilityaccessctrl.xcframework",
+            "module_label": "//interface/sdk:copy_libabilityaccessctrl_xcframework",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
