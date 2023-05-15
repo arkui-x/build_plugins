@@ -570,6 +570,15 @@
             ]
         },
         {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/worker",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:worker",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/request",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:request",
             "target_os": [
@@ -888,6 +897,20 @@
         {
             "install_dir": "ArkUI-X/plugins/api/xcframework/libabilityaccessctrl.xcframework",
             "module_label": "//interface/sdk:copy_libabilityaccessctrl_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/libworker.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libworker",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "ArkUI-X/plugins/api/xcframework/libworker.xcframework",
+            "module_label": "//interface/sdk:copy_libworker_xcframework",
             "target_os": [
                 "darwin"
              ]
