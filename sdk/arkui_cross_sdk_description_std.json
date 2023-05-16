@@ -426,7 +426,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/arch_type/net",
+            "install_dir": "arkui-x/engine/lib/utils/arch_type",
             "module_label": "//plugins/net/utils:netstack_util_android",
             "target_os": [
                 "linux",
