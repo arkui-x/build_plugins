@@ -14,7 +14,7 @@
 import("//build/config/python.gni")
 import("//build/ohos/build_var.gni")
 import("//build/ohos/notice/notice.gni")
-import("//build/version.gni")
+import("//build_plugins/version.gni")
 
 declare_args() {
   enable_auto_pack = false

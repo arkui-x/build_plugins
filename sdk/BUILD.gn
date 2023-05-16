@@ -69,11 +69,11 @@ generate_args = [
   "--type2displayname",
   rebase_path("./type_to_display_name.json", root_build_dir),
   "--api-version",
-  api_version,
+  arkuix_api_version,
   "--release-type",
-  release_type,
+  arkuix_release_type,
   "--meta-version",
-  meta_version,
+  arkuix_meta_version,
 ]
 
 foreach(os, sdk_systems) {
