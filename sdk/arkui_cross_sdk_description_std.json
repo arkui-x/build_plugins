@@ -589,7 +589,7 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/lib/arch_type/request",
-            "module_label": "//plugins/request/android/java:download_java",
+            "module_label": "//plugins/request/core/download/frameworks/android:download_java",
             "target_os": [
                 "linux",
                 "windows",
