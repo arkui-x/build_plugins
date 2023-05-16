@@ -588,6 +588,15 @@
             ]
         },
         {
+            "install_dir": "ArkUI-X/plugins/api/lib/arch_type/request",
+            "module_label": "//plugins/request/android/java:download_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "ArkUI-X/plugins/api/lib/arch_type/resource_manager",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:resourcemanager",
             "target_os": [
