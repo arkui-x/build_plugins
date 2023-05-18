@@ -923,6 +923,34 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libdata_relationalstore.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdata_relationalstore",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libdata_relationalstore.xcframework",
+            "module_label": "//interface/sdk:copy_libdata_relationalstore_xcframework",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libdata_preferences.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdata_preferences",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libdata_preferences.xcframework",
+            "module_label": "//interface/sdk:copy_libdata_preferences_xcframework",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
