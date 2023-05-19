@@ -923,6 +923,20 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libi18n.xcframework",
+            "module_label": "//interface/sdk:copy_libi18n_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libintl.xcframework",
+            "module_label": "//interface/sdk:copy_libintl_xcframework",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
