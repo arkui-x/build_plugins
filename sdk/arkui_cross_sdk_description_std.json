@@ -937,6 +937,20 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libresourcemanager.xcframework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libresourcemanager",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libresourcemanager.xcframework",
+            "module_label": "//interface/sdk:copy_libresourcemanager_xcframework",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
