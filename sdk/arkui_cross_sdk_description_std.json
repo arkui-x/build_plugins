@@ -951,6 +951,48 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_connection.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_connection",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libnet_connection.xcframework",
+            "module_label": "//interface/sdk:copy_libnet_connection_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_socket.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_socket",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libnet_socket.xcframework",
+            "module_label": "//interface/sdk:copy_libnet_socket_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_websocket.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_websocket",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libnet_websocket.xcframework",
+            "module_label": "//interface/sdk:copy_libnet_websocket_xcframework",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
