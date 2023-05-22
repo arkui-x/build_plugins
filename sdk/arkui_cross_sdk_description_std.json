@@ -925,14 +925,14 @@
              ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/framework/arch_type/librequest.framework",
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/librequest.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:librequest",
             "target_os": [
                 "darwin"
              ]
         },
         {
-            "install_dir": "ArkUI-X/plugins/api/xcframework/librequest.xcframework",
+            "install_dir": "arkui-x/plugins/api/xcframework/librequest.xcframework",
             "module_label": "//interface/sdk:copy_librequest_xcframework",
             "target_os": [
                 "darwin"
