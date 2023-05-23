@@ -967,7 +967,7 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libresourcemanager.xcframework",
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libresourcemanager.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libresourcemanager",
             "target_os": [
                 "darwin"
@@ -1023,14 +1023,14 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libi18n.xcframework",
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libi18n.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libi18n",
             "target_os": [
                 "darwin"
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libintl.xcframework",
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libintl.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libintl",
             "target_os": [
                 "darwin"
@@ -1046,6 +1046,20 @@
         {
             "install_dir": "arkui-x/plugins/api/xcframework/libintl.xcframework",
             "module_label": "//interface/sdk:copy_libintl_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_fs.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_fs",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libfile_fs.xcframework",
+            "module_label": "//interface/sdk:copy_libfile_fs_xcframework",
             "target_os": [
                 "darwin"
              ]
