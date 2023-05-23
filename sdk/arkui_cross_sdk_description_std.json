@@ -1329,6 +1329,20 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libhilog.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhilog",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libhilog.xcframework",
+            "module_label": "//interface/sdk:copy_libhilog_xcframework",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
