@@ -2,29 +2,53 @@
     "arch_dict": {
         "linux": [
             "arm",
-            "arm64"
+            "arm-profile",
+            "arm-release",
+            "arm64",
+            "arm64-profile",
+            "arm64-release"
         ],
         "windows": [
             "arm",
-            "arm64"
+            "arm-profile",
+            "arm-release",
+            "arm64",
+            "arm64-profile",
+            "arm64-release"
         ],
         "darwin": [
             "arm",
-            "arm64"
+            "arm-profile",
+            "arm-release",
+            "arm64",
+            "arm64-profile",
+            "arm64-release"
         ]
     },
     "toolchains": {
         "linux": {
-            "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm",
-            "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64"
+            "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm_debug",
+            "android-arm-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm_profile",
+            "android-arm-release": "//build_plugins/toolchain/aosp:aosp_clang_arm_release",
+            "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64_debug",
+            "android-arm64-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm64_profile",
+            "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release"
         },
         "windows": {
-            "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm",
-            "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64"
+            "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm_debug",
+            "android-arm-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm_profile",
+            "android-arm-release": "//build_plugins/toolchain/aosp:aosp_clang_arm_release",
+            "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64_debug",
+            "android-arm64-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm64_profile",
+            "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release"
         },
         "darwin": {
-            "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm",
-            "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64",
+            "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm_debug",
+            "android-arm-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm_profile",
+            "android-arm-release": "//build_plugins/toolchain/aosp:aosp_clang_arm_release",
+            "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64_debug",
+            "android-arm64-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm64_profile",
+            "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release",
             "ios-arm64": "//build_plugins/toolchain/ios:ios_clang_arm64"
         }
     },
