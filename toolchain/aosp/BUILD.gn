@@ -70,7 +70,7 @@ template("aosp_clang_toolchain") {
     ld = cxx
     readelf = _tool_prefix + "readelf"
     nm = _tool_prefix + "nm"
-    if (!invoker.is_debug) {
+    if (!defined(toolchain_args.is_debug)) {
       strip = rebase_path("$clang_base_path/bin/llvm-strip", root_build_dir)
       use_unstripped_as_runtime_outputs = aosp_unstripped_runtime_outputs
     }
@@ -108,6 +108,7 @@ aosp_clang_toolchain("aosp_clang_arm_profile") {
   binary_prefix = "arm-linux-androideabi"
   toolchain_args = {
     current_cpu = "arm"
+    is_profile = true
   }
   extra_cppflags = "-fprofile-instr-generate"
 }
@@ -119,8 +120,8 @@ aosp_clang_toolchain("aosp_clang_arm_debug") {
   binary_prefix = "arm-linux-androideabi"
   toolchain_args = {
     current_cpu = "arm"
+    is_debug = true
   }
-  is_debug = true
 }
 
 aosp_clang_toolchain("aosp_clang_arm64") {
@@ -153,6 +154,7 @@ aosp_clang_toolchain("aosp_clang_arm64_profile") {
   toolchain_args = {
     current_cpu = "arm64"
     target_platform = "phone"
+    is_profile = true
   }
   extra_cppflags = "-fprofile-instr-generate"
 }
@@ -165,6 +167,6 @@ aosp_clang_toolchain("aosp_clang_arm64_debug") {
   toolchain_args = {
     current_cpu = "arm64"
     target_platform = "phone"
+    is_debug = true
   }
-  is_debug = true
 }
