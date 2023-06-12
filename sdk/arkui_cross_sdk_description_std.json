@@ -49,7 +49,7 @@
             "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64_debug",
             "android-arm64-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm64_profile",
             "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release",
-            "ios-arm64": "//build_plugins/toolchain/ios:ios_clang_arm64"
+            "ios-arm64-release": "//build_plugins/toolchain/ios:ios_clang_arm64"
         }
     },
     "android": [

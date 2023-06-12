@@ -174,6 +174,8 @@ def parse_description_file(options):
         for os_name in target_os:
             arch_list = arch_dict.get(os_name)
             for arch in arch_list:
+                if options.build_type and options.build_type not in arch:
+                    continue
                 tmp_item = dict()
                 platform_arch = '{}-{}'.format(options.platform, arch)
                 toolchain = data.get('toolchains').get(os_name).get(platform_arch)
@@ -249,6 +251,7 @@ def main():
     parser.add_argument('--variant-to-product', required=True)
     parser.add_argument('--node-js', required=True)
     parser.add_argument('--platform', required=True)
+    parser.add_argument('--build-type')
 
     options = parser.parse_args()
 
