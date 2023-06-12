@@ -181,7 +181,13 @@ def parse_description_file(options):
                 toolchain = data.get('toolchains').get(os_name).get(platform_arch)
                 if not toolchain:
                     continue
-                new_install_dir = install_dir.replace('arch_type', platform_arch)
+                platform_type = ''
+                if 'release' in platform_arch:
+                    platform_type = '{}-{}'.format(options.platform, 'release')
+                elif 'profile' in platform_arch:
+                    platform_type = '{}-{}'.format(options.platform, 'profile')
+                new_install_dir_pre = install_dir.replace('arch_type', platform_arch)
+                new_install_dir = new_install_dir_pre.replace('platform_type', platform_type)
                 tmp_item['install_dir'] = new_install_dir
                 tmp_item['module_label'] = '{}({})'.format(module_label, toolchain)
                 tmp_item['target_os'] = [os_name]
