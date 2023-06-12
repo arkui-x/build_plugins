@@ -603,6 +603,33 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/taskpool/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:taskpool",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/console/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:console",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/timer/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:timer",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/request/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:request",
             "target_os": [
@@ -1406,6 +1433,48 @@
         {
             "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libnet_http.xcframework",
             "module_label": "//interface/sdk:copy_libnet_http_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libtaskpool.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libtaskpool",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libtaskpool.xcframework",
+            "module_label": "//interface/sdk:copy_libtaskpool_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libconsole.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libconsole",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libconsole.xcframework",
+            "module_label": "//interface/sdk:copy_libconsole_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libtimer.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libtimer",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/libtimer.xcframework",
+            "module_label": "//interface/sdk:copy_libtimer_xcframework",
             "target_os": [
                 "darwin"
              ]
