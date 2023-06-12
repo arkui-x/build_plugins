@@ -49,6 +49,13 @@ foreach(p, target_platform_list) {
   ]
 }
 
+if (build_type != "default") {
+  parse_args += [
+    "--build-type",
+    build_type,
+  ]
+}
+
 exec_script(parse_script, parse_args)
 
 sdk_types = read_file(generated_sdk_types_file, "list lines")

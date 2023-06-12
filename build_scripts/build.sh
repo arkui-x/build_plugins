@@ -111,7 +111,8 @@ if [[ ${flag} == "true" ]]; then
 fi
 
 if [[ ${flag} == "true" && ${build_android} == "true" ]]; then
-  ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build --product-name arkui-cross --target-os android --gn-args enable_auto_pack=true
+  args_list=${args_list/ios/android}
+  ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build $args_list
   android_build_result=$?
 fi
 
