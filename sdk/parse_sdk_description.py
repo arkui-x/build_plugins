@@ -174,7 +174,9 @@ def parse_description_file(options):
         for os_name in target_os:
             arch_list = arch_dict.get(os_name)
             for arch in arch_list:
-                if options.build_type and options.build_type not in arch:
+                if options.build_type == 'release' and options.build_type not in arch:
+                    continue
+                elif options.build_type == 'no_profile' and 'profile' in arch:
                     continue
                 tmp_item = dict()
                 platform_arch = '{}-{}'.format(options.platform, arch)
