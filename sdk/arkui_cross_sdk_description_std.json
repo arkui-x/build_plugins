@@ -1445,7 +1445,7 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/libtaskpool.xcframework",
+            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libtaskpool.xcframework",
             "module_label": "//interface/sdk:copy_libtaskpool_xcframework",
             "target_os": [
                 "darwin"
@@ -1459,7 +1459,7 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/libconsole.xcframework",
+            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libconsole.xcframework",
             "module_label": "//interface/sdk:copy_libconsole_xcframework",
             "target_os": [
                 "darwin"
@@ -1473,7 +1473,7 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/libtimer.xcframework",
+            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libtimer.xcframework",
             "module_label": "//interface/sdk:copy_libtimer_xcframework",
             "target_os": [
                 "darwin"
