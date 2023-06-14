@@ -126,6 +126,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/include",
+            "module_label": "//interface/sdk:plugin_c_utils_header",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api",
             "module_label": "//interface/sdk:api_apiconfig",
             "target_os": [
@@ -815,6 +824,13 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include",
+            "module_label": "//interface/sdk:plugin_c_utils_header",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/xcframework/arkui/platform_type/libarkui_ios.xcframework",
             "module_label": "//interface/sdk:copy_libarkui_ios_xcframework",
             "target_os": [
@@ -831,6 +847,13 @@
         {
             "install_dir": "arkui-x/engine/xcframework/arkui/platform_type/libarkui_ios.xcframework/ios-arm64/libarkui_ios.framework/Headers/include/napi",
             "module_label": "//interface/sdk:napi_header_xcframework",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/xcframework/arkui/platform_type/libarkui_ios.xcframework/ios-arm64/libarkui_ios.framework/Headers/include",
+            "module_label": "//interface/sdk:plugin_c_utils_xcframework",
             "target_os": [
                 "darwin"
             ]
