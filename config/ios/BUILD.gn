@@ -106,8 +106,12 @@ config("runtime_library") {
   common_ccflags = [
     "-isysroot",
     sysroot,
-    "-miphoneos-version-min=$ios_deployment_target",
   ]
+  if (!use_ios_simulator) {
+    common_ccflags += [ "-miphoneos-version-min=$ios_deployment_target" ]
+  } else {
+    common_ccflags += [ "-miphonesimulator-version-min=$ios_deployment_target" ]
+  }
 
   cflags_cc = common_ccflags
   cflags_objcc = common_ccflags

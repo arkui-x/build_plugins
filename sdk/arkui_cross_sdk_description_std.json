@@ -17,11 +17,8 @@
             "arm64-release"
         ],
         "darwin": [
-            "arm",
-            "arm-profile",
-            "arm-release",
-            "arm64",
-            "arm64-profile",
+            "arm64-simulator",
+            "x86_64-simulator",
             "arm64-release"
         ]
     },
@@ -49,7 +46,9 @@
             "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64_debug",
             "android-arm64-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm64_profile",
             "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release",
-            "ios-arm64-release": "//build_plugins/toolchain/ios:ios_clang_arm64"
+            "ios-arm64-release": "//build_plugins/toolchain/ios:ios_clang_arm64",
+            "ios-x86_64-simulator": "//build_plugins/toolchain/ios:ios_clang_x64_sim",
+            "ios-arm64-simulator": "//build_plugins/toolchain/ios:ios_clang_arm64_sim"
         }
     },
     "android": [

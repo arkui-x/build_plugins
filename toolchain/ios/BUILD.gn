@@ -367,16 +367,18 @@ ios_toolchain("ios_clang_x86") {
 ios_toolchain("ios_clang_x64_sim") {
   toolchain_args = {
     current_cpu = "x64"
-    current_os = "mac"
+    current_os = "ios"
+    use_ios_simulator = true
   }
-  sysroot_flags = "-isysroot $ios_simulator_sdk_path -mios-simulator-version-min=$ios_deployment_target"
+  sysroot_flags = "-isysroot $ios_simulator_sdk_path -miphonesimulator-version-min=$ios_deployment_target"
 }
 
 # Toolchain used for iOS simulator targets (arm64).
 ios_toolchain("ios_clang_arm64_sim") {
   toolchain_args = {
-    current_cpu = "x64"
-    current_os = "mac"
+    current_cpu = "arm64"
+    current_os = "ios"
+    use_ios_simulator = true
   }
-  sysroot_flags = "-isysroot $ios_simulator_sdk_path -mios-simulator-version-min=$ios_deployment_target"
+  sysroot_flags = "-isysroot $ios_simulator_sdk_path -target arm64-apple-ios-simulator -miphonesimulator-version-min=$ios_deployment_target"
 }
