@@ -17,6 +17,11 @@
             "arm64-release"
         ],
         "darwin": [
+            "arm",
+            "arm-profile",
+            "arm-release",
+            "arm64",
+            "arm64-profile",
             "arm64-simulator",
             "x86_64-simulator",
             "arm64-release"

@@ -174,7 +174,7 @@ def parse_description_file(options):
         for os_name in target_os:
             arch_list = arch_dict.get(os_name)
             for arch in arch_list:
-                if options.build_type == 'release' and options.build_type not in arch:
+                if options.build_type == 'release' and options.build_type not in arch and 'simulator' not in arch:
                     continue
                 elif options.build_type == 'no_profile' and 'profile' in arch:
                     continue
@@ -184,7 +184,7 @@ def parse_description_file(options):
                 if not toolchain:
                     continue
                 platform_type = ''
-                if 'release' in platform_arch:
+                if 'release' in platform_arch or 'simulator' in platform_arch:
                     platform_type = '{}-{}'.format(options.platform, 'release')
                 elif 'profile' in platform_arch:
                     platform_type = '{}-{}'.format(options.platform, 'profile')

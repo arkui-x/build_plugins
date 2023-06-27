@@ -105,15 +105,15 @@ do
   fi
 done
 
+if [[ ${flag} == "true" && ${build_android} == "true" ]]; then
+  android_args_list=${args_list/ios/android}
+  ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build $android_args_list
+  android_build_result=$?
+fi
+
 if [[ ${flag} == "true" ]]; then
   ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build $args_list
   build_result=$?
-fi
-
-if [[ ${flag} == "true" && ${build_android} == "true" ]]; then
-  args_list=${args_list/ios/android}
-  ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build $args_list
-  android_build_result=$?
 fi
 
 if [[ $build_result -ne 0 || $android_build_result -ne 0 ]]; then
