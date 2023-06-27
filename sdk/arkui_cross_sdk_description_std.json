@@ -1501,6 +1501,20 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libdeviceinfo.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdeviceinfo",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libdeviceinfo.xcframework",
+            "module_label": "//interface/sdk:copy_libdeviceinfo_xcframework",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
