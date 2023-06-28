@@ -57,6 +57,13 @@
       "symlink_dest": "/lib/clang/current"
     },
     {
+      "src": "/prebuilts/clang/ohos/linux-x86_64/clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04",
+      "dest": "/prebuilts/clang/ohos/linux-x86_64/llvm-13",
+      "rename": "true",
+      "symlink_src": "/lib/clang/13.0.0",
+      "symlink_dest": "/lib/clang/current"
+    },
+    {
       "src": "/prebuilts/clang/ohos/darwin-x86_64/clang+llvm-14.0.0-x86_64-apple-darwin",
       "dest": "/prebuilts/clang/ohos/darwin-x86_64/llvm",
       "rename": "true",
@@ -64,10 +71,24 @@
       "symlink_dest": "/lib/clang/current"
     },
     {
+      "src": "/prebuilts/clang/ohos/darwin-x86_64/clang+llvm-13.0.0-x86_64-apple-darwin",
+      "dest": "/prebuilts/clang/ohos/darwin-x86_64/llvm-13",
+      "rename": "true",
+      "symlink_src": "/lib/clang/13.0.0",
+      "symlink_dest": "/lib/clang/current"
+    },
+    {
       "src": "/prebuilts/clang/ohos/darwin-arm64/clang+llvm-14.0.0-x86_64-apple-darwin",
       "dest": "/prebuilts/clang/ohos/darwin-arm64/llvm",
       "rename": "true",
       "symlink_src": "/lib/clang/14.0.0",
+      "symlink_dest": "/lib/clang/current"
+    },
+    {
+      "src": "/prebuilts/clang/ohos/darwin-arm64/clang+llvm-13.0.0-x86_64-apple-darwin",
+      "dest": "/prebuilts/clang/ohos/darwin-arm64/llvm-13",
+      "rename": "true",
+      "symlink_src": "/lib/clang/13.0.0",
       "symlink_dest": "/lib/clang/current"
     }
   ],
@@ -105,6 +126,11 @@
           "unzip_dir": "prebuilts/clang/ohos/linux-x86_64",
           "file_path": "/arkui-crossplatform/compiler/clang/14.0.0/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz",
           "unzip_filename": "llvm"
+        },
+        {
+          "unzip_dir": "prebuilts/clang/ohos/linux-x86_64",
+          "file_path": "/arkui-crossplatform/compiler/clang/13.0.0/clang+llvm-13.0.0-x86_64-linux-gnu-ubuntu-20.04.tar.xz",
+          "unzip_filename": "llvm-13"
         },
         {
           "unzip_dir": "prebuilts/jdk/linux-x86_64",
@@ -165,6 +191,11 @@
           "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
           "file_path": "/arkui-crossplatform/compiler/clang/14.0.0/clang+llvm-14.0.0-x86_64-apple-darwin.tar.xz",
           "unzip_filename": "llvm"
+        },
+        {
+          "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
+          "file_path": "/arkui-crossplatform/compiler/clang/13.0.0/clang+llvm-13.0.0-x86_64-apple-darwin.tar.xz",
+          "unzip_filename": "llvm-13"
         }
       ],
       "darwin_copy_config": [
@@ -201,6 +232,11 @@
           "unzip_dir": "prebuilts/clang/ohos/darwin-x86_64",
           "file_path": "/arkui-crossplatform/compiler/clang/14.0.0/clang+llvm-14.0.0-x86_64-apple-darwin.tar.xz",
           "unzip_filename": "llvm"
+        },
+        {
+          "unzip_dir": "prebuilts/clang/ohos/darwin-x86_64",
+          "file_path": "/arkui-crossplatform/compiler/clang/13.0.0/clang+llvm-13.0.0-x86_64-apple-darwin.tar.xz",
+          "unzip_filename": "llvm-13"
         }
       ],
       "darwin_copy_config": [

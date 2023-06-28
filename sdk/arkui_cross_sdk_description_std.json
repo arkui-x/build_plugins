@@ -6,7 +6,8 @@
             "arm-release",
             "arm64",
             "arm64-profile",
-            "arm64-release"
+            "arm64-release",
+            "x86_64"
         ],
         "windows": [
             "arm",
@@ -14,7 +15,8 @@
             "arm-release",
             "arm64",
             "arm64-profile",
-            "arm64-release"
+            "arm64-release",
+            "x86_64"
         ],
         "darwin": [
             "arm",
@@ -24,7 +26,8 @@
             "arm64-profile",
             "arm64-simulator",
             "x86_64-simulator",
-            "arm64-release"
+            "arm64-release",
+            "x86_64"
         ]
     },
     "toolchains": {
@@ -34,7 +37,8 @@
             "android-arm-release": "//build_plugins/toolchain/aosp:aosp_clang_arm_release",
             "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64_debug",
             "android-arm64-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm64_profile",
-            "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release"
+            "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release",
+            "android-x86_64": "//build_plugins/toolchain/aosp:aosp_clang_x86_64"
         },
         "windows": {
             "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm_debug",
@@ -42,7 +46,8 @@
             "android-arm-release": "//build_plugins/toolchain/aosp:aosp_clang_arm_release",
             "android-arm64": "//build_plugins/toolchain/aosp:aosp_clang_arm64_debug",
             "android-arm64-profile": "//build_plugins/toolchain/aosp:aosp_clang_arm64_profile",
-            "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release"
+            "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release",
+            "android-x86_64": "//build_plugins/toolchain/aosp:aosp_clang_x86_64"
         },
         "darwin": {
             "android-arm": "//build_plugins/toolchain/aosp:aosp_clang_arm_debug",
@@ -53,7 +58,8 @@
             "android-arm64-release": "//build_plugins/toolchain/aosp:aosp_clang_arm64_release",
             "ios-arm64-release": "//build_plugins/toolchain/ios:ios_clang_arm64",
             "ios-x86_64-simulator": "//build_plugins/toolchain/ios:ios_clang_x64_sim",
-            "ios-arm64-simulator": "//build_plugins/toolchain/ios:ios_clang_arm64_sim"
+            "ios-arm64-simulator": "//build_plugins/toolchain/ios:ios_clang_arm64_sim",
+            "android-x86_64": "//build_plugins/toolchain/aosp:aosp_clang_x86_64"
         }
     },
     "android": [
