@@ -788,15 +788,6 @@
         },
         {
             "install_dir": "arkui-x/engine/lib/utils/arch_type",
-            "module_label": "//plugins/interfaces/native:ace_plugin_util_android",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/lib/utils/arch_type",
             "module_label": "//base/hiviewdfx/hilog/interfaces/native/innerkits:libhilog_android",
             "target_os": [
                 "linux",
