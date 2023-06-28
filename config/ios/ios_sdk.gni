@@ -36,27 +36,27 @@ declare_args() {
   ios_testing_deployment_target = "13.0"
 }
 
+ios_sdk_args = []
+if (ios_device_sdk_path == "") {
+  ios_sdk_args += [
+    "--sdk",
+    "iphoneos",
+  ]
+  _ios_device_sdk_result =
+      exec_script("ios_sdk.py", ios_sdk_args, "list lines")
+  ios_device_sdk_path = _ios_device_sdk_result[0]
+}
+
+if (ios_simulator_sdk_path == "") {
+  ios_sdk_args += [
+    "--sdk",
+    "iphonesimulator",
+  ]
+  _ios_sim_sdk_result = exec_script("ios_sdk.py", ios_sdk_args, "list lines")
+  ios_simulator_sdk_path = _ios_sim_sdk_result[0]
+}
+
 if (ios_sdk_path == "") {
-  ios_sdk_args = []
-  if (!use_ios_simulator && ios_device_sdk_path == "") {
-    ios_sdk_args += [
-      "--sdk",
-      "iphoneos",
-    ]
-    _ios_device_sdk_result =
-        exec_script("ios_sdk.py", ios_sdk_args, "list lines")
-    ios_device_sdk_path = _ios_device_sdk_result[0]
-  }
-
-  if (use_ios_simulator && ios_simulator_sdk_path == "") {
-    ios_sdk_args += [
-      "--sdk",
-      "iphonesimulator",
-    ]
-    _ios_sim_sdk_result = exec_script("ios_sdk.py", ios_sdk_args, "list lines")
-    ios_simulator_sdk_path = _ios_sim_sdk_result[0]
-  }
-
   # Compute default target.
   if (use_ios_simulator) {
     assert(ios_simulator_sdk_path != "")
