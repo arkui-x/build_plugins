@@ -59,7 +59,7 @@ fi
 case $(uname -s) in
     Darwin)
         HOST_DIR="darwin-x86"
-        HOST_OS="mac"
+        HOST_OS="darwin"
         ;;
     Linux)
         HOST_DIR="linux-x86"
@@ -85,6 +85,47 @@ else
 fi
 
 export PATH=${SOURCE_ROOT_DIR}/prebuilts/build-tools/${HOST_DIR}/bin:${PYTHON3_DIR}/bin:$PATH
+
+# set nodejs and ohpm
+export PATH=${SOURCE_ROOT_DIR}/prebuilts/build-tools/common/nodejs/node-v14.21.1-${HOST_OS}-x64/bin:$PATH
+export NODE_HOME=${SOURCE_ROOT_DIR}/prebuilts/build-tools/common/nodejs/node-v14.21.1-${HOST_OS}-x64
+export PATH=${SOURCE_ROOT_DIR}/prebuilts/build-tools/common/oh-command-line-tools/ohpm/bin:$PATH
+echo "node version is $(node -v)"
+echo "npm version is $(npm -v)"
+npm config set registry https://repo.huaweicloud.com/repository/npm/
+npm config set @ohos:registry https://repo.harmonyos.com/npm/
+npm config set strict-ssl false
+
+function init_ohpm() {
+  TOOLS_INSTALL_DIR="${SOURCE_ROOT_DIR}/prebuilts/build-tools/common"
+  cd ${TOOLS_INSTALL_DIR}
+  commandlineVersion=2.0.1.0
+  echo "download oh-command-line-tools"
+  if [[ "$HOST_OS" == "linux" ]]; then
+      wget https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/a6/v3/cXARnGbKTt-4sPEi3GcnJA/ohcommandline-tools-linux-2.0.0.1.zip\?HW-CC-KV\=V1\&HW-CC-Date\=20230512T075353Z\&HW-CC-Expire\=315360000\&HW-CC-Sign\=C82B51F3C9F107AB460EC26392E25B2E20EF1A6CAD10A26929769B21B8C8D5B6 -O ohcommandline-tools-linux.zip
+      unzip ohcommandline-tools-linux.zip
+  elif [[ "$HOST_OS" == "darwin" ]]; then
+      wget https://contentcenter-vali-drcn.dbankcdn.cn/pvt_2/DeveloperAlliance_package_901_9/3c/v3/R0CXGn4UTvqN09KaTg72Bw/ohcommandline-tools-mac-2.0.0.1.zip\?HW-CC-KV\=V1\&HW-CC-Date\=20230512T073701Z\&HW-CC-Expire\=315360000\&HW-CC-Sign\=7E0D1CBD8ACB6D301E513813745EFA96D6763EF60BBD23455CE6BE797610F488 -O ohcommandline-tools-mac.zip
+      unzip ohcommandline-tools-mac.zip
+  fi
+  OHPM_HOME=${TOOLS_INSTALL_DIR}/oh-command-line-tools/ohpm
+  chmod +x ${OHPM_HOME}/bin/init
+  echo "init ohpm"
+  ${OHPM_HOME}/bin/init
+  export PATH=${OHPM_HOME}/bin:$PATH
+  echo "ohpm version is $(ohpm -v)"
+  ohpm config set registry https://repo.harmonyos.com/ohpm/
+  ohpm config set strict_ssl false
+  cd ${SOURCE_ROOT_DIR}
+}
+if [[ ! -f "${SOURCE_ROOT_DIR}/prebuilts/build-tools/common/oh-command-line-tools/ohpm/bin/ohpm" ]]; then
+  echo "start set ohpm"
+  init_ohpm
+  if [[ "$?" -ne 0 ]]; then
+    echo "ohpm init failed!"
+    exit 1
+  fi
+fi
 
 ${PYTHON3} ${SOURCE_ROOT_DIR}/build/scripts/tools_checker.py
 

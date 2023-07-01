@@ -19,6 +19,7 @@ import("//build_plugins/version.gni")
 declare_args() {
   enable_auto_pack = false
   build_type = "default"
+  enable_build_app = false
 }
 
 sdk_base_build_gn = "//build/ohos/sdk/BUILD.gn"

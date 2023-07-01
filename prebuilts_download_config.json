@@ -45,7 +45,7 @@
       "rename": "true"
     },
     {
-      "src": "/prebuilts/ark_tools/linux/ark_js_prebuilts/llvm_prebuilts_darwin_x64",
+      "src": "/prebuilts/ark_tools/darwin/ark_js_prebuilts/llvm_prebuilts_darwin_x64",
       "dest": "/prebuilts/ark_tools/ark_js_prebuilts/llvm_prebuilts_darwin_arm64",
       "rename": "true"
     },
@@ -77,6 +77,11 @@
         "unzip_dir": "prebuilts/build-tools/common/nodejs",
         "file_path": "/nodejs/v12.18.4/node-v12.18.4-linux-x64.tar.gz",
         "unzip_filename": "node-v12.18.4-linux-x64"
+      },
+      {
+        "unzip_dir": "prebuilts/build-tools/common/nodejs",
+        "file_path": "/nodejs/v14.21.1/node-v14.21.1-linux-x64.tar.gz",
+        "unzip_filename": "node-v14.21.1-linux-x64"
       }
     ],
     "x86_64": {
@@ -129,6 +134,11 @@
         "unzip_filename": "node-v12.18.4-darwin-x64"
       },
       {
+        "unzip_dir": "prebuilts/build-tools/common/nodejs",
+        "file_path": "/nodejs/v14.21.1/node-v14.21.1-darwin-x64.tar.gz",
+        "unzip_filename": "node-v14.21.1-darwin-x64"
+      },
+      {
         "unzip_dir": "prebuilts/ark_tools/linux",
         "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_20230107.tar.gz",
         "unzip_filename": "ark_js_prebuilts"
@@ -152,7 +162,7 @@
           "unzip_filename": "ark_js_prebuilts"
         },
         {
-          "unzip_dir": "prebuilts/ark_tools/linux",
+          "unzip_dir": "prebuilts/ark_tools/darwin",
           "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_darwin_x64_20230209.tar.gz",
           "unzip_filename": "ark_js_prebuilts"
         },
