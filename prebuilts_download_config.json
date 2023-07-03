@@ -85,6 +85,13 @@
       "symlink_dest": "/lib/clang/current"
     },
     {
+      "src":"/prebuilts/build-tools/common/nodejs",
+      "dest":"/prebuilts/build-tools/common/nodejs",
+      "rename": "true",
+      "symlink_src":"/node-v14.21.1-linux-x64",
+      "symlink_dest":"/current"
+    },
+    {
       "src": "/prebuilts/clang/ohos/darwin-arm64/clang+llvm-13.0.0-x86_64-apple-darwin",
       "dest": "/prebuilts/clang/ohos/darwin-arm64/llvm-13",
       "rename": "true",
