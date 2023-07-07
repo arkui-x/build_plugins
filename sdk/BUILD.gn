@@ -56,6 +56,17 @@ if (build_type != "default") {
   ]
 }
 
+if (runtime_mode != "debug") {
+  parse_args += [
+    "--runtime-mode",
+    runtime_mode,
+  ]
+}
+
+if (!simulator) {
+  parse_args += [ "--simulator" ]
+}
+
 exec_script(parse_script, parse_args)
 
 sdk_types = read_file(generated_sdk_types_file, "list lines")

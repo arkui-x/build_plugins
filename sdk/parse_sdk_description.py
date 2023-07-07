@@ -154,6 +154,18 @@ def expand_platform_targets(options, label, install_dir):
         return [label], [install_dir]
 
 
+def filter(arch_list, runtime_mode, simulator):
+    res = []
+    if not runtime_mode:
+        return arch_list
+    if simulator:
+        res.extend(['arm64-simulator', 'x86_64-simulator', 'x86_64'])
+    for arch in arch_list:
+        if runtime_mode in arch:
+            res.append(arch)
+    return res
+
+
 def parse_description_file(options):
     data = read_json_file(options.sdk_description_file)
     if data is None:
@@ -173,6 +185,7 @@ def parse_description_file(options):
         target_os = item.get('target_os')
         for os_name in target_os:
             arch_list = arch_dict.get(os_name)
+            arch_list = filter(arch_list, options.runtime_mode, options.simulator)
             for arch in arch_list:
                 if options.build_type == 'release' and options.build_type not in arch and 'simulator' not in arch:
                     continue
@@ -260,6 +273,8 @@ def main():
     parser.add_argument('--node-js', required=True)
     parser.add_argument('--platform', required=True)
     parser.add_argument('--build-type')
+    parser.add_argument('--runtime-mode')
+    parser.add_argument('--simulator', action='store_false')
 
     options = parser.parse_args()
 

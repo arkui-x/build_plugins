@@ -103,6 +103,7 @@ aosp_clang_toolchain("aosp_clang_arm_release") {
   binary_prefix = "arm-linux-androideabi"
   toolchain_args = {
     current_cpu = "arm"
+    runtime_mode = "release"
   }
 }
 
@@ -113,9 +114,8 @@ aosp_clang_toolchain("aosp_clang_arm_profile") {
   binary_prefix = "arm-linux-androideabi"
   toolchain_args = {
     current_cpu = "arm"
-    is_profile = true
+    runtime_mode = "profile"
   }
-  extra_cppflags = "-fprofile-instr-generate"
 }
 
 aosp_clang_toolchain("aosp_clang_arm_debug") {
@@ -125,7 +125,7 @@ aosp_clang_toolchain("aosp_clang_arm_debug") {
   binary_prefix = "arm-linux-androideabi"
   toolchain_args = {
     current_cpu = "arm"
-    is_debug = true
+    runtime_mode = "debug"
   }
 }
 
@@ -148,6 +148,7 @@ aosp_clang_toolchain("aosp_clang_arm64_release") {
   toolchain_args = {
     current_cpu = "arm64"
     target_platform = "phone"
+    runtime_mode = "release"
   }
 }
 
@@ -159,9 +160,8 @@ aosp_clang_toolchain("aosp_clang_arm64_profile") {
   toolchain_args = {
     current_cpu = "arm64"
     target_platform = "phone"
-    is_profile = true
+    runtime_mode = "profile"
   }
-  extra_cppflags = "-fprofile-instr-generate"
 }
 
 aosp_clang_toolchain("aosp_clang_arm64_debug") {
@@ -172,7 +172,7 @@ aosp_clang_toolchain("aosp_clang_arm64_debug") {
   toolchain_args = {
     current_cpu = "arm64"
     target_platform = "phone"
-    is_debug = true
+    runtime_mode = "debug"
   }
 }
 
@@ -185,5 +185,6 @@ aosp_clang_toolchain("aosp_clang_x86_64") {
     current_cpu = "x86_64"
     target_platform = "phone"
     clang_base_path = "//prebuilts/clang/ohos/${host_platform_dir}/llvm-13"
+    runtime_mode = "release"
   }
 }
