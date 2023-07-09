@@ -43,10 +43,10 @@ if (is_android || is_chromeos) {
     enable_chrome_aosp_internal = has_chrome_aosp_internal
 
     # AOSP API level for 32 bits platforms
-    aosp32_ndk_api_level = 29
+    aosp32_ndk_api_level = 26
 
     # AOSP API level for 64 bits platforms
-    aosp64_ndk_api_level = 29
+    aosp64_ndk_api_level = 26
   }
 
   if (enable_chrome_aosp_internal) {
@@ -93,7 +93,7 @@ if (is_android || is_chromeos) {
 
   if (aosp_sdk_release == "q") {
     default_aosp_sdk_root = "${ANDROID_HOME}"
-    default_aosp_sdk_version = 29
+    default_aosp_sdk_version = 26
     default_aosp_sdk_build_tools_version = "28.0.3"
     default_aosp_sdk_tools_version_suffix = "-26.0.0-dev"
     public_aosp_sdk = true
