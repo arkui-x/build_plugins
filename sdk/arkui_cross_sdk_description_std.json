@@ -163,6 +163,33 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/qrcode/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_qrcode",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/patternlock/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_patternlock",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/relativecontainer/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_relativecontainer",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/animator/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:animator",
             "target_os": [
@@ -892,6 +919,48 @@
         {
             "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libarkui_componentsnapshot.xcframework",
             "module_label": "//interface/sdk:copy_libarkui_componentsnapshot_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/build_modes/libarkui_qrcode.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_qrcode",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/xcframework/platform_type/libarkui_qrcode.xcframework",
+            "module_label": "//interface/sdk:copy_libarkui_qrcode_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/build_modes/libarkui_relativecontainer.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_relativecontainer",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/xcframework/platform_type/libarkui_relativecontainer.xcframework",
+            "module_label": "//interface/sdk:copy_libarkui_relativecontainer_xcframework",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/build_modes/libarkui_patternlock.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_patternlock",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/xcframework/platform_type/libarkui_patternlock.xcframework",
+            "module_label": "//interface/sdk:copy_libarkui_patternlock_xcframework",
             "target_os": [
                 "darwin"
              ]
