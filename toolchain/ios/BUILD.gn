@@ -35,8 +35,8 @@ import("//build/toolchain/toolchain.gni")
 tool_versions =
     exec_script("get_tool_mtime.py",
                 rebase_path([
-                              "//build/toolchain/mac/filter_libtool.py",
-                              "//build/toolchain/mac/linker_driver.py",
+                              "//build_plugins/toolchain/ios/filter_libtool.py",
+                              "//build_plugins/toolchain/ios/linker_driver.py",
                             ],
                             root_build_dir),
                 "trim scope")
@@ -110,7 +110,7 @@ template("ios_toolchain") {
 
     linker_driver =
         "TOOL_VERSION=${tool_versions.linker_driver} " +
-        rebase_path("//build/toolchain/mac/linker_driver.py", root_build_dir)
+        rebase_path("//build_plugins/toolchain/ios/linker_driver.py", root_build_dir)
 
     # On iOS, the final applications are assembled using lipo (to support fat
     # builds). The correct flags are passed to the linker_driver.py script
@@ -210,11 +210,15 @@ template("ios_toolchain") {
 
       does_reexport_command = "[ ! -e \"$dylib\" -o ! -e \"$tocname\" ] || otool -l \"$dylib\" | grep -q LC_REEXPORT_DYLIB"
 
+      llvm_strip = rebase_path("$clang_base_path/bin/llvm-strip", root_build_dir)
+      unstripped_dylib_dir = "{{root_out_dir}}/unstripped_dylib/{{target_output_name}}"
       link_command = "$linker_driver $ld -shared $sysroot_flags "
       if (is_component_build) {
         link_command += " -Wl,-install_name,@rpath/\"{{target_output_name}}{{output_extension}}\" "
       }
       link_command += "{{ldflags}} -o \"$dylib\" -Wl,-filelist,\"$rspfile\" {{libs}} {{solibs}} {{frameworks}} "
+      link_command += " -Wcrl,strip,$llvm_strip"
+      link_command += " -Wcrl,unstripped,$unstripped_dylib_dir"
 
       replace_command = "if ! cmp -s \"$temporary_tocname\" \"$tocname\"; then mv \"$temporary_tocname\" \"$tocname\""
       extract_toc_command = "{ otool -l \"$dylib\" | grep LC_ID_DYLIB -A 5; nm -gP \"$dylib\" | cut -f1-2 -d' ' | grep -v U\$\$; true; }"
