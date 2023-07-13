@@ -861,6 +861,13 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include/napi",
+            "module_label": "//interface/sdk:napi_header_common",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include",
             "module_label": "//interface/sdk:plugin_utils_header",
             "target_os": [
