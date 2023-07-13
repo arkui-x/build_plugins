@@ -164,7 +164,9 @@ def run_save_unstripped(unstripped_path_prefix, full_args):
 
     linker_out = _find_linker_output(full_args)
     base = os.path.basename(linker_out)
-    unstripped_out = os.path.join(unstripped_path_prefix, base + '.unstripped')
+    unstripped_out = os.path.join(unstripped_path_prefix, base)
+    if not os.path.exists(unstripped_path_prefix):
+        os.makedirs(unstripped_path_prefix, exist_ok=True)
 
     shutil.copyfile(linker_out, unstripped_out)
     return [unstripped_out]
@@ -180,7 +182,7 @@ def run_strip(strip_args_string, full_args):
     Returns:
         list of string, Build step outputs.
     """
-    strip_command = ['xcrun', 'strip']
+    strip_command = []
     if len(strip_args_string) > 0:
         strip_command += strip_args_string.split(',')
     strip_command.append(_find_linker_output(full_args))
