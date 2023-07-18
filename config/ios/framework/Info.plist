@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>{framework_name}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.arkui-x.{framework_name}</string>
+	<string>com.arkui-x.{identifier_name}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
