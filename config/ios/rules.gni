@@ -64,6 +64,7 @@ template("ohos_combine_darwin_framework") {
 
   has_header = defined(invoker._export_framework_headers)
   _target_name = target_name
+  identifier_name = string_replace(target_name, "_", "")
   group("universal_ace_framework_${_target_name}") {
     visibility = [ ":*" ]
 
@@ -118,7 +119,7 @@ template("ohos_combine_darwin_framework") {
     deps = invoker.deps
   }
 
-  action("copy_framework_info_plist_${_target_name}") {
+  action("copy_framework_info_plist_${_target_name}") { 
     visibility = [ ":*" ]
     script = "//build_plugins/config/ios/tools/copy_info_plist.py"
     sources = [ "//build_plugins/config/ios/framework/Info.plist" ]
@@ -132,6 +133,8 @@ template("ohos_combine_darwin_framework") {
       ios_deployment_target,
       "--name",
       _target_name,
+      "--identifier",
+      identifier_name
     ]
 
     #   if (enable_bitcode) {
