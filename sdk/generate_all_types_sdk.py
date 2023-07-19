@@ -71,7 +71,7 @@ import("{{ generated_sdk_modules_gni }}")
       sdk_modules = {{ _sdk_type }}s.{{ os }}
       {% if release_type != "" %}
       zipfile_name =
-          "${sdk_type}-${{ "{" }}sdk_system_{{ os }}{{ "}" }}-${arch}-${arkuix_current_sdk_version}-${release_type}.zip"
+          "${sdk_type}-${{ "{" }}sdk_system_{{ os }}{{ "}" }}-${arch}-${arkuix_current_sdk_version}-${arkuix_release_type}.zip"
       {% else %}
       zipfile_name =
           "${sdk_type}-${{ "{" }}sdk_system_{{ os }}{{ "}" }}-${arch}-${arkuix_current_sdk_version}.zip"
