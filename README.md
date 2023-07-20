@@ -106,13 +106,13 @@ ArkUI-X项目编译构建提供了一个基于GN和Ninja的编译构建框架。
 1.  代码根目录下执行ArkUI的跨平台编译命令，示例：
 
     ```shell
-    ./build.sh --product-name arkui-cross --target-os android
+    ./build.sh --product-name arkui-x --target-os android
     ```
 
 2.  编译命令支持选项：
 
     ```
-    --product-name    # 必须  编译的产品名称，如：arkui-cross
+    --product-name    # 必须  编译的产品名称，如：arkui-x
     --target-os       # 必须  编译的跨平台目标，如：android或ios
     --build-target    # 可选  指定编译目标，可以指定多个
     --gn-args         # 可选  gn参数，支持指定多个

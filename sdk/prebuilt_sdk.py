@@ -87,9 +87,9 @@ def extract_file(filename):
 
 def build_arkuix_sdk():
     src_root = find_top()
-    build_android = ['{}/build.sh'.format(src_root), '--product-name', 'arkui-cross',
+    build_android = ['{}/build.sh'.format(src_root), '--product-name', 'arkui-x',
                      '--target-os', 'android', '--gn-args', 'enable_auto_pack=true', 'build_type=release']
-    build_ios = ['{}/build.sh'.format(src_root), '--product-name', 'arkui-cross',
+    build_ios = ['{}/build.sh'.format(src_root), '--product-name', 'arkui-x',
                      '--target-os', 'ios', '--gn-args', 'enable_auto_pack=true']
     if sys.platform == 'linux':
         proc = subprocess.Popen(build_android)
@@ -104,7 +104,7 @@ def build_arkuix_sdk():
 def merge_sdk(sdk_home):
     host_os = sys.platform
     arkuix_sdk_save_path = os.path.join(sdk_home, 'arkuix-sdk')
-    arkuix_sdk_path = os.path.join(find_top(), 'out/arkui-cross/packages/arkui-cross')
+    arkuix_sdk_path = os.path.join(find_top(), 'out/arkui-x/packages/arkui-x')
     if os.path.exists(arkuix_sdk_path):
         shutil.copytree(arkuix_sdk_path, arkuix_sdk_save_path, dirs_exist_ok=True)
     sdk_dirs = []
