@@ -157,7 +157,7 @@ action("verify_sdk_notice_file") {
   args = [
     rebase_path(sdk_notice_txt, root_build_dir),
     rebase_path(_verify_result, root_build_dir),
-    rebase_path("${product_output_dir}/arkui-cross", root_build_dir),
+    rebase_path("${product_output_dir}/arkui-x", root_build_dir),
   ]
 }
 
@@ -173,7 +173,7 @@ action_with_pydeps("add_notice_file") {
     "--sdk-notice-file",
     rebase_path(sdk_notice_txt, root_build_dir),
     "--sdk-archive-dir",
-    rebase_path("${product_output_dir}/arkui-cross", root_build_dir),
+    rebase_path("${product_output_dir}/arkui-x", root_build_dir),
     "--output",
     rebase_path(_output, root_build_dir),
     "--depfile",
