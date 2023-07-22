@@ -88,7 +88,7 @@ def extract_file(filename):
 def build_arkuix_sdk():
     src_root = find_top()
     build_android = ['{}/build.sh'.format(src_root), '--product-name', 'arkui-x',
-                     '--target-os', 'android', '--gn-args', 'enable_auto_pack=true', 'build_type=release']
+                     '--target-os', 'android', '--gn-args', 'enable_auto_pack=true', 'runtime_mode=release']
     build_ios = ['{}/build.sh'.format(src_root), '--product-name', 'arkui-x',
                      '--target-os', 'ios', '--gn-args', 'enable_auto_pack=true']
     if sys.platform == 'linux':

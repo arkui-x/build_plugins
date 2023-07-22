@@ -49,13 +49,6 @@ foreach(p, target_platform_list) {
   ]
 }
 
-if (build_type != "default") {
-  parse_args += [
-    "--build-type",
-    build_type,
-  ]
-}
-
 if (runtime_mode != "debug") {
   parse_args += [
     "--runtime-mode",

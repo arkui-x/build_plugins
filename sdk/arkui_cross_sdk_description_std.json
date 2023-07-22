@@ -884,43 +884,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/xcframework/arkui/platform_type/libarkui_ios.xcframework",
-            "module_label": "//interface/sdk:copy_libarkui_ios_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/engine/xcframework/arkui/platform_type/libarkui_ios.xcframework/ios-arm64/libarkui_ios.framework/Headers/include",
-            "module_label": "//interface/sdk:node_header_xcframework",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/xcframework/arkui/platform_type/libarkui_ios.xcframework/ios-arm64/libarkui_ios.framework/Headers/include/napi",
-            "module_label": "//interface/sdk:napi_header_xcframework",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/xcframework/arkui/platform_type/libarkui_ios.xcframework/ios-arm64/libarkui_ios.framework/Headers/include",
-            "module_label": "//interface/sdk:plugin_utils_xcframework",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libanimator.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libanimator",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libanimator.xcframework",
-            "module_label": "//interface/sdk:copy_libanimator_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -933,50 +898,22 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libarkui_componentsnapshot.xcframework",
-            "module_label": "//interface/sdk:copy_libarkui_componentsnapshot_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/build_modes/libarkui_qrcode.framework",
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_qrcode.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_qrcode",
             "target_os": [
                 "darwin"
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/component/xcframework/platform_type/libarkui_qrcode.xcframework",
-            "module_label": "//interface/sdk:copy_libarkui_qrcode_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/build_modes/libarkui_relativecontainer.framework",
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_relativecontainer.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_relativecontainer",
             "target_os": [
                 "darwin"
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/component/xcframework/platform_type/libarkui_relativecontainer.xcframework",
-            "module_label": "//interface/sdk:copy_libarkui_relativecontainer_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/build_modes/libarkui_patternlock.framework",
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_patternlock.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_patternlock",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/xcframework/platform_type/libarkui_patternlock.xcframework",
-            "module_label": "//interface/sdk:copy_libarkui_patternlock_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -989,22 +926,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libconfiguration.xcframework",
-            "module_label": "//interface/sdk:copy_libconfiguration_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libfont.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfont",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libfont.xcframework",
-            "module_label": "//interface/sdk:copy_libfont_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1017,22 +940,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libmeasure.xcframework",
-            "module_label": "//interface/sdk:copy_libmeasure_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libmediaquery.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmediaquery",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libmediaquery.xcframework",
-            "module_label": "//interface/sdk:copy_libmediaquery_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1045,22 +954,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libpromptaction.xcframework",
-            "module_label": "//interface/sdk:copy_libpromptaction_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/librouter.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:librouter",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/librouter.xcframework",
-            "module_label": "//interface/sdk:copy_librouter_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1073,22 +968,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libabilityaccessctrl.xcframework",
-            "module_label": "//interface/sdk:copy_libabilityaccessctrl_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libworker.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libworker",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libworker.xcframework",
-            "module_label": "//interface/sdk:copy_libworker_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1101,22 +982,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libdata_relationalstore.xcframework",
-            "module_label": "//interface/sdk:copy_libdata_relationalstore_xcframework",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libdata_preferences.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdata_preferences",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libdata_preferences.xcframework",
-            "module_label": "//interface/sdk:copy_libdata_preferences_xcframework",
             "target_os": [
                 "darwin"
             ]
@@ -1129,22 +996,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/librequest.xcframework",
-            "module_label": "//interface/sdk:copy_librequest_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libresourcemanager.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libresourcemanager",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libresourcemanager.xcframework",
-            "module_label": "//interface/sdk:copy_libresourcemanager_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1157,13 +1010,6 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libnet_connection.xcframework",
-            "module_label": "//interface/sdk:copy_libnet_connection_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_socket.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_socket",
             "target_os": [
@@ -1171,22 +1017,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libnet_socket.xcframework",
-            "module_label": "//interface/sdk:copy_libnet_socket_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_websocket.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_websocket",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libnet_websocket.xcframework",
-            "module_label": "//interface/sdk:copy_libnet_websocket_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1206,29 +1038,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libi18n.xcframework",
-            "module_label": "//interface/sdk:copy_libi18n_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libintl.xcframework",
-            "module_label": "//interface/sdk:copy_libintl_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/liburi.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:liburi",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/liburi.xcframework",
-            "module_label": "//interface/sdk:copy_liburi_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1241,22 +1052,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libfile_fs.xcframework",
-            "module_label": "//interface/sdk:copy_libfile_fs_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/liburl.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:liburl",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/liburl.xcframework",
-            "module_label": "//interface/sdk:copy_liburl_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1269,22 +1066,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libbuffer.xcframework",
-            "module_label": "//interface/sdk:copy_libbuffer_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libconvertxml.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libconvertxml",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libconvertxml.xcframework",
-            "module_label": "//interface/sdk:copy_libconvertxml_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1297,22 +1080,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libprocess.xcframework",
-            "module_label": "//interface/sdk:copy_libprocess_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libutil.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libutil",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1325,22 +1094,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_arraylist.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_arraylist_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libutil_deque.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libutil_deque",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_deque.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_deque_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1353,22 +1108,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_hashmap.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_hashmap_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libutil_hashset.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libutil_hashset",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_hashset.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_hashset_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1381,22 +1122,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_linkedlist.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_linkedlist_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libutil_list.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libutil_list",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_list.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_list_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1409,22 +1136,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_plainarray.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_plainarray_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libutil_queue.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libutil_queue",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_queue.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_queue_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1437,22 +1150,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_stack.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_stack_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libutil_treemap.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libutil_treemap",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_treemap.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_treemap_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1465,22 +1164,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_treeset.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_treeset_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libutil_lightweightmap.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libutil_lightweightmap",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_lightweightmap.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_lightweightmap_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1493,22 +1178,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libutil_lightweightset.xcframework",
-            "module_label": "//interface/sdk:copy_libutil_lightweightset_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libxml.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libxml",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libxml.xcframework",
-            "module_label": "//interface/sdk:copy_libxml_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1521,22 +1192,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libhilog.xcframework",
-            "module_label": "//interface/sdk:copy_libhilog_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libbridge.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbridge",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libbridge.xcframework",
-            "module_label": "//interface/sdk:copy_libbridge_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1549,22 +1206,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libnet_http.xcframework",
-            "module_label": "//interface/sdk:copy_libnet_http_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libtaskpool.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libtaskpool",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libtaskpool.xcframework",
-            "module_label": "//interface/sdk:copy_libtaskpool_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1577,13 +1220,6 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libconsole.xcframework",
-            "module_label": "//interface/sdk:copy_libconsole_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libtimer.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libtimer",
             "target_os": [
@@ -1591,22 +1227,8 @@
              ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libtimer.xcframework",
-            "module_label": "//interface/sdk:copy_libtimer_xcframework",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libdeviceinfo.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdeviceinfo",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libdeviceinfo.xcframework",
-            "module_label": "//interface/sdk:copy_libdeviceinfo_xcframework",
             "target_os": [
                 "darwin"
              ]
@@ -1628,13 +1250,6 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libuitest.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libuitest",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/xcframework/platform_type/libuitest.xcframework",
-            "module_label": "//interface/sdk:copy_libuitest_xcframework",
             "target_os": [
                 "darwin"
             ]
