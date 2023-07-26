@@ -13,12 +13,14 @@ from scripts.util.file_utils import read_json_file
 from scripts.util.build_utils import extract_all, zip_dir
 
 
-def create_xcframework(sdk_zip_file, sdk_install_config):
-    extract_all(sdk_zip_file, no_clobber=False)
+def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
+    cmd = ['unzip', sdk_zip_file]
+    proc = subprocess.Popen(cmd, cwd=sdk_unzip_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    proc.communicate()
     sdk_install_config = read_json_file(sdk_install_config)
     for sdk_install_info in sdk_install_config:
         label = sdk_install_info.get('label')
-        install_dir = sdk_install_info.get('install_dir')
+        install_dir = os.path.join(sdk_unzip_dir, sdk_install_info.get('install_dir'))
         if 'ios-arm64-simulator' in install_dir and install_dir.endswith('.framework'):
             framework_name = os.path.basename(install_dir)
             dylib_name = framework_name.replace('.framework', '')
@@ -67,7 +69,7 @@ def create_xcframework(sdk_zip_file, sdk_install_config):
     # package sdk
     if os.path.exists(sdk_zip_file):
         os.remove(sdk_zip_file)
-    zip_dir(sdk_zip_file, 'arkui-x', zip_prefix_path='arkui-x')
+    zip_dir(sdk_zip_file, sdk_unzip_dir)
 
 
 def main():
@@ -80,12 +82,14 @@ def main():
     parser.add_argument('--release-type', required=True)
     args = parser.parse_args()
 
-    sdk_zip_dir = os.path.join(args.sdk_out_dir, 'darwin')
-    sdk_zip_file = os.path.join(args.sdk_out_dir, 'darwin/arkui-x-darwin-{}-{}-{}.zip'
+    current_dir = os.getcwd()
+    sdk_zip_file = os.path.join(current_dir, args.sdk_out_dir, 'darwin/arkui-x-darwin-{}-{}-{}.zip'
                                .format(args.arch, args.sdk_version, args.release_type))
+    sdk_unzip_dir = 'sdk_unzip_dir'
+    os.makedirs(sdk_unzip_dir, exist_ok=True)
 
     if args.host_os == 'mac':
-        create_xcframework(sdk_zip_file, args.input_file)
+        create_xcframework(sdk_zip_file, sdk_unzip_dir, args.input_file)
 
 
 if __name__ == '__main__':
