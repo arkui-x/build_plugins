@@ -532,7 +532,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/arraylist/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_arraylist",
             "target_os": [
                 "linux",
@@ -541,7 +541,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/deque/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_deque",
             "target_os": [
                 "linux",
@@ -550,7 +550,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/hashmap/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_hashmap",
             "target_os": [
                 "linux",
@@ -559,7 +559,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/hashset/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_hashset",
             "target_os": [
                 "linux",
@@ -568,7 +568,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/lightweightmap/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_lightweightmap",
             "target_os": [
                 "linux",
@@ -577,7 +577,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/lightweightset/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_lightweightset",
             "target_os": [
                 "linux",
@@ -586,7 +586,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/linkedlist/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_linkedlist",
             "target_os": [
                 "linux",
@@ -595,7 +595,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/list/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_list",
             "target_os": [
                 "linux",
@@ -604,7 +604,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/plainarray/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_plainarray",
             "target_os": [
                 "linux",
@@ -613,7 +613,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/queue/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_queue",
             "target_os": [
                 "linux",
@@ -622,7 +622,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/stack/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_stack",
             "target_os": [
                 "linux",
@@ -631,7 +631,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/treeset/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_treeset",
             "target_os": [
                 "linux",
@@ -640,7 +640,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/util/treemap/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_treemap",
             "target_os": [
                 "linux",
