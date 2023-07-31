@@ -6,7 +6,7 @@
   ],
   "node_modules_copy": [
     {
-      "src": "arkcompiler/ets_frontend/ts2panda/node_modules",
+      "src": "arkcompiler/ets_frontend/legacy_bin/api8/node_modules",
       "dest": "prebuilts/build-tools/common/ts2abc/node_modules",
       "use_symlink": "True"
     }
