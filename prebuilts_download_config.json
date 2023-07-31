@@ -2,7 +2,7 @@
   "prebuilts_download_dir": "../openharmony_prebuilts",
   "npm_install_path": [
     "developtools/ace_ets2bundle/compiler",
-    "arkcompiler/ets_frontend/ts2panda"
+    "arkcompiler/ets_frontend/legacy_bin/api8"
   ],
   "node_modules_copy": [
     {
