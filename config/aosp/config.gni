@@ -20,7 +20,6 @@
 if (is_android || is_chromeos) {
   import("//build/misc/overrides/build.gni")
   import("//build_plugins/config/aosp/abi.gni")
-  import("//build_plugins/config/chromecast_build.gni")
 
   has_chrome_aosp_internal =
       exec_script("//build/scripts/dir_exists.py",
