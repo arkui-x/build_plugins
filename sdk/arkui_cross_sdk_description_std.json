@@ -118,6 +118,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x",
+            "module_label": "//interface/sdk:license",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        }, 
+        {
             "install_dir": "arkui-x/engine/lib/include",
             "module_label": "//interface/sdk:node_header",
             "target_os": [
@@ -855,6 +864,13 @@
                 "darwin"
              ]
         },
+        {
+            "install_dir": "arkui-x",
+            "module_label": "//interface/sdk:license",
+            "target_os": [
+                "darwin"
+            ]
+        },       
         {
             "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include",
             "module_label": "//interface/sdk:node_header",
