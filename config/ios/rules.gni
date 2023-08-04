@@ -77,7 +77,6 @@ template("ohos_combine_darwin_framework") {
       ":copy_framework_info_plist_${_target_name}",
       ":copy_framework_module_map_${_target_name}",
       ":copy_framework_podspec_${_target_name}",
-      ":copy_license_${_target_name}",
     ]
     if (has_header) {
       deps += [ ":copy_framework_headers_${_target_name}" ]
@@ -156,14 +155,6 @@ template("ohos_combine_darwin_framework") {
     visibility = [ ":*" ]
     sources = [ "//build_plugins/config/ios/framework/libarkui_ios.podspec" ]
     outputs = [ "$_final_frameworks_path/libarkui_ios.podspec" ]
-
-    deps = invoker.deps
-  }
-
-  copy("copy_license_${_target_name}") {
-    visibility = [ ":*" ]
-    sources = [ "//build_plugins/config/ios/framework/LICENSE" ]
-    outputs = [ "$_final_frameworks_path/LICENSE" ]
 
     deps = invoker.deps
   }
