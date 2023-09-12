@@ -774,6 +774,15 @@
                 "darwin"
             ]
         },
+        {
+            "install_dir": "arkui-x/toolchains",
+            "module_label": "//interface/sdk:toolchains_bin",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
 	    {
             "install_dir": "arkui-x/toolchains",
             "module_label": "//interface/sdk:ace_tools",
