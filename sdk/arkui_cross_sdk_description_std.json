@@ -776,7 +776,7 @@
         },
         {
             "install_dir": "arkui-x/toolchains",
-            "module_label": "//interface/sdk:toolchains_bin",
+            "module_label": "//interface/sdk:bin",
             "target_os": [
                 "linux",
                 "windows",
@@ -784,7 +784,7 @@
             ]
         },
 	    {
-            "install_dir": "arkui-x/toolchains",
+            "install_dir": "arkui-x/toolchains/ace_tools",
             "module_label": "//interface/sdk:ace_tools",
             "target_os": [
                 "linux",
