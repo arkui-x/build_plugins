@@ -863,6 +863,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/web/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:web_webview",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -1268,6 +1277,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libuitest.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libuitest",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libweb_webview.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libweb_webview",
             "target_os": [
                 "darwin"
              ]
