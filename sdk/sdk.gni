@@ -17,9 +17,8 @@ import("//build/ohos/notice/notice.gni")
 import("//build_plugins/version.gni")
 
 declare_args() {
-  enable_auto_pack = false
   enable_build_app = false
-  simulator = true
+  gen_full_sdk = false
 }
 
 sdk_base_build_gn = "//build/ohos/sdk/BUILD.gn"

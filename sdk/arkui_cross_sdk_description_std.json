@@ -1,28 +1,28 @@
 {
     "arch_dict": {
         "linux": [
-            "arm",
+            "arm-debug",
             "arm-profile",
             "arm-release",
-            "arm64",
+            "arm64-debug",
             "arm64-profile",
             "arm64-release",
             "x86_64"
         ],
         "windows": [
-            "arm",
+            "arm-debug",
             "arm-profile",
             "arm-release",
-            "arm64",
+            "arm64-debug",
             "arm64-profile",
             "arm64-release",
             "x86_64"
         ],
         "darwin": [
-            "arm",
+            "arm-debug",
             "arm-profile",
             "arm-release",
-            "arm64",
+            "arm64-debug",
             "arm64-profile",
             "arm64-simulator",
             "x86_64-simulator",

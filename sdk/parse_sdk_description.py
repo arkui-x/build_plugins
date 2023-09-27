@@ -154,15 +154,14 @@ def expand_platform_targets(options, label, install_dir):
         return [label], [install_dir]
 
 
-def filter(arch_list, runtime_mode, simulator):
+def filter(arch_list, runtime_mode, gen_full_sdk, target_cpu):
     res = []
-    if not runtime_mode:
+    if gen_full_sdk:
         return arch_list
-    if simulator:
-        res.extend(['arm64-simulator', 'x86_64-simulator', 'x86_64'])
+    res.extend(['arm64-simulator', 'x86_64-simulator', 'x86_64'])
     for arch in arch_list:
-        if runtime_mode in arch:
-            res.append(arch)
+        if f'{target_cpu}-{runtime_mode}' == arch:
+            res.append(arch.replace('-debug', ''))
     return res
 
 
@@ -185,7 +184,7 @@ def parse_description_file(options):
         target_os = item.get('target_os')
         for os_name in target_os:
             arch_list = arch_dict.get(os_name)
-            arch_list = filter(arch_list, options.runtime_mode, options.simulator)
+            arch_list = filter(arch_list, options.runtime_mode, options.gen_full_sdk, options.target_cpu)
             for arch in arch_list:
                 tmp_item = dict()
                 platform_arch = '{}-{}'.format(options.platform, arch)
@@ -270,7 +269,8 @@ def main():
     parser.add_argument('--platform', required=True)
     parser.add_argument('--build-type')
     parser.add_argument('--runtime-mode')
-    parser.add_argument('--simulator', action='store_false')
+    parser.add_argument('--gen-full-sdk', action='store_true')
+    parser.add_argument('--target-cpu')
 
     options = parser.parse_args()
 
