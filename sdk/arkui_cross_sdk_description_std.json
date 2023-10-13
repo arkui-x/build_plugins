@@ -733,7 +733,7 @@
         },
         {
             "install_dir": "arkui-x/engine/lib/third_party/arch_type",
-            "module_label": "//third_party/libxml2:xml2",
+            "module_label": "//third_party/libxml2:libxml2",
             "target_os": [
                 "linux",
                 "windows",
