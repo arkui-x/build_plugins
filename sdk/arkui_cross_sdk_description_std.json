@@ -309,24 +309,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/common_event/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:commonevent",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/lib/common_event",
-            "module_label": "//plugins/common_event/android/java:common_event_java",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/lib/convertxml/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:convertxml",
             "target_os": [
@@ -716,24 +698,6 @@
         {
             "install_dir": "arkui-x/plugins/api/lib/resource_manager/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:resourcemanager",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/lib/running_lock/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:runninglock",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/lib/running_lock",
-            "module_label": "//plugins/running_lock/android/java:runninglock_java",
             "target_os": [
                 "linux",
                 "windows",
