@@ -13,6 +13,17 @@ from scripts.util.file_utils import read_json_file
 from scripts.util.build_utils import extract_all, zip_dir
 
 
+def build_xcframework(xcframework, framework, sim_framework):
+    if os.path.exists(xcframework):
+        shutil.rmtree(xcframework)
+    proc = subprocess.Popen(['xcodebuild', '-create-xcframework', '-framework', framework,
+                             '-framework', sim_framework, '-output', xcframework],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    proc.communicate()
+    if proc.returncode:
+        raise Exception('create xcframework error: {}', proc.stderr)
+
+
 def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
     cmd = ['unzip', sdk_zip_file]
     proc = subprocess.Popen(cmd, cwd=sdk_unzip_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
@@ -53,15 +64,17 @@ def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
             if proc1.returncode:
                 raise Exception('merge framework error: {}', proc1.stderr)
 
-            # create arm64_x86_64 simulator
-            if os.path.exists(arm64_release_xcfwk):
-                shutil.rmtree(arm64_release_xcfwk)
-            proc2 = subprocess.Popen(['xcodebuild', '-create-xcframework', '-framework', arm64_release_fwk,
-                                     '-framework', arm64_x86_64_sim_fwk, '-output', arm64_release_xcfwk],
-                                     stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
-            proc2.communicate()
-            if proc2.returncode:
-                raise Exception('create xcframework error: {}', proc2.stderr)
+            # create arm64_x86_64 simulator for release version
+            if os.path.exists(arm64_release_fwk):
+                build_xcframework(arm64_release_xcfwk, arm64_release_fwk, arm64_x86_64_sim_fwk)
+
+            # create arm64_x86_64 simulator for profile version
+            if os.path.exists(arm64_profile_fwk):
+                build_xcframework(arm64_profile_xcfwk, arm64_profile_fwk, arm64_x86_64_sim_fwk)
+
+            # create arm64_x86_64 simulator for debug version
+            if os.path.exists(arm64_debug_fwk):
+                build_xcframework(arm64_debug_xcfwk, arm64_debug_fwk, arm64_x86_64_sim_fwk)
 
             if os.path.exists(arm64_x86_64_sim_fwk):
                 shutil.rmtree(arm64_x86_64_sim_fwk)

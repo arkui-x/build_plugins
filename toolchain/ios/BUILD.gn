@@ -110,7 +110,8 @@ template("ios_toolchain") {
 
     linker_driver =
         "TOOL_VERSION=${tool_versions.linker_driver} " +
-        rebase_path("//build_plugins/toolchain/ios/linker_driver.py", root_build_dir)
+        rebase_path("//build_plugins/toolchain/ios/linker_driver.py",
+                    root_build_dir)
 
     # On iOS, the final applications are assembled using lipo (to support fat
     # builds). The correct flags are passed to the linker_driver.py script
@@ -210,8 +211,10 @@ template("ios_toolchain") {
 
       does_reexport_command = "[ ! -e \"$dylib\" -o ! -e \"$tocname\" ] || otool -l \"$dylib\" | grep -q LC_REEXPORT_DYLIB"
 
-      llvm_strip = rebase_path("$clang_base_path/bin/llvm-strip", root_build_dir)
-      unstripped_dylib_dir = "{{root_out_dir}}/unstripped_dylib/{{target_output_name}}"
+      llvm_strip =
+          rebase_path("$clang_base_path/bin/llvm-strip", root_build_dir)
+      unstripped_dylib_dir =
+          "{{root_out_dir}}/unstripped_dylib/{{target_output_name}}"
       link_command = "$linker_driver $ld -shared $sysroot_flags "
       if (is_component_build) {
         link_command += " -Wl,-install_name,@rpath/\"{{target_output_name}}{{output_extension}}\" "
@@ -337,8 +340,35 @@ template("ios_toolchain") {
 # For ios
 ios_toolchain("ios_clang_arm64") {
   toolchain_args = {
-    current_cpu = "x64"
-    current_os = "mac"
+    current_cpu = "arm64"
+    current_os = "ios"
+  }
+  sysroot_flags = "-isysroot $ios_device_sdk_path -miphoneos-version-min=$ios_deployment_target"
+}
+
+ios_toolchain("ios_clang_arm64_debug") {
+  toolchain_args = {
+    current_cpu = "arm64"
+    current_os = "ios"
+    runtime_mode = "debug"
+  }
+  sysroot_flags = "-isysroot $ios_device_sdk_path -miphoneos-version-min=$ios_deployment_target"
+}
+
+ios_toolchain("ios_clang_arm64_profile") {
+  toolchain_args = {
+    current_cpu = "arm64"
+    current_os = "ios"
+    runtime_mode = "profile"
+  }
+  sysroot_flags = "-isysroot $ios_device_sdk_path -miphoneos-version-min=$ios_deployment_target"
+}
+
+ios_toolchain("ios_clang_arm64_release") {
+  toolchain_args = {
+    current_cpu = "arm64"
+    current_os = "ios"
+    runtime_mode = "release"
   }
   sysroot_flags = "-isysroot $ios_device_sdk_path -miphoneos-version-min=$ios_deployment_target"
 }
