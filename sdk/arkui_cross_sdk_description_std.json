@@ -1244,6 +1244,13 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libhitracemeter.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhitracemeter",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
