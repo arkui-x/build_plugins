@@ -1258,6 +1258,13 @@
             "target_os": [
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_utils.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_utils",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
