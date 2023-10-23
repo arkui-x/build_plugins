@@ -1293,6 +1293,13 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_libnghttp2_shared.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_libnghttp2_shared",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
