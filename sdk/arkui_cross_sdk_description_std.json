@@ -1260,6 +1260,34 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_xml2.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_xml2",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_libcrypto_shared.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_libcrypto_shared",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_libssl_shared.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_libssl_shared",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_shared_libz.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_shared_libz",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_utils.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_utils",
             "target_os": [
