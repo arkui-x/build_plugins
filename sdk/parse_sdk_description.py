@@ -157,11 +157,13 @@ def expand_platform_targets(options, label, install_dir):
 def filter(arch_list, runtime_mode, gen_full_sdk, target_cpu):
     res = []
     if gen_full_sdk:
-        return arch_list
-    res.extend(['arm64-simulator', 'x86_64-simulator', 'x86_64'])
-    for arch in arch_list:
-        if f'{target_cpu}-{runtime_mode}' == arch:
+        for arch in arch_list:
             res.append(arch.replace('-debug', ''))
+    else:
+        res.extend(['arm64-simulator', 'x86_64-simulator', 'x86_64'])
+        for arch in arch_list:
+            if f'{target_cpu}-{runtime_mode}' == arch:
+                res.append(arch.replace('-debug', ''))
     return res
 
 

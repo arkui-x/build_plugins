@@ -205,6 +205,17 @@ action_with_pydeps("arkui_cross_sdk_post") {
   outputs = [ _output ]
 }
 
+action("archive_unstripped_lib") {
+  deps = [ "${generated_files_dir}:generated_arkui_cross_sdk" ]
+  script = "//build_plugins/sdk/archive_unstripped_lib.py"
+  _output = "$arkui_cross_sdk_out_dir/arkui-x-$arch-$arkuix_current_sdk_version-$arkuix_release_type-unstripped.zip"
+  args = [
+    "--output-file",
+    rebase_path(_output, root_build_dir),
+  ]
+  outputs = [ _output ]
+}
+
 group("arkui_cross_sdk_pre") {
   deps = [
     ":generate_sdk_notice",
@@ -222,5 +233,8 @@ group("arkui_cross_sdk") {
       ":arkui_cross_sdk_post",
       ":arkui_cross_sdk_pre",
     ]
+    if (archive_unstripped_lib) {
+      deps += [ ":archive_unstripped_lib" ]
+    }
   }
 }
