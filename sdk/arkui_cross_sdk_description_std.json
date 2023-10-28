@@ -829,6 +829,24 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/common_event_manager/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:commoneventmanager",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/common_event_manager",
+            "module_label": "//plugins/common_event_manager/android/java:common_event_manager_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -1248,6 +1266,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libhitracemeter.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhitracemeter",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libcommon_event_manager.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:commoneventmanager",
             "target_os": [
                 "darwin"
             ]
