@@ -1271,8 +1271,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libcommon_event_manager.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:commoneventmanager",
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libcommoneventmanager.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libcommoneventmanager",
             "target_os": [
                 "darwin"
             ]
