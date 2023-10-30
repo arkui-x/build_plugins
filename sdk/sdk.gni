@@ -19,6 +19,7 @@ import("//build_plugins/version.gni")
 declare_args() {
   enable_build_app = false
   gen_full_sdk = false
+  archive_unstripped_lib = false
 }
 
 sdk_base_build_gn = "//build/ohos/sdk/BUILD.gn"
