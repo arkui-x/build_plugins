@@ -1288,15 +1288,15 @@
              ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libcrypto_openssl.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libcrypto_openssl",
+            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libcrypto_source.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libcrypto_source",
             "target_os": [
                 "darwin"
              ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libssl_openssl.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libssl_openssl",
+            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libssl_source.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libssl_source",
             "target_os": [
                 "darwin"
              ]
