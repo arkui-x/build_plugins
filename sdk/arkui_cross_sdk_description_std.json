@@ -733,7 +733,7 @@
         },
         {
             "install_dir": "arkui-x/engine/lib/third_party/arch_type",
-            "module_label": "//third_party/libxml2:xml2",
+            "module_label": "//third_party/libxml2:libxml2",
             "target_os": [
                 "linux",
                 "windows",
@@ -842,6 +842,15 @@
         {
             "install_dir": "arkui-x/plugins/api/lib/common_event_manager",
             "module_label": "//plugins/common_event_manager/android/java:common_event_manager_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+			"install_dir": "arkui-x/plugins/api/lib/zlib/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:zlib",
             "target_os": [
                 "linux",
                 "windows",
@@ -1313,18 +1322,25 @@
              ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libcrypto_openssl.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libcrypto_openssl",
+            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libcrypto_source.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libcrypto_source",
             "target_os": [
                 "darwin"
              ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libssl_openssl.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libssl_openssl",
+            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libssl_source.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libssl_source",
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libzlib.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libzlib",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
