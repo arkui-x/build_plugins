@@ -162,7 +162,7 @@ def filter(arch_list, runtime_mode, gen_full_sdk, target_cpu):
     else:
         res.extend(['arm64-simulator', 'x86_64-simulator', 'x86_64'])
         for arch in arch_list:
-            if f'{target_cpu}-{runtime_mode}' == arch:
+            if runtime_mode in arch:
                 res.append(arch.replace('-debug', ''))
     return res
 
