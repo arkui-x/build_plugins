@@ -13,6 +13,7 @@
 
 import("//build/templates/metadata/module_info.gni")
 import("//build_plugins/config/ios/ios_sdk.gni")
+import("//build_plugins/version.gni")
 
 template("ohos_combine_darwin_framework") {
   if (defined(invoker.subsystem_name) && defined(invoker.part_name)) {
@@ -118,7 +119,7 @@ template("ohos_combine_darwin_framework") {
     deps = invoker.deps
   }
 
-  action("copy_framework_info_plist_${_target_name}") { 
+  action("copy_framework_info_plist_${_target_name}") {
     visibility = [ ":*" ]
     script = "//build_plugins/config/ios/tools/copy_info_plist.py"
     sources = [ "//build_plugins/config/ios/framework/Info.plist" ]
@@ -133,12 +134,16 @@ template("ohos_combine_darwin_framework") {
       "--name",
       _target_name,
       "--identifier",
-      identifier_name
+      identifier_name,
+      "--sdkversion",
+      arkuix_sdk_version,
+      "--hostcpu",
+      host_cpu,
     ]
 
-    #   if (enable_bitcode) {
-    #     args += [ "--bitcode" ]
-    #   }
+    if (defined(use_xcode_clang) && use_xcode_clang) {
+      args += [ "--bitcode" ]
+    }
 
     deps = invoker.deps
   }

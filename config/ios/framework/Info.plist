@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>{framework_name}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.arkui-x.{identifier_name}</string>
+	<string>ohos.ace.{identifier_name}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,16 +17,18 @@
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>{short_version}</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>{bundle_version}</string>
 	<key>ClangVersion</key>
 	<string>{clang_version}</string>
 	<key>MiniXEngineVerson</key>
 	<string>{revision}</string>
 	<key>MinimumOSVersion</key>
 	<string>{min_version}</string>
+	<key>ACEEngine</key>
+	<string>{ace_engine}</string>
 </dict>
 </plist>
