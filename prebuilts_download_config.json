@@ -2,10 +2,19 @@
   "prebuilts_download_dir": "../openharmony_prebuilts",
   "npm_install_path": [
     "developtools/ace_ets2bundle/compiler",
+    "developtools/ace_js2bundle/ace-loader",
+    "third_party/parse5/packages/parse5",
+    "third_party/jsframework",
+    "third_party/weex-loader",
     "arkcompiler/ets_frontend/legacy_bin/api8"
   ],
   "uninstalled_tools": [],
   "node_modules_copy": [
+    {
+      "src": "third_party/jsframework/node_modules",
+      "dest": "prebuilts/build-tools/common/js-framework/node_modules",
+      "use_symlink": "True"
+    },
     {
       "src": "arkcompiler/ets_frontend/legacy_bin/api8/node_modules",
       "dest": "prebuilts/build-tools/common/ts2abc/node_modules",
