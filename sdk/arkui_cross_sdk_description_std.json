@@ -876,6 +876,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/third_party/arch_type",
+            "module_label": "//third_party/curl:curl_shared",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/cryptoFramework/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:cryptoFramework",
 
