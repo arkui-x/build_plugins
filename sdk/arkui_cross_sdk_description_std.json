@@ -127,7 +127,7 @@
                 "windows",
                 "darwin"
             ]
-        }, 
+        },
         {
             "install_dir": "arkui-x/engine/lib/include",
             "module_label": "//interface/sdk:node_header",
@@ -678,24 +678,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/console/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:console",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/lib/timer/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:timer",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/lib/request/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:request",
             "target_os": [
@@ -909,7 +891,7 @@
             "target_os": [
                 "darwin"
             ]
-        },       
+        },
         {
             "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include",
             "module_label": "//interface/sdk:node_header",
@@ -1270,20 +1252,6 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libtaskpool.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libtaskpool",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libconsole.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libconsole",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libtimer.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libtimer",
             "target_os": [
                 "darwin"
              ]
