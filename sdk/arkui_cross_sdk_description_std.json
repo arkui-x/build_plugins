@@ -543,6 +543,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/util",
+            "module_label": "//plugins/util/plugin/android/java:util_plugin_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/util/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:util_arraylist",
             "target_os": [
