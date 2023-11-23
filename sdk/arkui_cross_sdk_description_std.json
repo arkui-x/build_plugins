@@ -372,24 +372,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/display/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:display",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/lib/display",
-            "module_label": "//plugins/display/android/java:display_java",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/lib/hilog/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:hilog",
             "target_os": [
