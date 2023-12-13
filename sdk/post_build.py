@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 # coding=utf-8
+# Copyright (c) 2023 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 
 import os
@@ -11,6 +23,17 @@ import subprocess
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.util.file_utils import read_json_file
 from scripts.util.build_utils import extract_all, zip_dir
+
+
+def build_xcframework(xcframework, framework, sim_framework):
+    if os.path.exists(xcframework):
+        shutil.rmtree(xcframework)
+    proc = subprocess.Popen(['xcodebuild', '-create-xcframework', '-framework', framework,
+                             '-framework', sim_framework, '-output', xcframework],
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+    proc.communicate()
+    if proc.returncode:
+        raise Exception('create xcframework error: {}', proc.stderr)
 
 
 def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
@@ -53,15 +76,17 @@ def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
             if proc1.returncode:
                 raise Exception('merge framework error: {}', proc1.stderr)
 
-            # create arm64_x86_64 simulator
-            if os.path.exists(arm64_release_xcfwk):
-                shutil.rmtree(arm64_release_xcfwk)
-            proc2 = subprocess.Popen(['xcodebuild', '-create-xcframework', '-framework', arm64_release_fwk,
-                                     '-framework', arm64_x86_64_sim_fwk, '-output', arm64_release_xcfwk],
-                                     stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
-            proc2.communicate()
-            if proc2.returncode:
-                raise Exception('create xcframework error: {}', proc2.stderr)
+            # create arm64_x86_64 simulator for release version
+            if os.path.exists(arm64_release_fwk):
+                build_xcframework(arm64_release_xcfwk, arm64_release_fwk, arm64_x86_64_sim_fwk)
+
+            # create arm64_x86_64 simulator for profile version
+            if os.path.exists(arm64_profile_fwk):
+                build_xcframework(arm64_profile_xcfwk, arm64_profile_fwk, arm64_x86_64_sim_fwk)
+
+            # create arm64_x86_64 simulator for debug version
+            if os.path.exists(arm64_debug_fwk):
+                build_xcframework(arm64_debug_xcfwk, arm64_debug_fwk, arm64_x86_64_sim_fwk)
 
             if os.path.exists(arm64_x86_64_sim_fwk):
                 shutil.rmtree(arm64_x86_64_sim_fwk)

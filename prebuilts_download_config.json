@@ -4,6 +4,7 @@
     "developtools/ace_ets2bundle/compiler",
     "arkcompiler/ets_frontend/legacy_bin/api8"
   ],
+  "uninstalled_tools": [],
   "node_modules_copy": [
     {
       "src": "arkcompiler/ets_frontend/legacy_bin/api8/node_modules",
@@ -133,7 +134,7 @@
         },
         {
           "unzip_dir": "prebuilts/ark_tools",
-          "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_20230107.tar.gz",
+          "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_20230713.tar.gz",
           "unzip_filename": "ark_js_prebuilts"
         },
         {
@@ -180,7 +181,7 @@
       },
       {
         "unzip_dir": "prebuilts/ark_tools/linux",
-        "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_20230107.tar.gz",
+        "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_20230713.tar.gz",
         "unzip_filename": "ark_js_prebuilts"
       }
     ],
