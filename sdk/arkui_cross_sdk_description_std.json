@@ -877,7 +877,7 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/lib/security/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:Security_cryptoFramework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:securitycryptoFramework",
 
             "target_os": [
                 "linux",
@@ -1371,8 +1371,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libSecurity_cryptoFramework.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libSecurity_cryptoFramework",
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libsecuritycryptoFramework.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libsecuritycryptoFramework",
             "target_os": [
                 "darwin"
             ]
