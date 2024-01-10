@@ -33,8 +33,7 @@ if (ios_device_sdk_path == "") {
     "--sdk",
     "iphoneos",
   ]
-  _ios_device_sdk_result =
-      exec_script("ios_sdk.py", ios_sdk_args, "list lines")
+  _ios_device_sdk_result = exec_script("ios_sdk.py", ios_sdk_args, "list lines")
   ios_device_sdk_path = _ios_device_sdk_result[0]
 }
 
@@ -57,3 +56,5 @@ if (ios_sdk_path == "") {
     ios_sdk_path = ios_device_sdk_path
   }
 }
+
+Xcode_version = exec_script("ios_sdk.py", [ "--xcode" ], "value")

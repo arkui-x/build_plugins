@@ -25,6 +25,8 @@ def main(argv):
   parser.add_argument('--sdk',
                       choices=['iphoneos', 'iphonesimulator'],
                       help='Which SDK to find.')
+  parser.add_argument('--xcode', action='store_true')
+
   args = parser.parse_args()
 
   command =  [
@@ -34,8 +36,11 @@ def main(argv):
     args.sdk,
     'Path'
   ]
+  if args.xcode:
+    command = ['xcodebuild', '-version']
 
   sdk_output = subprocess.check_output(command).decode('utf-8').strip()
+
   if args.symlink:
     symlink_target = os.path.join(args.symlink, 'SDKs', os.path.basename(sdk_output))
     symlink(sdk_output, symlink_target)
@@ -45,7 +50,11 @@ def main(argv):
 
     sdk_output = symlink_target
 
-  print(sdk_output)
+  if args.xcode:
+    sdk_output = int(sdk_output.split()[1].split('.')[0])
+    print('%d' % sdk_output)
+  else:
+    print(sdk_output)
   return 0
 
 if __name__ == '__main__':

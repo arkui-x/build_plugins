@@ -83,6 +83,9 @@ config("compiler") {
     "rw",
     "r",
   ]
+  if (Xcode_version > 14) {
+    ldflags += [ "-ld64" ]
+  }
 
   # link warnings
   if (!is_mac && !is_ios) {
