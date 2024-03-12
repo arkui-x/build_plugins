@@ -149,6 +149,11 @@
           "unzip_filename": "ark_js_prebuilts"
         },
         {
+          "unzip_dir": "prebuilts/packing_tool",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20240201.zip",
+          "unzip_filename": "packing_tool"
+        },
+        {
           "unzip_dir": "prebuilts/python",
           "file_path": "/openharmony/compiler/python/3.10.2/linux/python-linux-x86-3.10.2_20230604.tar.gz",
           "unzip_filename": "linux-x86"
@@ -219,6 +224,11 @@
           "unzip_filename": "ark_js_prebuilts"
         },
         {
+          "unzip_dir": "prebuilts/packing_tool",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20240201.zip",
+          "unzip_filename": "packing_tool"
+        },
+        {
           "unzip_dir": "prebuilts/python",
           "file_path": "/openharmony/compiler/python/3.10.2/darwin/python-darwin-x86-3.10.2_20230604.tar.gz",
           "unzip_filename": "darwin-x86"
@@ -258,6 +268,11 @@
           "unzip_dir": "prebuilts/ark_tools",
           "file_path": "/openharmony/compiler/llvm_prebuilt_libs/ark_js_prebuilts_darwin_x64_20230209.tar.gz",
           "unzip_filename": "ark_js_prebuilts"
+        },
+        {
+          "unzip_dir": "prebuilts/packing_tool",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20240201.zip",
+          "unzip_filename": "packing_tool"
         },
         {
           "unzip_dir": "prebuilts/python",
