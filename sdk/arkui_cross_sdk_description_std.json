@@ -1382,6 +1382,13 @@
             "target_os": [
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libmultimedia_media.framework",
+            "module_label": "arkui-x/plugins/api/framework/arch_type/libmultimedia_media.framework",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
