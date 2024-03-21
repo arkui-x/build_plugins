@@ -62,9 +62,9 @@ def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
             arm64_debug_fwk = os.path.join(arm64_debug_fwk_dir, framework_name)
             arm64_profile_fwk = os.path.join(arm64_profile_fwk_dir, framework_name)
 
-            arm64_release_xcfwk = arm64_release_fwk.replace('-arm64', '').replace('framework', 'xcframework')
-            arm64_debug_xcfwk = arm64_debug_fwk.replace('-arm64', '').replace('framework', 'xcframework')
-            arm64_profile_xcfwk = arm64_profile_fwk.replace('-arm64', '').replace('framework', 'xcframework')
+            arm64_release_xcfwk = arm64_release_fwk.replace('-arm64', '').replace('.framework', '.xcframework')
+            arm64_debug_xcfwk = arm64_debug_fwk.replace('-arm64', '').replace('.framework', '.xcframework')
+            arm64_profile_xcfwk = arm64_profile_fwk.replace('-arm64', '').replace('.framework', '.xcframework')
 
             # merge x86_64 simulator and arm64 simulator
             shutil.copytree(arm64_sim_fwk, arm64_x86_64_sim_fwk, dirs_exist_ok=True)
