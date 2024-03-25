@@ -901,6 +901,33 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/multimedia",
+            "module_label": "//plugins/multimedia/audio/android/audiorenderer/java:audio_renderer_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/multimedia",
+            "module_label": "//plugins/multimedia/audio/android/audiocapturer/java:audio_capturer_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/multimedia/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:multimedia_audio",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -1407,6 +1434,13 @@
             "target_os": [
                 "darwin"
             ]
+        },
+	{
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libmultimedia_audio.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmultimedia_audio",
+            "target_os": [
+                "darwin"
+             ]
         }
     ]
 }
