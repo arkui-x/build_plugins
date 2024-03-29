@@ -1403,7 +1403,7 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libmultimedia_media.framework",
-            "module_label": "arkui-x/plugins/api/framework/arch_type/libmultimedia_media.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmultimedia_media",
             "target_os": [
                 "darwin"
             ]
