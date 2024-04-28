@@ -172,6 +172,11 @@
           "unzip_dir": "prebuilts/jdk/linux-x86_64",
           "file_path": "/openharmony/compiler/open-jdk/8u252/linux/jdk8u252+9-linux-amd64.tar.gz",
           "unzip_filename": "jdk8"
+        },
+        {
+          "unzip_dir": "prebuilts/androidx",
+          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
+          "unzip_filename": "androidx"
         }
       ],
       "linux_copy_config": [
@@ -242,6 +247,11 @@
           "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
           "file_path": "/arkui-crossplatform/compiler/clang/13.0.1/clang+llvm-13.0.1-x86_64-apple-darwin.tar.xz",
           "unzip_filename": "llvm-13"
+        },
+        {
+          "unzip_dir": "prebuilts/androidx",
+          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
+          "unzip_filename": "androidx"
         }
       ],
       "darwin_copy_config": [
@@ -288,6 +298,11 @@
           "unzip_dir": "prebuilts/clang/ohos/darwin-x86_64",
           "file_path": "/arkui-crossplatform/compiler/clang/13.0.1/clang+llvm-13.0.1-x86_64-apple-darwin.tar.xz",
           "unzip_filename": "llvm-13"
+        },
+        {
+          "unzip_dir": "prebuilts/androidx",
+          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
+          "unzip_filename": "androidx"
         }
       ],
       "darwin_copy_config": [
