@@ -228,6 +228,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_performancemonitor",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/configuration/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:configuration",
             "target_os": [
@@ -1013,6 +1022,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_componentutils.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_componentutils",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_performancemonitor.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_performancemonitor",
             "target_os": [
                 "darwin"
              ]
