@@ -786,6 +786,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_photoaccesshelper",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/file",
+            "module_label": "//plugins/file/photo_access_helper/android:photo_access_helper_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/lib/third_party/arch_type",
             "module_label": "//third_party/openssl:libcrypto_shared",
             "target_os": [
@@ -929,7 +947,7 @@
                 "darwin"
             ]
         },
-	{
+        {
             "install_dir": "arkui-x/plugins/api/lib/multimedia",
             "module_label": "//plugins/multimedia/audio/android/audiomanager/java:audio_manager_java",
             "target_os": [
