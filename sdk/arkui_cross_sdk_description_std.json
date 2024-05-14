@@ -1202,6 +1202,13 @@
                 "darwin"
              ]
         },
+	{
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_photoaccesshelper.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_photoaccesshelper",
+            "target_os": [
+                "darwin"
+             ]
+        },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/liburl.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:liburl",
