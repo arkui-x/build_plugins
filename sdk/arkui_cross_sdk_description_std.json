@@ -858,6 +858,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/notification_manager/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:notificationmanager",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/notification_manager",
+            "module_label": "//plugins/notification_manager/android/java:notification_manager_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/common_event_manager/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:commoneventmanager",
             "target_os": [
@@ -1478,6 +1496,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libwifimanager.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libwifimanager",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libnotificationmanager.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnotificationmanager",
             "target_os": [
                 "darwin"
             ]
