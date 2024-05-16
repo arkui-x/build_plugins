@@ -1000,7 +1000,16 @@
                 "windows",
                 "darwin"
             ]
-         }
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_drawabledescriptor",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        }
     ],
     "ios": [
         {
@@ -1541,6 +1550,13 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_drawabledescriptor.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_drawabledescriptor",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
