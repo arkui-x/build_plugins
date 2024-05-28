@@ -146,6 +146,9 @@ do
   fi
 done
 
+cd ./base/web/webview
+source prepare.sh
+cd ${SOURCE_ROOT_DIR}
 if [[ ${flag} == "true" && ${build_android} == "true" ]]; then
   android_args_list=${args_list/ios/android}
   ${PYTHON3} ${SOURCE_ROOT_DIR}/build/hb/main.py build $android_args_list
