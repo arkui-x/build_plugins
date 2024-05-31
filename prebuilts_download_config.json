@@ -2,10 +2,21 @@
   "prebuilts_download_dir": "../openharmony_prebuilts",
   "npm_install_path": [
     "developtools/ace_ets2bundle/compiler",
+    "developtools/ace_js2bundle/ace-loader",
+    "third_party/parse5/packages/parse5",
+    "third_party/jsframework",
+    "third_party/weex-loader",
+    "third_party/typescript",
+    "arkcompiler/ets_frontend/arkguard",
     "arkcompiler/ets_frontend/legacy_bin/api8"
   ],
   "uninstalled_tools": [],
   "node_modules_copy": [
+    {
+      "src": "third_party/jsframework/node_modules",
+      "dest": "prebuilts/build-tools/common/js-framework/node_modules",
+      "use_symlink": "True"
+    },
     {
       "src": "arkcompiler/ets_frontend/legacy_bin/api8/node_modules",
       "dest": "prebuilts/build-tools/common/ts2abc/node_modules",
@@ -124,7 +135,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/linux-x86/bin",
-          "file_path": "/openharmony/compiler/gn/2024/linux/gn-linux-x86-20221108.tar.gz",
+          "file_path": "/openharmony/compiler/gn/20240115/linux/gn-linux-x86-20240115.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -189,7 +200,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
-          "file_path": "/openharmony/compiler/gn/2024/darwin/gn-darwin-x86-20221123.tar.gz",
+          "file_path": "/openharmony/compiler/gn/20240115/darwin/gn-darwin-x86-20240115.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -235,7 +246,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
-          "file_path": "/openharmony/compiler/gn/2024/darwin/gn-darwin-x86-20221123.tar.gz",
+          "file_path": "/openharmony/compiler/gn/20240115/darwin/gn-darwin-x86-20240115.tar.gz",
           "unzip_filename": "gn"
         },
         {
