@@ -56,13 +56,28 @@ if [[ "${SOURCE_ROOT_DIR}x" == "x" ]]; then
   exit 1
 fi
 
+host_cpu_prefix=""
+
+case $(uname -m) in
+    *x86_64)
+        host_cpu_prefix="x86"
+        ;;
+    *arm*)
+        host_cpu_prefix="arm64"
+        ;;
+    *)
+        echo "\033[31m[OHOS ERROR] Unsupported host arch: $(uname -m)\033[0m"
+        RET=1
+        exit $RET
+esac
+
 case $(uname -s) in
     Darwin)
-        HOST_DIR="darwin-x86"
+        HOST_DIR="darwin-$host_cpu_prefix"
         HOST_OS="darwin"
         ;;
     Linux)
-        HOST_DIR="linux-x86"
+        HOST_DIR="linux-$host_cpu_prefix"
         HOST_OS="linux"
         ;;
     *)
@@ -126,6 +141,37 @@ if [[ ! -f "${SOURCE_ROOT_DIR}/prebuilts/build-tools/common/oh-command-line-tool
     exit 1
   fi
 fi
+
+BUILD_DIRECTORY=${SOURCE_ROOT_DIR}/build
+BUILD_CXX_GNI=${BUILD_DIRECTORY}/templates/cxx/cxx.gni
+BUILD_PATCH=${SOURCE_ROOT_DIR}/build_plugins/build_scripts/arkui-x-build.patch
+
+if [ -f ${BUILD_CXX_GNI} ]; then
+  rm -f ${BUILD_CXX_GNI}
+fi
+patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${BUILD_PATCH} -d ${BUILD_DIRECTORY}
+
+
+ACE_ENGINE_DIRECTORY=${SOURCE_ROOT_DIR}/foundation/arkui/ace_engine
+JSI_VIEW_REGISTER_IMPL_NG=${ACE_ENGINE_DIRECTORY}/frameworks/bridge/declarative_frontend/engine/jsi/jsi_view_register_impl_ng.cpp
+PAN_RECOGNIZER=${ACE_ENGINE_DIRECTORY}/frameworks/core/components_ng/gestures/recognizers/pan_recognizer.cpp
+PIPELINE_CONTEXT=${ACE_ENGINE_DIRECTORY}//frameworks/core/pipeline_ng/pipeline_context.cpp
+ACE_ENGINE_PATCH=${SOURCE_ROOT_DIR}/build_plugins/build_scripts/arkui-x-support-node-shape.patch
+SLIP_RATE_PATCH=${SOURCE_ROOT_DIR}/build_plugins/build_scripts/arkui-x-slip-rate.patch
+
+if [ -f ${JSI_VIEW_REGISTER_IMPL_NG} ]; then
+  rm -f ${JSI_VIEW_REGISTER_IMPL_NG}
+fi
+patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${ACE_ENGINE_PATCH} -d ${ACE_ENGINE_DIRECTORY}
+
+if [ -f ${PAN_RECOGNIZER} ]; then
+  rm -f ${PAN_RECOGNIZER}
+fi
+
+if [ -f ${PIPELINE_CONTEXT} ]; then
+  rm -f ${PIPELINE_CONTEXT}
+fi
+patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${SLIP_RATE_PATCH} -d ${ACE_ENGINE_DIRECTORY}
 
 ${PYTHON3} ${SOURCE_ROOT_DIR}/build/scripts/tools_checker.py
 
