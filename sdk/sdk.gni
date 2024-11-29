@@ -96,9 +96,6 @@ template("copy_and_archive") {
         invoker.zip_prefix_path,
       ]
     }
-    if (enable_archive_sdk) {
-      args += [ "--enable-archive-sdk=${enable_archive_sdk}" ]
-    }
   }
 }
 

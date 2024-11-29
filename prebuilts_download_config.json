@@ -2,21 +2,10 @@
   "prebuilts_download_dir": "../openharmony_prebuilts",
   "npm_install_path": [
     "developtools/ace_ets2bundle/compiler",
-    "developtools/ace_js2bundle/ace-loader",
-    "third_party/parse5/packages/parse5",
-    "third_party/jsframework",
-    "third_party/weex-loader",
-    "third_party/typescript",
-    "arkcompiler/ets_frontend/arkguard",
     "arkcompiler/ets_frontend/legacy_bin/api8"
   ],
   "uninstalled_tools": [],
   "node_modules_copy": [
-    {
-      "src": "third_party/jsframework/node_modules",
-      "dest": "prebuilts/build-tools/common/js-framework/node_modules",
-      "use_symlink": "True"
-    },
     {
       "src": "arkcompiler/ets_frontend/legacy_bin/api8/node_modules",
       "dest": "prebuilts/build-tools/common/ts2abc/node_modules",
@@ -107,21 +96,14 @@
       "src":"/prebuilts/python/linux-x86",
       "dest":"/prebuilts/python/linux-x86",
       "rename": "true",
-      "symlink_src":"/3.11.4",
+      "symlink_src":"/3.10.2",
       "symlink_dest":"/current"
     },
     {
       "src":"/prebuilts/python/darwin-x86",
       "dest":"/prebuilts/python/darwin-x86",
       "rename": "true",
-      "symlink_src":"/3.11.4",
-      "symlink_dest":"/current"
-    },
-    {
-      "src":"/prebuilts/python/darwin-arm64",
-      "dest":"/prebuilts/python/darwin-arm64",
-      "rename": "true",
-      "symlink_src":"/3.11.4",
+      "symlink_src":"/3.10.2",
       "symlink_dest":"/current"
     }
   ],
@@ -142,7 +124,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/linux-x86/bin",
-          "file_path": "/openharmony/compiler/gn/20240416/gn-linux-x86-20240416.tar.gz",
+          "file_path": "/openharmony/compiler/gn/2024/linux/gn-linux-x86-20221108.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -156,15 +138,9 @@
           "unzip_filename": "ark_js_prebuilts"
         },
         {
-          "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20240730.zip",
-          "unzip_filename": "packing_tool"
-        },
-        {
           "unzip_dir": "prebuilts/python",
-          "file_path": "/openharmony/compiler/python/3.11.4/linux/python-linux-x86-Ubuntu_18.04-3.11.4_20240715.tar.gz",
-          "unzip_filename": "linux-x86",
-          "os_version": "Ubuntu_18.04" 
+          "file_path": "/openharmony/compiler/python/3.10.2/linux/python-linux-x86-3.10.2_20230604.tar.gz",
+          "unzip_filename": "linux-x86"
         },
         {
           "unzip_dir": "prebuilts/clang/ohos/linux-x86_64",
@@ -180,11 +156,6 @@
           "unzip_dir": "prebuilts/jdk/linux-x86_64",
           "file_path": "/openharmony/compiler/open-jdk/8u252/linux/jdk8u252+9-linux-amd64.tar.gz",
           "unzip_filename": "jdk8"
-        },
-        {
-          "unzip_dir": "prebuilts/androidx",
-          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
-          "unzip_filename": "androidx"
         }
       ],
       "linux_copy_config": [
@@ -218,7 +189,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
-          "file_path": "/openharmony/compiler/gn/20240416/gn-darwin-x86-20240416.tar.gz",
+          "file_path": "/openharmony/compiler/gn/2024/darwin/gn-darwin-x86-20221123.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -237,14 +208,9 @@
           "unzip_filename": "ark_js_prebuilts"
         },
         {
-          "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20240730.zip",
-          "unzip_filename": "packing_tool"
-        },
-        {
           "unzip_dir": "prebuilts/python",
-          "file_path": "/openharmony/compiler/python/3.11.4/darwin/python-darwin-arm64-3.11.4_20240715.tar.gz",
-          "unzip_filename": "darwin-arm64"
+          "file_path": "/openharmony/compiler/python/3.10.2/darwin/python-darwin-x86-3.10.2_20230604.tar.gz",
+          "unzip_filename": "darwin-x86"
         },
         {
           "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
@@ -255,11 +221,6 @@
           "unzip_dir": "prebuilts/clang/ohos/darwin-arm64",
           "file_path": "/arkui-crossplatform/compiler/clang/13.0.1/clang+llvm-13.0.1-x86_64-apple-darwin.tar.xz",
           "unzip_filename": "llvm-13"
-        },
-        {
-          "unzip_dir": "prebuilts/androidx",
-          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
-          "unzip_filename": "androidx"
         }
       ],
       "darwin_copy_config": [
@@ -274,7 +235,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
-          "file_path": "/openharmony/compiler/gn/20240416/gn-darwin-x86-20240416.tar.gz",
+          "file_path": "/openharmony/compiler/gn/2024/darwin/gn-darwin-x86-20221123.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -288,13 +249,8 @@
           "unzip_filename": "ark_js_prebuilts"
         },
         {
-          "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20240730.zip",
-          "unzip_filename": "packing_tool"
-        },
-        {
           "unzip_dir": "prebuilts/python",
-          "file_path": "/openharmony/compiler/python/3.11.4/darwin/python-darwin-x86-3.11.4_20240715.tar.gz",
+          "file_path": "/openharmony/compiler/python/3.10.2/darwin/python-darwin-x86-3.10.2_20230604.tar.gz",
           "unzip_filename": "darwin-x86"
         },
         {
@@ -306,11 +262,6 @@
           "unzip_dir": "prebuilts/clang/ohos/darwin-x86_64",
           "file_path": "/arkui-crossplatform/compiler/clang/13.0.1/clang+llvm-13.0.1-x86_64-apple-darwin.tar.xz",
           "unzip_filename": "llvm-13"
-        },
-        {
-          "unzip_dir": "prebuilts/androidx",
-          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
-          "unzip_filename": "androidx"
         }
       ],
       "darwin_copy_config": [

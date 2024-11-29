@@ -115,7 +115,6 @@ ArkUI-X项目编译构建提供了一个基于GN和Ninja的编译构建框架。
     --product-name    # 必须  编译的产品名称，如：arkui-x
     --target-os       # 必须  编译的跨平台目标，如：android或ios
     --build-target    # 可选  指定编译目标，可以指定多个
-    --runtime-mode    # 可选  默认release，可选：debug或profile
     --gn-args         # 可选  gn参数，支持指定多个
     --help, -h        # 可选  命令行help辅助命令
     ```
@@ -123,7 +122,8 @@ ArkUI-X项目编译构建提供了一个基于GN和Ninja的编译构建框架。
 3.  常用的gn参数：
 
     ```
-    --gn-args gen_full_sdk=true      # 编译全版本sdk, 包含release版本、debug版本、profile版本
+    --gn-args enable_auto_pack=true     # 使能SDK自动打包
+    --gn-args runtime_mode=release      # 编译指定版本SDK
     ```
 
 4.  支持模板类型
