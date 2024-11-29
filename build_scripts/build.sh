@@ -151,28 +151,6 @@ if [ -f ${BUILD_CXX_GNI} ]; then
 fi
 patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${BUILD_PATCH} -d ${BUILD_DIRECTORY}
 
-
-ACE_ENGINE_DIRECTORY=${SOURCE_ROOT_DIR}/foundation/arkui/ace_engine
-JSI_VIEW_REGISTER_IMPL_NG=${ACE_ENGINE_DIRECTORY}/frameworks/bridge/declarative_frontend/engine/jsi/jsi_view_register_impl_ng.cpp
-PAN_RECOGNIZER=${ACE_ENGINE_DIRECTORY}/frameworks/core/components_ng/gestures/recognizers/pan_recognizer.cpp
-PIPELINE_CONTEXT=${ACE_ENGINE_DIRECTORY}//frameworks/core/pipeline_ng/pipeline_context.cpp
-ACE_ENGINE_PATCH=${SOURCE_ROOT_DIR}/build_plugins/build_scripts/arkui-x-support-node-shape.patch
-SLIP_RATE_PATCH=${SOURCE_ROOT_DIR}/build_plugins/build_scripts/arkui-x-slip-rate.patch
-
-if [ -f ${JSI_VIEW_REGISTER_IMPL_NG} ]; then
-  rm -f ${JSI_VIEW_REGISTER_IMPL_NG}
-fi
-patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${ACE_ENGINE_PATCH} -d ${ACE_ENGINE_DIRECTORY}
-
-if [ -f ${PAN_RECOGNIZER} ]; then
-  rm -f ${PAN_RECOGNIZER}
-fi
-
-if [ -f ${PIPELINE_CONTEXT} ]; then
-  rm -f ${PIPELINE_CONTEXT}
-fi
-patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${SLIP_RATE_PATCH} -d ${ACE_ENGINE_DIRECTORY}
-
 ${PYTHON3} ${SOURCE_ROOT_DIR}/build/scripts/tools_checker.py
 
 flag=true

@@ -435,6 +435,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/effectkit/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:effectkit",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/arkui_node/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_node",
             "target_os": [
@@ -1063,6 +1072,69 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/lib/utils/arch_type",
+            "module_label": "//plugins/bluetooth/common:bt_common_android",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/bluetooth/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:bluetooth_a2dp",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/bluetooth/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:bluetooth_access",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/bluetooth/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:bluetooth_baseprofile",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/bluetooth/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:bluetooth_ble",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/bluetooth/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:bluetooth_connection",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/bluetooth",
+            "module_label": "//plugins/bluetooth/impl/android:bluetooth_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -1508,6 +1580,13 @@
              ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libeffectkit.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libeffectkit",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_node.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_node",
             "target_os": [
@@ -1652,7 +1731,42 @@
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libplatformview",
             "target_os": [
                 "darwin"
-             ]
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/utils/arch_type/libbluetooth_common.framework",
+            "module_label": "//plugins/bluetooth/common:libbluetooth_common",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libbluetooth_a2dp.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbluetooth_a2dp",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libbluetooth_access.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbluetooth_access",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libbluetooth_ble.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbluetooth_ble",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libbluetooth_connection.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbluetooth_connection",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
