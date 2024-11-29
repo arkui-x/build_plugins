@@ -26,7 +26,6 @@ def main(argv):
                       choices=['iphoneos', 'iphonesimulator'],
                       help='Which SDK to find.')
   parser.add_argument('--xcode', action='store_true')
-
   args = parser.parse_args()
 
   command =  [
@@ -36,6 +35,7 @@ def main(argv):
     args.sdk,
     'Path'
   ]
+
   if args.xcode:
     command = ['xcodebuild', '-version']
 
