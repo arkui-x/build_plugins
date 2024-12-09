@@ -326,7 +326,7 @@ index 0000000000..6836047689
 +        return;
 +    }
 +
-+    if (static_cast<int32_t>(touchPoints_.size()) > fingers_) {
++    if (currentFingers_ > fingers_) {
 +        panVelocity_.Reset(event.id);
 +        UpdateTouchPointInVelocityTracker(event, true);
 +    }
