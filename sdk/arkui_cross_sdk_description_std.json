@@ -462,6 +462,69 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/mock/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_mock",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/modifier/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_modifier",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/dialog/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_dialog",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/segmentbutton/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_segmentbutton",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/subheader/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_subheader",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/toolbar/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_toolbar",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/multimodalinput_keycode/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:multimodalinput_keycode",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/hitrace_meter/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:hitracemeter",
             "target_os": [
@@ -1764,6 +1827,55 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libbluetooth_connection.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbluetooth_connection",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_mock.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_mock",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_modifier.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_modifier",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_dialog.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_dialog",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_toolbar.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_toolbar",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_subheader.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_subheader",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_segmentbutton.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_segmentbutton",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libmultimodalinput_keycode.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmultimodalinput_keycode",
             "target_os": [
                 "darwin"
             ]
