@@ -453,6 +453,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/effectkit/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:effectkit",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/hitrace_meter/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:hitracemeter",
             "target_os": [
@@ -1506,6 +1515,13 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libeffectkit.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libeffectkit",
+            "target_os": [
+                "darwin"
+            ]
         },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_node.framework",
