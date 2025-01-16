@@ -1198,6 +1198,24 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/system_date_time",
+            "module_label": "//plugins/system_date_time:time_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/system_date_time/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:systemdatetime",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -1876,6 +1894,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libmultimodalinput_keycode.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmultimodalinput_keycode",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libsystemdatetime.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libsystemdatetime",
             "target_os": [
                 "darwin"
             ]
