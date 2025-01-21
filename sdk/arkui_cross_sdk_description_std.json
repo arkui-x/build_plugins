@@ -1753,13 +1753,6 @@
              ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libcurl_shared.framework",
-            "module_label": "//third_party/curl:libcurl_shared",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/engine/framework/third_party/arch_type/libcrypto_openssl.framework",
             "module_label": "//third_party/openssl:libcrypto_openssl",
             "target_os": [
