@@ -1650,13 +1650,6 @@
              ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/third_party/arch_type/libssl_openssl.framework",
-            "module_label": "//third_party/openssl:libssl_openssl",
-            "target_os": [
-                "darwin"
-             ]
-        },
-        {
             "install_dir": "arkui-x/engine/framework/third_party/arch_type/libshared_libz.framework",
             "module_label": "//third_party/zlib:libshared_libz",
             "target_os": [
