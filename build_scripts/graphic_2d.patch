@@ -1,0 +1,806 @@
+From b131614395ee8dc7ab49d300fc6d5518b3ff732d Mon Sep 17 00:00:00 2001
+From: txzhang <zhangtianxiang4@huawei.com>
+Date: Fri, 28 Feb 2025 11:51:53 +0800
+Subject: [PATCH] =?UTF-8?q?=E4=BC=98=E5=8C=96=E9=87=8D=E8=BD=BD=E5=9C=BA?=
+ =?UTF-8?q?=E6=99=AF=E4=B8=8B=E6=8C=87=E4=BB=A4=E5=A0=86=E7=A7=AF=E9=97=AE?=
+ =?UTF-8?q?=E9=A2=98?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: txzhang <zhangtianxiang4@huawei.com>
+Change-Id: Icebd625b7d3bb094316ee95df878679da9a5672d
+---
+ .../core/pipeline/rs_render_thread.cpp        | 574 ++++++++++++++++++
+ .../core/pipeline/rs_render_thread.h          | 198 ++++++
+ 2 files changed, 772 insertions(+)
+ create mode 100644 rosen/modules/render_service_client/core/pipeline/rs_render_thread.cpp
+ create mode 100644 rosen/modules/render_service_client/core/pipeline/rs_render_thread.h
+
+diff --git a/rosen/modules/render_service_client/core/pipeline/rs_render_thread.cpp b/rosen/modules/render_service_client/core/pipeline/rs_render_thread.cpp
+new file mode 100644
+index 0000000000..1a372b941d
+--- /dev/null
++++ b/rosen/modules/render_service_client/core/pipeline/rs_render_thread.cpp
+@@ -0,0 +1,574 @@
++/*
++ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *     http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++#include "pipeline/rs_render_thread.h"
++
++#include <cstdint>
++
++#include "rs_trace.h"
++#include "sandbox_utils.h"
++
++#include "animation/rs_animation_fraction.h"
++#include "command/rs_surface_node_command.h"
++#include "common/rs_background_thread.h"
++#include "delegate/rs_functional_delegate.h"
++#include "pipeline/rs_draw_cmd_list.h"
++#include "pipeline/rs_node_map.h"
++#include "pipeline/rs_render_node_map.h"
++#include "pipeline/rs_render_node_gc.h"
++#include "pipeline/rs_root_render_node.h"
++#include "pipeline/rs_surface_render_node.h"
++#include "platform/common/rs_log.h"
++#include "platform/common/rs_system_properties.h"
++#include "property/rs_property_trace.h"
++#include "render/rs_image_cache.h"
++#include "render/rs_typeface_cache.h"
++#include "render_context/shader_cache.h"
++#include "rs_frame_report.h"
++#include "transaction/rs_render_service_client.h"
++#include "ui/rs_surface_extractor.h"
++#include "ui/rs_surface_node.h"
++#include "ui/rs_ui_director.h"
++#ifdef RS_ENABLE_VK
++#include "platform/ohos/backend/rs_vulkan_context.h"
++#endif
++#ifdef OHOS_RSS_CLIENT
++#include "res_sched_client.h"
++#include "res_type.h"
++#endif
++
++#ifdef RES_CLINET_SCHED_ENABLE
++#include "qos.h"
++#endif
++
++#ifdef ROSEN_PREVIEW
++#include "glfw_render_context.h"
++#endif
++
++#ifdef ROSEN_OHOS
++#include <unistd.h>
++#include "frame_collector.h"
++#include "render_frame_trace.h"
++#include "platform/ohos/overdraw/rs_overdraw_controller.h"
++#ifdef ACCESSIBILITY_ENABLE
++#include "accessibility_config.h"
++#include "platform/common/rs_accessibility.h"
++#endif
++
++static const std::string RT_INTERVAL_NAME = "renderthread";
++#endif
++#if !defined(ROSEN_PREVIEW) && !defined(ROSEN_IOS)
++#include <sys/prctl.h>
++#endif
++static void SystemCallSetThreadName(const std::string& name)
++{
++#if !defined(ROSEN_PREVIEW) && !defined(ROSEN_IOS)
++
++    if (prctl(PR_SET_NAME, name.c_str()) < 0) {
++        return;
++    }
++#endif
++}
++
++namespace OHOS {
++namespace Rosen {
++namespace {
++    static constexpr uint64_t REFRESH_PERIOD = 16666667;
++}
++
++void SendFrameEvent(bool start)
++{
++#ifdef ROSEN_OHOS
++    FrameCollector::GetInstance().MarkFrameEvent(start ? FrameEventType::WaitVsyncStart : FrameEventType::WaitVsyncEnd);
++#endif
++}
++
++RSRenderThread& RSRenderThread::Instance()
++{
++    static RSRenderThread renderThread;
++    RSAnimationFraction::Init();
++    return renderThread;
++}
++
++RSRenderThread::RSRenderThread()
++{
++    static std::function<std::shared_ptr<Drawing::Typeface> (uint64_t)> customTypefaceQueryfunc =
++    [] (uint64_t globalUniqueId) -> std::shared_ptr<Drawing::Typeface> {
++        return RSTypefaceCache::Instance().GetDrawingTypefaceCache(globalUniqueId);
++    };
++    Drawing::DrawOpItem::SetTypefaceQueryCallBack(customTypefaceQueryfunc);
++    mainFunc_ = [&]() {
++        uint64_t renderStartTimeStamp = jankDetector_->GetSysTimeNs();
++        RS_TRACE_BEGIN("RSRenderThread DrawFrame: " + std::to_string(timestamp_));
++#ifdef ROSEN_OHOS
++        FRAME_TRACE::RenderFrameTrace::GetInstance().RenderStartFrameTrace(RT_INTERVAL_NAME);
++#endif
++        prevTimestamp_ = timestamp_;
++        ProcessCommands();
++        ROSEN_LOGD("RSRenderThread DrawFrame(%{public}" PRIu64 ") in %{public}s",
++            prevTimestamp_, renderContext_ ? "GPU" : "CPU");
++        Animate(prevTimestamp_);
++        Render();
++        SendCommands();
++        {
++            std::lock_guard<std::mutex> lock(context_->activeNodesInRootMutex_);
++            context_->activeNodesInRoot_.clear();
++        }
++        RSRenderNodeGC::Instance().ReleaseNodeMemory();
++        ReleasePixelMapInBackgroundThread();
++        context_->pendingSyncNodes_.clear();
++#ifdef ROSEN_OHOS
++        FRAME_TRACE::RenderFrameTrace::GetInstance().RenderEndFrameTrace(RT_INTERVAL_NAME);
++#endif
++        jankDetector_->CalculateSkippedFrame(renderStartTimeStamp, jankDetector_->GetSysTimeNs());
++        RSTypefaceCache::Instance().HandleDelayDestroyQueue();
++        RS_TRACE_END();
++    };
++    context_ = std::make_shared<RSContext>();
++    context_->Initialize();
++    jankDetector_ = std::make_shared<RSJankDetector>();
++#ifdef ACCESSIBILITY_ENABLE
++    RSAccessibility::GetInstance().ListenHighContrastChange([](bool newHighContrast) {
++        std::thread thread(
++            [](bool newHighContrast) {
++                auto& renderThread = RSRenderThread::Instance();
++                renderThread.SetHighContrast(newHighContrast);
++            },
++            newHighContrast);
++        thread.detach();
++    });
++#endif
++}
++
++RSRenderThread::~RSRenderThread()
++{
++    Stop();
++#ifndef NEW_RENDER_CONTEXT
++    if (renderContext_ != nullptr) {
++        ROSEN_LOGD("Destroy renderContext!!");
++        delete renderContext_;
++        renderContext_ = nullptr;
++    }
++#endif
++}
++
++void RSRenderThread::Start()
++{
++    ROSEN_LOGD("RSRenderThread start.");
++    running_.store(true);
++    std::unique_lock<std::mutex> cmdLock(rtMutex_);
++    if (thread_ == nullptr) {
++        thread_ = std::make_unique<std::thread>([this] { this->RSRenderThread::RenderLoop(); });
++    }
++}
++
++void RSRenderThread::ReleasePixelMapInBackgroundThread()
++{
++    if (!RSImageCache::Instance().CheckUniqueIdIsEmpty()) {
++        static std::function<void()> task = []() -> void { RSImageCache::Instance().ReleaseUniqueIdList(); };
++        RSBackgroundThread::Instance().PostTask(task);
++    }
++}
++
++void RSRenderThread::Stop()
++{
++    running_.store(false);
++
++    if (handler_) {
++        handler_->RemoveAllEvents();
++        handler_ = nullptr;
++    }
++    receiver_ = nullptr;
++    if (runner_) {
++        runner_->Stop();
++    }
++
++    if (thread_ != nullptr && thread_->joinable()) {
++        thread_->join();
++    }
++
++    thread_ = nullptr;
++    ROSEN_LOGD("RSRenderThread stopped.");
++}
++
++void RSRenderThread::RecvTransactionData(std::unique_ptr<RSTransactionData>& transactionData)
++{
++    {
++        std::unique_lock<std::mutex> cmdLock(cmdMutex_);
++        std::string str = "RecvCommands ptr:" + std::to_string(reinterpret_cast<uintptr_t>(transactionData.get()));
++        commandTimestamp_ = transactionData->GetTimestamp();
++        ROSEN_TRACE_BEGIN(HITRACE_TAG_GRAPHIC_AGP, str.c_str());
++        cmds_.emplace_back(std::move(transactionData));
++        ROSEN_TRACE_END(HITRACE_TAG_GRAPHIC_AGP);
++    }
++    // [PLANNING]: process in next vsync (temporarily)
++    RSRenderThread::Instance().RequestNextVSync();
++}
++
++void RSRenderThread::RequestNextVSync()
++{
++    if (handler_) {
++        RS_TRACE_FUNC();
++        SendFrameEvent(true);
++        VSyncReceiver::FrameCallback fcb = {
++            .userData_ = this,
++            .callbackWithId_ = [this](uint64_t timestamp, int64_t frameCount,
++                                   void* arg) { this->OnVsync(timestamp, frameCount); },
++        };
++        if (receiver_ != nullptr) {
++            receiver_->RequestNextVSync(fcb);
++        } else {
++            hasSkipVsync_ = true;
++        }
++    } else {
++        hasSkipVsync_ = true;
++    }
++}
++
++int32_t RSRenderThread::GetTid()
++{
++    return tid_;
++}
++
++void RSRenderThread::CreateAndInitRenderContextIfNeed()
++{
++#if defined(NEW_RENDER_CONTEXT)
++#if !defined(ROSEN_PREVIEW)
++    if (renderContext_ == nullptr) {
++        renderContext_ = RenderContextBaseFactory::CreateRenderContext();
++        drawingContext_ = std::make_shared<Rosen::DrawingContext>(renderContext_->GetRenderType());
++        RS_TRACE_NAME("Init Context");
++        renderContext_->Init(); // init egl context on RT
++        if (!cacheDir_.empty()) {
++            ShaderCache::Instance().SetFilePath(cacheDir_);
++        }
++        ROSEN_LOGD("Create and Init RenderContext");
++    }
++#endif
++#else
++#if (defined(RS_ENABLE_GL) || defined (RS_ENABLE_VK)) && !defined(ROSEN_PREVIEW)
++    if (renderContext_ == nullptr) {
++        renderContext_ = new RenderContext();
++        ROSEN_LOGD("Create RenderContext");
++#ifdef ROSEN_OHOS
++#ifdef RS_ENABLE_GL
++        if (RSSystemProperties::GetGpuApiType() == GpuApiType::OPENGL) {
++            RS_TRACE_NAME("InitializeEglContext");
++            renderContext_->InitializeEglContext(); // init egl context on RT
++            if (!cacheDir_.empty()) {
++                renderContext_->SetCacheDir(cacheDir_);
++            }
++        }
++#endif
++#ifdef RS_ENABLE_VK
++    if (RSSystemProperties::GetGpuApiType() == GpuApiType::VULKAN ||
++        RSSystemProperties::GetGpuApiType() == GpuApiType::DDGR) {
++        renderContext_->SetUpGpuContext(nullptr);
++    }
++#endif
++#endif
++    }
++#endif
++#endif
++}
++
++void RSRenderThread::RenderLoop()
++{
++    SystemCallSetThreadName("RSRenderThread");
++
++#ifdef OHOS_RSS_CLIENT
++    std::unordered_map<std::string, std::string> payload;
++    payload["uid"] = std::to_string(getuid());
++    payload["pid"] = std::to_string(GetRealPid());
++    ResourceSchedule::ResSchedClient::GetInstance().ReportData(
++        ResourceSchedule::ResType::RES_TYPE_REPORT_RENDER_THREAD, getproctid(), payload);
++#endif
++#ifdef ROSEN_OHOS
++    tid_ = gettid();
++#endif
++    CreateAndInitRenderContextIfNeed();
++    std::string name = "RSRenderThread_" + std::to_string(GetRealPid());
++    runner_ = AppExecFwk::EventRunner::Create(false);
++    handler_ = std::make_shared<AppExecFwk::EventHandler>(runner_);
++    auto rsClient = std::static_pointer_cast<RSRenderServiceClient>(RSIRenderClient::CreateRenderServiceClient());
++    receiver_ = rsClient->CreateVSyncReceiver(name, handler_);
++    if (receiver_ == nullptr) {
++        ROSEN_LOGE("RSRenderThread CreateVSyncReceiver Error");
++        return;
++    }
++    receiver_->Init();
++    if (hasSkipVsync_) {
++        hasSkipVsync_ = false;
++        RSRenderThread::Instance().RequestNextVSync();
++    }
++#ifdef ROSEN_PREVIEW
++    static auto onSizeChange = [&](int width, int height) {
++        if (isRunning_) {
++            RSRenderThread::Instance().RequestNextVSync();
++        }
++    };
++    GlfwRenderContext::GetGlobal()->OnSizeChanged(onSizeChange);
++#endif
++
++#ifdef ROSEN_OHOS
++    FrameCollector::GetInstance().SetRepaintCallback([this]() { this->RequestNextVSync(); });
++
++    auto delegate = RSFunctionalDelegate::Create();
++    delegate->SetRepaintCallback([this]() { this->RequestNextVSync(); });
++    RSOverdrawController::GetInstance().SetDelegate(delegate);
++#endif
++
++#ifdef RES_CLINET_SCHED_ENABLE
++    auto ret = OHOS::QOS::SetThreadQos(OHOS::QOS::QosLevel::QOS_USER_INTERACTIVE);
++    RS_LOGI("RSRenderThread: SetThreadQos retcode = %{public}d", ret);
++#endif
++
++    if (runner_) {
++        runner_->Run();
++    }
++}
++
++void RSRenderThread::OnVsync(uint64_t timestamp, int64_t frameCount)
++{
++    ROSEN_TRACE_BEGIN(HITRACE_TAG_GRAPHIC_AGP, "RSRenderThread::OnVsync");
++#ifdef ROSEN_PREVIEW
++    isRunning_ = true;
++#endif
++    SendFrameEvent(false);
++    mValue = (mValue + 1) % 2; // 1 and 2 is Calculated parameters
++    RS_TRACE_INT("Vsync-client", mValue);
++    timestamp_ = timestamp;
++    if (activeWindowCnt_.load() > 0) {
++        mainFunc_(); // start render-loop now
++    }
++#ifdef ROSEN_PREVIEW
++    isRunning_ = false;
++#endif
++    ROSEN_TRACE_END(HITRACE_TAG_GRAPHIC_AGP);
++}
++
++void RSRenderThread::UpdateWindowStatus(bool active)
++{
++    if (active) {
++        activeWindowCnt_++;
++    } else {
++        activeWindowCnt_--;
++    }
++    ROSEN_LOGD("RSRenderThread UpdateWindowStatus %{public}d, cur activeWindowCnt_ %{public}d",
++        active, activeWindowCnt_.load());
++}
++
++void RSRenderThread::ProcessCommands()
++{
++    // Attention: there are two situations
++    // 1. when commandTimestamp_ != 0, it means that UIDirector has called
++    // "RSRenderThread::Instance().RequestNextVSync()", which equals there are some commands form UIThread need to be
++    // executed. To make commands from UIThread sync with buffer flushed by RenderThread, we choose commandTimestamp_ as
++    // uiTimestamp_ which would be used in RenderThreadVisitor when we call flushFrame.
++    // 2. when cmds_.empty() is true or commandTimestamp_ = 0,
++    // it means that some thread except UIThread like RSRenderThread::Animate
++    // has called "RSRenderThread::Instance().RequestNextVSync()", which equals that some commands form RenderThread
++    // need to be executed. To make commands from RenderThread sync with buffer flushed by RenderThread, we choose
++    // (prevTimestamp_ - 1) as uiTimestamp_ which would be used in RenderThreadVisitor when we call flushFrame.
++
++    // The reason why prevTimestamp_ need to be minus 1 is that timestamp used in UIThread is always less than (for now)
++    // timestamp used in RenderThread. If we do not do this, when RenderThread::Animate execute flushFrame and use
++    // prevTimestamp_ as buffer timestamp which equals T0, UIDirector send messages in the same vsync period, and the
++    // commandTimestamp_ would also be T0, RenderService would execute commands from UIDirector and composite buffer
++    // which rendering is executed by RSRenderThread::Animate for they have the same timestamp. To avoid this situation,
++    // we should always use "prevTimestamp_ - 1".
++
++    std::unique_lock<std::mutex> cmdLock(cmdMutex_);
++    if (cmds_.empty()) {
++        uiTimestamp_ = prevTimestamp_ - 1;
++        return;
++    }
++    if (RsFrameReport::GetInstance().GetEnable()) {
++        RsFrameReport::GetInstance().ProcessCommandsStart();
++    }
++
++    if (commandTimestamp_ != 0) {
++        uiTimestamp_ = commandTimestamp_;
++        commandTimestamp_ = 0;
++    } else {
++        uiTimestamp_ = prevTimestamp_ - 1;
++    }
++
++    ROSEN_LOGD("RSRenderThread ProcessCommands size: %{public}lu\n", (unsigned long)cmds_.size());
++    std::vector<std::unique_ptr<RSTransactionData>> cmds;
++#ifdef CROSS_PLATFORM
++    PrepareCommandForCrossPlatform(cmds);
++#else
++    std::swap(cmds, cmds_);
++#endif
++    cmdLock.unlock();
++
++    // To improve overall responsiveness, we make animations start on LAST frame instead of THIS frame.
++    // If last frame is too far away (earlier than 2 vsync from now), we use currentTimestamp_ - REFRESH_PERIOD as
++    // 'virtual' last frame timestamp.
++    if (timestamp_ - lastAnimateTimestamp_ > 2 * REFRESH_PERIOD) { // 2: if last frame is earlier than 2 vsync from now
++        context_->currentTimestamp_ = timestamp_ - REFRESH_PERIOD;
++    } else {
++        context_->currentTimestamp_ = lastAnimateTimestamp_;
++    }
++    uint64_t uiEndTimeStamp = jankDetector_->GetSysTimeNs();
++    for (auto& cmdData : cmds) {
++        std::string str = "ProcessCommands ptr:" + std::to_string(reinterpret_cast<uintptr_t>(cmdData.get()));
++        ROSEN_TRACE_BEGIN(HITRACE_TAG_GRAPHIC_AGP, str.c_str());
++        // only set transactionTimestamp_ in UniRender mode
++        context_->transactionTimestamp_ = RSSystemProperties::GetUniRenderEnabled() ? cmdData->GetTimestamp() : 0;
++        cmdData->Process(*context_);
++        jankDetector_->UpdateUiDrawFrameMsg(cmdData->GetTimestamp(), uiEndTimeStamp, cmdData->GetAbilityName());
++        ROSEN_TRACE_END(HITRACE_TAG_GRAPHIC_AGP);
++    }
++}
++
++#ifdef CROSS_PLATFORM
++void RSRenderThread::PrepareCommandForCrossPlatform(std::vector<std::unique_ptr<RSTransactionData>>& cmds)
++{
++    if (cmds_.empty()) {
++        return;
++    }
++    int index = 0;
++    uint64_t firstCmdTimestamp = cmds_[0]->GetTimestamp();
++    uint64_t lastCmdTimestamp = cmds_.back()->GetTimestamp();
++    while (index < cmds_.size()) {
++        if (cmds_[index]->GetTimestamp() <
++            std::max({timestamp_, firstCmdTimestamp + 1, lastCmdTimestamp})) {
++            index++;
++        } else {
++            break;
++        }
++    }
++    for (int i = 0; i < index; i++) {
++        cmds.emplace_back(std::move(cmds_[i]));
++    }
++
++    cmds_.erase(cmds_.begin(), cmds_.begin() + index);
++    if (!cmds_.empty()) {
++        RequestNextVSync();
++    }
++}
++#endif
++
++void RSRenderThread::Animate(uint64_t timestamp)
++{
++    RS_TRACE_FUNC();
++
++    if (RsFrameReport::GetInstance().GetEnable()) {
++        RsFrameReport::GetInstance().AnimateStart();
++    }
++
++    lastAnimateTimestamp_ = timestamp;
++
++    if (context_->animatingNodeList_.empty()) {
++        return;
++    }
++
++    bool needRequestNextVsync = false;
++    // isCalculateAnimationValue is embedded modify for stat animate frame drop
++    bool isCalculateAnimationValue = false;
++    // iterate and animate all animating nodes, remove if animation finished
++    EraseIf(context_->animatingNodeList_,
++        [timestamp, &needRequestNextVsync, &isCalculateAnimationValue](const auto& iter) -> bool {
++        auto node = iter.second.lock();
++        if (node == nullptr) {
++            ROSEN_LOGD("RSRenderThread::Animate removing expired animating node");
++            return true;
++        }
++        auto [hasRunningAnimation, nodeNeedRequestNextVsync, nodeCalculateAnimationValue] = node->Animate(timestamp);
++        if (!hasRunningAnimation) {
++            ROSEN_LOGD("RSRenderThread::Animate removing finished animating node %{public}" PRIu64, node->GetId());
++        }
++        needRequestNextVsync = needRequestNextVsync || nodeNeedRequestNextVsync;
++        isCalculateAnimationValue = isCalculateAnimationValue || nodeCalculateAnimationValue;
++        return !hasRunningAnimation;
++    });
++    if (!isCalculateAnimationValue && needRequestNextVsync) {
++        RS_TRACE_NAME("Animation running empty");
++    }
++
++    if (needRequestNextVsync) {
++        RSRenderThread::Instance().RequestNextVSync();
++    }
++}
++
++void RSRenderThread::Render()
++{
++    if (RSSystemProperties::GetRenderNodeTraceEnabled()) {
++        RSPropertyTrace::GetInstance().RefreshNodeTraceInfo();
++    }
++    ROSEN_TRACE_BEGIN(HITRACE_TAG_GRAPHIC_AGP, "RSRenderThread::Render");
++    if (RsFrameReport::GetInstance().GetEnable()) {
++        RsFrameReport::GetInstance().RenderStart(timestamp_);
++    }
++    std::unique_lock<std::mutex> lock(mutex_);
++    const auto& rootNode = context_->GetGlobalRootRenderNode();
++
++    if (rootNode == nullptr) {
++        ROSEN_LOGE("RSRenderThread::Render, rootNode is nullptr");
++        return;
++    }
++    if (visitor_ == nullptr) {
++        visitor_ = std::make_shared<RSRenderThreadVisitor>();
++    }
++    // get latest partial render status from system properties and set it to RTvisitor_
++    visitor_->SetPartialRenderStatus(RSSystemProperties::GetPartialRenderEnabled(), isRTRenderForced_);
++    rootNode->Prepare(visitor_);
++    rootNode->Process(visitor_);
++    ROSEN_TRACE_END(HITRACE_TAG_GRAPHIC_AGP);
++}
++
++void RSRenderThread::SendCommands()
++{
++    ROSEN_TRACE_BEGIN(HITRACE_TAG_GRAPHIC_AGP, "RSRenderThread::SendCommands");
++    if (RsFrameReport::GetInstance().GetEnable()) {
++        RsFrameReport::GetInstance().SendCommandsStart();
++    }
++
++    RSUIDirector::RecvMessages();
++    ROSEN_TRACE_END(HITRACE_TAG_GRAPHIC_AGP);
++}
++
++void RSRenderThread::Detach(NodeId id)
++{
++    if (auto node = context_->GetNodeMap().GetRenderNode<RSRootRenderNode>(id)) {
++        std::unique_lock<std::mutex> lock(mutex_);
++        context_->GetGlobalRootRenderNode()->RemoveChild(node);
++    }
++}
++
++void RSRenderThread::PostTask(RSTaskMessage::RSTask task)
++{
++    if (handler_) {
++        handler_->PostTask(task);
++    }
++}
++
++void RSRenderThread::PostSyncTask(RSTaskMessage::RSTask task)
++{
++    if (handler_) {
++        handler_->PostSyncTask(task, AppExecFwk::EventQueue::Priority::IMMEDIATE);
++    }
++}
++
++void RSRenderThread::PostPreTask()
++{
++    if (handler_ && preTask_) {
++        handler_->PostTask(preTask_);
++    }
++}
++} // namespace Rosen
++} // namespace OHOS
+diff --git a/rosen/modules/render_service_client/core/pipeline/rs_render_thread.h b/rosen/modules/render_service_client/core/pipeline/rs_render_thread.h
+new file mode 100644
+index 0000000000..af8104f7a3
+--- /dev/null
++++ b/rosen/modules/render_service_client/core/pipeline/rs_render_thread.h
+@@ -0,0 +1,198 @@
++/*
++ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *     http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++#ifndef RENDER_SERVICE_CLIENT_CORE_PIPELINE_RS_RENDER_THREAD_H
++#define RENDER_SERVICE_CLIENT_CORE_PIPELINE_RS_RENDER_THREAD_H
++
++#include <atomic>
++#include <condition_variable>
++#include <functional>
++#include <mutex>
++#include <thread>
++#include <unordered_map>
++#include <vector>
++#include <event_handler.h>
++
++#include "common/rs_thread_handler.h"
++#include "common/rs_thread_looper.h"
++#include "jank_detector/rs_jank_detector.h"
++#include "pipeline/rs_canvas_render_node.h"
++#include "pipeline/rs_render_thread_visitor.h"
++#include "platform/drawing/rs_vsync_client.h"
++#ifdef NEW_RENDER_CONTEXT
++#include "render_backend/render_context_factory.h"
++#include "drawing_context.h"
++#else
++#include "render_context/render_context.h"
++#endif
++#include "transaction/rs_transaction_proxy.h"
++#include "vsync_receiver.h"
++
++namespace OHOS {
++namespace Rosen {
++class HighContrastObserver;
++class RSRenderThread final {
++public:
++    static RSRenderThread& Instance();
++
++    void Start();
++    void Stop();
++
++    void Detach(NodeId id);
++    void RecvTransactionData(std::unique_ptr<RSTransactionData>& transactionData);
++    void RequestNextVSync();
++    void PostTask(RSTaskMessage::RSTask task);
++    void PostSyncTask(RSTaskMessage::RSTask task);
++    void PostPreTask();
++    void UpdateWindowStatus(bool active);
++
++    int32_t GetTid();
++
++    std::string DumpRenderTree() const;
++#ifdef NEW_RENDER_CONTEXT
++    std::shared_ptr<RenderContextBase> GetRenderContext() const
++    {
++        return renderContext_;
++    }
++    std::shared_ptr<DrawingContext> GetDrawingContext() const
++    {
++        return drawingContext_;
++    }
++#else
++    RenderContext* GetRenderContext()
++    {
++        return renderContext_;
++    }
++#endif
++    RSContext& GetContext()
++    {
++        return *context_;
++    }
++    const RSContext& GetContext() const
++    {
++        return *context_;
++    }
++    uint64_t GetUITimestamp() const
++    {
++        return uiTimestamp_;
++    }
++    void SetHighContrast(bool enabled)
++    {
++        isHighContrastEnabled_  = enabled;
++    }
++    bool isHighContrastEnabled() const
++    {
++        return isHighContrastEnabled_;
++    }
++    void SetCacheDir(const std::string& filePath)
++    {
++        cacheDir_ = filePath;
++    }
++
++    // If disabled partial render, rt forces to render whole frame
++    void SetRTRenderForced(bool isRenderForced)
++    {
++        if ((isRTRenderForced_ != isRenderForced)) {
++            isRTRenderForced_ = isRenderForced;
++        }
++    }
++
++    void AddSurfaceChangedCallBack(uint64_t id,
++        const std::function<void(float, float, float, float)>& callback)
++    {
++        if (visitor_ == nullptr) {
++            visitor_ = std::make_shared<RSRenderThreadVisitor>();
++        }
++        visitor_->AddSurfaceChangedCallBack(id, callback);
++    }
++
++    void RemoveSurfaceChangedCallBack(uint64_t id)
++    {
++        if (visitor_) {
++            visitor_->RemoveSurfaceChangedCallBack(id);
++        }
++    }
++
++private:
++    RSRenderThread();
++    ~RSRenderThread();
++
++    RSRenderThread(const RSRenderThread&) = delete;
++    RSRenderThread(const RSRenderThread&&) = delete;
++    RSRenderThread& operator=(const RSRenderThread&) = delete;
++    RSRenderThread& operator=(const RSRenderThread&&) = delete;
++
++    void RenderLoop();
++    void CreateAndInitRenderContextIfNeed();
++
++    void OnVsync(uint64_t timestamp, int64_t frameCount);
++    void ProcessCommands();
++    void Animate(uint64_t timestamp);
++    void Render();
++    void SendCommands();
++    void ReleasePixelMapInBackgroundThread();
++#ifdef CROSS_PLATFORM
++    void PrepareCommandForCrossPlatform(std::vector<std::unique_ptr<RSTransactionData>>& cmds);
++#endif
++
++    std::atomic_bool running_ = false;
++    std::atomic_bool hasSkipVsync_ = false;
++    std::atomic_int activeWindowCnt_ = 0;
++    std::unique_ptr<std::thread> thread_ = nullptr;
++    std::shared_ptr<AppExecFwk::EventRunner> runner_ = nullptr;
++    std::shared_ptr<AppExecFwk::EventHandler> handler_ = nullptr;
++    std::shared_ptr<VSyncReceiver> receiver_ = nullptr;
++    RSTaskMessage::RSTask preTask_ = nullptr;
++    RSTaskMessage::RSTask mainFunc_;
++
++    std::mutex mutex_;
++    std::mutex cmdMutex_;
++    std::mutex rtMutex_;
++    std::vector<std::unique_ptr<RSTransactionData>> cmds_;
++    bool hasRunningAnimation_ = false;
++    std::shared_ptr<RSRenderThreadVisitor> visitor_;
++
++    uint64_t timestamp_ = 0;
++    uint64_t prevTimestamp_ = 0;
++    uint64_t lastAnimateTimestamp_ = 0;
++    int32_t tid_ = -1;
++    uint64_t mValue = 0;
++
++    uint64_t uiTimestamp_ = 0;
++    uint64_t commandTimestamp_ = 0;
++
++    // for jank frame detector
++    std::shared_ptr<RSJankDetector> jankDetector_;
++
++    std::shared_ptr<RSContext> context_;
++
++#ifdef NEW_RENDER_CONTEXT
++    std::shared_ptr<RenderContextBase> renderContext_;
++    std::shared_ptr<Rosen::DrawingContext> drawingContext_;
++#else
++    RenderContext* renderContext_ = nullptr;
++#endif
++    std::shared_ptr<HighContrastObserver> highContrastObserver_;
++    std::atomic_bool isHighContrastEnabled_ = false;
++
++    std::string cacheDir_;
++    bool isRTRenderForced_ = false;
++#ifdef ROSEN_PREVIEW
++    std::atomic_bool isRunning_ = false;
++#endif
++};
++} // namespace Rosen
++} // namespace OHOS
++
++#endif // RENDER_SERVICE_CLIENT_CORE_PIPELINE_RS_RENDER_THREAD_H
+-- 
+2.25.1
+

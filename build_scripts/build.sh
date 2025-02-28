@@ -190,6 +190,21 @@ if [ -f ${SKIA_IMAGE_DATA} ]; then
 fi
 patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${FILLCOLOR_PATCH} -d ${ACE_ENGINE_DIRECTORY}
 
+
+GRAPHIC_2D_DIRECTORY=${SOURCE_ROOT_DIR}/foundation/graphic/graphic_2d
+GRAPHIC_2D_PATCH=${SOURCE_ROOT_DIR}/build_plugins/build_scripts/graphic_2d.patch
+RENDER_CPP_PATCH=${GRAPHIC_2D_DIRECTORY}/rosen/modules/render_service_client/core/pipeline/rs_render_thread.cpp
+RENDER_H_PATCH=${GRAPHIC_2D_DIRECTORY}/rosen/modules/render_service_client/core/pipeline/rs_render_thread.h
+
+if [ -f ${RENDER_CPP_PATCH} ]; then
+  rm -f ${RENDER_CPP_PATCH}
+fi
+
+if [ -f ${RENDER_H_PATCH} ]; then
+  rm -f ${RENDER_H_PATCH}
+fi
+patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${GRAPHIC_2D_PATCH} -d ${GRAPHIC_2D_DIRECTORY}
+
 ${PYTHON3} ${SOURCE_ROOT_DIR}/build/scripts/tools_checker.py
 
 flag=true
