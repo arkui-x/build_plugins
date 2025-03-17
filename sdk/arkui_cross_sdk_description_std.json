@@ -489,8 +489,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/mock/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_mock",
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:mock",
             "target_os": [
                 "linux",
                 "windows",
@@ -498,8 +498,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/modifier/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_modifier",
+           "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:ark_modifier",
             "target_os": [
                 "linux",
                 "windows",
@@ -1929,15 +1929,15 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_mock.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_mock",
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:mock",
             "target_os": [
                 "darwin"
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_modifier.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_modifier",
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:ark_modifier",
             "target_os": [
                 "darwin"
             ]
