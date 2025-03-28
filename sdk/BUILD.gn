@@ -14,6 +14,12 @@
 import("//build_plugins/sdk/sdk.gni")
 import("${build_configs_path}/platforms_list.gni")
 
+declare_args() {
+  build_target_os = ""  # "linux", "windows", "darwin"
+  build_target_arch = ""  # "arm", "arm64", "x86_64" ...
+  build_target_include = ""  # "libarkui_android" ...
+}
+
 parse_script = "//build_plugins/sdk/parse_sdk_description.py"
 arkui_cross_sdk_description_file =
     "//build_plugins/sdk/arkui_cross_sdk_description_std.json"
@@ -45,6 +51,27 @@ parse_args = [
   "--target-cpu",
   target_cpu,
 ]
+
+if (build_target_os != "") {
+  parse_args += [
+    "--build-target-os",
+    build_target_os,
+  ]
+}
+
+if (build_target_arch != "") {
+  parse_args += [
+    "--build-target-arch",
+    build_target_arch,
+  ]
+}
+
+if (build_target_include != "") {
+  parse_args += [
+    "--build-target-include",
+    build_target_include,
+  ]
+}
 
 foreach(p, target_platform_list) {
   parse_args += [

@@ -154,8 +154,15 @@ def expand_platform_targets(options, label, install_dir):
         return [label], [install_dir]
 
 
-def filter(arch_list, runtime_mode, gen_full_sdk, target_cpu):
+def filter(arch_list, runtime_mode, gen_full_sdk, target_cpu, build_target_arch=None):
     res = []
+
+    if build_target_arch:
+        for arch in arch_list:
+            if build_target_arch in arch and runtime_mode in arch:
+                res.append(arch)
+        return res
+    
     if gen_full_sdk:
         for arch in arch_list:
             res.append(arch.replace('-debug', ''))
@@ -180,13 +187,23 @@ def parse_description_file(options):
     sdk_items = []
     arch_dict = data.get('arch_dict')
     multi_arch_items = data.get(options.platform)
+
+    target_os_list = []
+    if hasattr(options, 'build_target_os') and options.build_target_os:
+        target_os_list = [options.build_target_os.lower()]
+    
     for item in multi_arch_items:
         install_dir = item.get('install_dir')
         module_label = item.get('module_label')
         target_os = item.get('target_os')
         for os_name in target_os:
+            if target_os_list and os_name.lower() not in target_os_list:
+                continue
+                
             arch_list = arch_dict.get(os_name)
-            arch_list = filter(arch_list, options.runtime_mode, options.gen_full_sdk, options.target_cpu)
+            arch_list = filter(arch_list, options.runtime_mode, options.gen_full_sdk, 
+                             options.target_cpu, 
+                             options.build_target_arch if hasattr(options, 'build_target_arch') else None)
             for arch in arch_list:
                 tmp_item = dict()
                 platform_arch = '{}-{}'.format(options.platform, arch)
@@ -240,7 +257,11 @@ def parse_description_file(options):
         for item in sdk_targets:
             if item['type'] == sdk_type:
                 for m in module_labels:
-                    add_target(item, m, target_os)
+                    if options.build_target_include:
+                        if options.build_target_include in m:
+                            add_target(item, m, target_os)
+                    else:
+                        add_target(item, m, target_os)
 
         for i in range(len(module_labels)):
             install_info = {
@@ -273,6 +294,9 @@ def main():
     parser.add_argument('--runtime-mode')
     parser.add_argument('--gen-full-sdk', action='store_true')
     parser.add_argument('--target-cpu')
+    parser.add_argument('--build-target-os', required=False, help='Specify target OS, e.g. linux, windows, darwin')
+    parser.add_argument('--build-target-arch', required=False, help='Specify target CPU, e.g. arm, arm64, x86_64')
+    parser.add_argument('--build-target-include', required=False, help='Specify target include, e.g. libarkui_android')
 
     options = parser.parse_args()
 
