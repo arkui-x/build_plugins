@@ -1288,6 +1288,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/hiviewdfx/hiappevent/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:hiviewdfx_hiappevent",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -2008,6 +2017,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkts_math_decimal.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkts_math_decimal",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libhiviewdfx_hiappevent.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhiviewdfx_hiappevent",
             "target_os": [
                 "darwin"
             ]
