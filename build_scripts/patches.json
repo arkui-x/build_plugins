@@ -1,0 +1,16 @@
+[
+    {
+        "repo": "foundation/arkui/ace_engine/",
+        "patches": [
+            {
+                "type": "commit",
+                "commit": "fbf75970baeabd71cea535b3e501ceed8f8a8b92",
+                "commitMessage": "fix dragleave regist method"
+            },
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/demo.diff"
+            }
+        ]
+    }
+]
