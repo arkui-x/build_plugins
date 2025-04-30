@@ -192,6 +192,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/include/native_window",
+            "module_label": "//interface/sdk:native_window",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api",
             "module_label": "//interface/sdk:api_apiconfig",
             "target_os": [
@@ -1397,6 +1406,13 @@
         {
             "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include/ace/xcomponent",
             "module_label": "//interface/sdk:ace_xcomponent_header",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include/native_window",
+            "module_label": "//interface/sdk:native_window",
             "target_os": [
                 "darwin"
             ]
