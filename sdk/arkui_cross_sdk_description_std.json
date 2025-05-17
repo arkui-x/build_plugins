@@ -994,6 +994,33 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_hash",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_streamhash",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_statvfs",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_photoaccesshelper",
             "target_os": [
                 "linux",
@@ -1632,13 +1659,34 @@
              ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_hash.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_hash",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_streamhash.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_streamhash",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_statvfs.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_statvfs",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_picker.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_picker",
             "target_os": [
                 "darwin"
              ]
         },
-	{
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_photoaccesshelper.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_photoaccesshelper",
             "target_os": [
