@@ -1396,6 +1396,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/fonts",
+            "module_label": "//interface/sdk:systemres_fonts",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -2200,6 +2209,13 @@
         {
             "install_dir":"arkui-x/plugins/api/framework/arch_type/liboverlay.framework",
             "module_label":"//foundation/arkui/ace_engine/adapter/ios/build:liboverlay",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/fonts",
+            "module_label": "//interface/sdk:systemres_fonts",
             "target_os": [
                 "darwin"
             ]
