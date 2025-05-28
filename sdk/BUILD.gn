@@ -105,6 +105,8 @@ generate_args = [
   rebase_path("./type_to_display_name.json", root_build_dir),
   "--api-version",
   arkuix_api_version,
+  "--full-api-version",
+  arkuix_full_api_version,
   "--release-type",
   arkuix_release_type,
   "--meta-version",
