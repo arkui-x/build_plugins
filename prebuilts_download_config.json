@@ -190,7 +190,7 @@
         },
         {
           "unzip_dir": "prebuilts/androidx",
-          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
+          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20250523.zip",
           "unzip_filename": "androidx"
         }
       ],
@@ -265,7 +265,7 @@
         },
         {
           "unzip_dir": "prebuilts/androidx",
-          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
+          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20250523.zip",
           "unzip_filename": "androidx"
         }
       ],
@@ -316,7 +316,7 @@
         },
         {
           "unzip_dir": "prebuilts/androidx",
-          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20240417.zip",
+          "file_path": "/arkui-crossplatform/compiler/androidx/androidx_20250523.zip",
           "unzip_filename": "androidx"
         }
       ],
