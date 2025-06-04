@@ -41,6 +41,7 @@ def main():
     parser.add_argument('--generated-sdk-modules-gni')
     parser.add_argument('--type2displayname')
     parser.add_argument('--api-version')
+    parser.add_argument('--full-api-version')
     parser.add_argument('--release-type')
     parser.add_argument('--meta-version')
 
@@ -96,6 +97,7 @@ foreach(os, sdk_systems) {
       displayName = "{{ _display_name }}"
       version = arkuix_current_sdk_version
       apiVersion = "{{ api_version }}"
+      fullApiVersion = "{{ full_api_version }}"
 
       {% if release_type != "" %}
       releaseType = "{{ release_type }}"
@@ -131,6 +133,7 @@ group("generated_arkui_cross_sdk") {
         sdk_systems=options.sdk_systems,
         display_name=read_display_name(options.type2displayname),
         api_version=options.api_version,
+        full_api_version=options.full_api_version,
         release_type=options.release_type,
         meta_version=options.meta_version,
         generated_sdk_modules_gni=options.generated_sdk_modules_gni)
