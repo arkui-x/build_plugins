@@ -1335,6 +1335,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/accessibility",
+            "module_label": "//plugins/accessibility/android/java:accessibility_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/accessibility/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:accessibility",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_dragcontroller",
             "target_os": [
@@ -2238,6 +2256,13 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:prefetcher",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libaccessibility.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libaccessibility",
             "target_os": [
                 "darwin"
             ]
