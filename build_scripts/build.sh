@@ -146,10 +146,10 @@ BUILD_DIRECTORY=${SOURCE_ROOT_DIR}/build
 BUILD_CXX_GNI=${BUILD_DIRECTORY}/templates/cxx/cxx.gni
 BUILD_PATCH=${SOURCE_ROOT_DIR}/build_plugins/build_scripts/arkui-x-build.patch
 
-if [ -f ${BUILD_CXX_GNI} ]; then
-  rm -f ${BUILD_CXX_GNI}
-fi
-patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${BUILD_PATCH} -d ${BUILD_DIRECTORY}
+# if [ -f ${BUILD_CXX_GNI} ]; then
+#   rm -f ${BUILD_CXX_GNI}
+# fi
+# patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${BUILD_PATCH} -d ${BUILD_DIRECTORY}
 
 ${PYTHON3} ${SOURCE_ROOT_DIR}/build/scripts/tools_checker.py
 
