@@ -60,6 +60,7 @@ config("compiler") {
   } else if (current_cpu == "arm64") {
     abi_target = "aarch64-linux-android"
     compile_api_level = aosp64_ndk_api_level
+    ldflags += [ "-Wl,-z,max-page-size=16384" ]
   } else if (current_cpu == "x86_64") {
     # Place holder for x64 support, not tested.
     abi_target = "x86_64-linux-android"
