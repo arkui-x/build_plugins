@@ -1,20 +1,9 @@
-From 9132c76ee8a507f5605a1403f1c09fb96db52a9e Mon Sep 17 00:00:00 2001
-From: txzhang94 <zhangtianxiang4@huawei.com>
-Date: Tue, 6 Aug 2024 11:54:53 +0000
-Subject: [PATCH 2/2] fix arkui-x build
-
-Change-Id: I8df634999d929b88374e82b0f9fe0afa066077be
----
- templates/cxx/cxx.gni | 1759 +++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 1759 insertions(+)
- create mode 100644 templates/cxx/cxx.gni
-
 diff --git a/templates/cxx/cxx.gni b/templates/cxx/cxx.gni
 new file mode 100644
-index 00000000..ff85eae9
+index 00000000..232b7e2d
 --- /dev/null
 +++ b/templates/cxx/cxx.gni
-@@ -0,0 +1,1759 @@
+@@ -0,0 +1,1802 @@
 +# Copyright (c) 2021 Huawei Device Co., Ltd.
 +# Licensed under the Apache License, Version 2.0 (the "License");
 +# you may not use this file except in compliance with the License.
@@ -50,6 +39,11 @@ index 00000000..ff85eae9
 +debug_level_configs = [
 +  "//build/config/compiler:symbols",
 +  "//build/config/compiler:no_optimize",
++]
++
++valid_lib_dirs_list = [
++  "*llvm*",
++  "*clang*"
 +]
 +
 +template("ohos_executable") {
@@ -406,6 +400,14 @@ index 00000000..ff85eae9
 +
 +    deps += [ ":${_collect_target}" ]
 +
++    if (defined(lib_dirs)) {
++      not_allow_lib_dirs = filter_exclude(lib_dirs, valid_lib_dirs_list)
++      if (defined(lib_dirs_whitelist)) {
++        not_allow_lib_dirs = filter_exclude(not_allow_lib_dirs, lib_dirs_whitelist)
++      }
++      assert(not_allow_lib_dirs == [],
++              "${target_name} has invalid lib_dirs value: $not_allow_lib_dirs")
++    }
 +    if (!defined(libs)) {
 +      libs = []
 +    }
@@ -765,6 +767,7 @@ index 00000000..ff85eae9
 +          "hdi_proxy",
 +          "innerapi",
 +          "napi",
++          "ani",
 +        ]
 +        foreach(t, filter_include(valid_types, [ invoker.shlib_type ])) {
 +          if (t == invoker.shlib_type) {
@@ -780,8 +783,11 @@ index 00000000..ff85eae9
 +        invalid = false
 +        valid_tags = [
 +          "ndk",
++          "llndk",
 +          "chipsetsdk",
 +          "chipsetsdk_indirect",
++          "chipsetsdk_sp",
++          "chipsetsdk_sp_indirect",
 +          "platformsdk",
 +          "platformsdk_indirect",
 +          "passthrough",
@@ -1203,6 +1209,15 @@ index 00000000..ff85eae9
 +      }
 +    }
 +
++    # Set version_script for ani libraries
++    if (defined(invoker.shlib_type) && invoker.shlib_type == "ani") {
++      if (!defined(invoker.version_script)) {
++        _version_script = rebase_path("//build/templates/cxx/ani.versionscript")
++        inputs += [ _version_script ]
++        ldflags += [ "-Wl,--version-script=${_version_script}" ]
++      }
++    }
++
 +    deps_info = []
 +    foreach(dep, deps) {
 +      info = {
@@ -1460,6 +1475,15 @@ index 00000000..ff85eae9
 +    }
 +    if (!_test_target) {
 +      deps += [ ":$_notice_target" ]
++    }
++
++    if (defined(lib_dirs)) {
++      not_allow_lib_dirs = filter_exclude(lib_dirs, valid_lib_dirs_list)
++      if (defined(lib_dirs_whitelist)) {
++        not_allow_lib_dirs = filter_exclude(not_allow_lib_dirs, lib_dirs_whitelist)
++      }
++      assert(not_allow_lib_dirs == [],
++              "${target_name} has invalid lib_dirs value: $not_allow_lib_dirs")
 +    }
 +    if (!defined(libs)) {
 +      libs = []
@@ -1734,6 +1758,14 @@ index 00000000..ff85eae9
 +      deps += [ ":$_notice_target" ]
 +    }
 +
++    if (defined(lib_dirs)) {
++      not_allow_lib_dirs = filter_exclude(lib_dirs, valid_lib_dirs_list)
++      if (defined(lib_dirs_whitelist)) {
++        not_allow_lib_dirs = filter_exclude(not_allow_lib_dirs, lib_dirs_whitelist)
++      }
++      assert(not_allow_lib_dirs == [],
++              "${target_name} has invalid lib_dirs value: $not_allow_lib_dirs")
++    }
 +    if (!defined(libs)) {
 +      libs = []
 +    }
@@ -1774,6 +1806,3 @@ index 00000000..ff85eae9
 +               "json")
 +  }
 +}
--- 
-2.25.1
-
