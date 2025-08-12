@@ -151,6 +151,11 @@ if [ -f ${BUILD_CXX_GNI} ]; then
 fi
 patch -p1 --fuzz=0 --no-backup-if-mismatch -i ${BUILD_PATCH} -d ${BUILD_DIRECTORY}
 
+${PYTHON3} ${SOURCE_ROOT_DIR}/build_plugins/build_scripts/apply_patch.py --source-root-dir ${SOURCE_ROOT_DIR}
+if [[ "$?" -ne 0 ]]; then
+  exit 1
+fi
+
 ${PYTHON3} ${SOURCE_ROOT_DIR}/build/scripts/tools_checker.py
 
 flag=true
