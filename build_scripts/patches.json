@@ -9,7 +9,7 @@
             },
             {
                 "type": "diff",
-                "commit": "build_plugins/build_scripts/demo.diff"
+                "commit": "build_plugins/build_scripts/webInterceptAndTextZoomRatio.diff"
             }
         ]
     }

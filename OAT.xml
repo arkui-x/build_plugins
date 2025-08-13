@@ -93,11 +93,13 @@ Note:If the text contains special characters, please escape them according to th
 				<filteritem type="filepath" name="config/ios/tools/copy_info_plist.py" desc="keep the flutter src copyright"/>
 				<filteritem type="filepath" name="templates/java/jar.py" desc="keep the chromium src copyright"/>
 				<filteritem type="filepath" name="toolchain/ios/linker_driver.py" desc="keep the chromium src copyright"/>
+				<filteritem type="filepath" name="build_scripts/webInterceptAndTextZoomRatio.diff" desc="keep the chromium src copyright"/>
 			</filefilter>
 			<filefilter name="defaultPolicyFilter" desc="License文件头校验策略的过滤条件" >
 				<filteritem type="filepath" name="config/ios/framework/Info.plist" desc="ios应用工程清单配置文件，示例展示无需添加License头"/>
 				<filteritem type="filepath" name="config/ios/framework/libarkui_ios.podspec" desc="pod配置文件，无需添加License头"/>
 				<filteritem type="filepath" name="config/ios/framework/module.modulemap" desc="ios应用工程配置文件，示例展示无需添加License头"/>
+				<filteritem type="filepath" name="build_scripts/webInterceptAndTextZoomRatio.diff" desc="diff文件，无需添加License头"/>
 			</filefilter>
 		</filefilterlist>
 	
