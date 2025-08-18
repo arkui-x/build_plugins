@@ -1,9 +1,9 @@
 diff --git a/templates/cxx/cxx.gni b/templates/cxx/cxx.gni
 new file mode 100644
-index 00000000..232b7e2d
+index 00000000..1c58aecf
 --- /dev/null
 +++ b/templates/cxx/cxx.gni
-@@ -0,0 +1,1802 @@
+@@ -0,0 +1,2137 @@
 +# Copyright (c) 2021 Huawei Device Co., Ltd.
 +# Licensed under the Apache License, Version 2.0 (the "License");
 +# you may not use this file except in compliance with the License.
@@ -95,6 +95,7 @@ index 00000000..232b7e2d
 +    target_path = get_label_info(":${target_name}", "label_no_toolchain")
 +    check_target(_check_target) {
 +      module_deps = []
++      module_ex_deps = []
 +      if (defined(invoker.deps)) {
 +        module_deps += invoker.deps
 +      }
@@ -102,7 +103,10 @@ index 00000000..232b7e2d
 +        module_deps += invoker.public_deps
 +      }
 +      if (defined(invoker.external_deps)) {
-+        module_ex_deps = invoker.external_deps
++        module_ex_deps += invoker.external_deps
++      }
++      if (defined(invoker.public_external_deps)) {
++        module_ex_deps += invoker.public_external_deps
 +      }
 +    }
 +  }
@@ -313,13 +317,21 @@ index 00000000..232b7e2d
 +    configs += [ ":$_security_config_target" ]
 +
 +    if (defined(invoker.use_exceptions) && invoker.use_exceptions) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_exceptions") {
++          configs -= [ "//build/config/compiler:no_exceptions" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:exceptions" ]
-+      configs -= [ "//build/config/compiler:no_exceptions" ]
 +    }
 +
 +    if (defined(invoker.use_rtti) && invoker.use_rtti) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_rtti") {
++          configs -= [ "//build/config/compiler:no_rtti" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:rtti" ]
-+      configs -= [ "//build/config/compiler:no_rtti" ]
 +    }
 +
 +    if (!defined(cflags)) {
@@ -330,28 +342,22 @@ index 00000000..232b7e2d
 +    pac_ret = false
 +    bti = false
 +    if (defined(invoker.branch_protector_ret)) {
-+      if (invoker.branch_protector_ret == "pac_ret") {
-+        # We need to remove stack_protector_ret_strong_config because it's conflict with pac-ret.
-+        foreach(config, configs) {
-+          if (config ==
-+              "//build/config/security:stack_protector_ret_strong_config") {
-+            configs -=
-+                [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          }
-+        }
++      if (invoker.branch_protector_ret == "pac_ret" ||
++          invoker.branch_protector_ret == "stack_protector_ret_all") {
 +        if (support_branch_protector_pac_ret) {
 +          pac_ret = true
-+        } else {
++        } else if (support_stack_protector_ret) {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
 +          configs +=
 +              [ "//build/config/security:stack_protector_ret_all_config" ]
 +        }
-+      }
-+
-+      if (support_stack_protector_ret &&
-+          invoker.branch_protector_ret == "stack_protector_ret_all") {
-+        configs -=
-+            [ "//build/config/security:stack_protector_ret_strong_config" ]
-+        configs += [ "//build/config/security:stack_protector_ret_all_config" ]
 +      }
 +
 +      # Nothing to do, supported by default.
@@ -359,16 +365,56 @@ index 00000000..232b7e2d
 +          invoker.branch_protector_ret == "stack_protector_ret_strong") {
 +      }
 +    } else {
-+      if (support_stack_protector_ret) {
-+        if (defined(invoker.stack_protector_ret)) {
-+          configs -=
-+              [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          if (invoker.stack_protector_ret) {
++      if (defined(invoker.stack_protector_ret)) {
++        if (invoker.stack_protector_ret) {
++          if (support_branch_protector_pac_ret) {
++            pac_ret = true
++          } else if (support_stack_protector_ret) {
++            foreach(config, configs) {
++              if (config ==
++                  "//build/config/security:stack_protector_ret_strong_config") {
++                configs -= [
++                  "//build/config/security:stack_protector_ret_strong_config",
++                ]
++              }
++            }
 +            configs +=
 +                [ "//build/config/security:stack_protector_ret_all_config" ]
-+          } else {
-+            configs += [ "//build/config/security:stack_protector_config" ]
 +          }
++        } else {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
++          configs += [ "//build/config/security:stack_protector_config" ]
++        }
++      }
++    }
++
++    if (defined(cflags)) {
++      foreach(cflag, cflags) {
++        if (cflag == "-fstack-protector-strong") {
++          cflags -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_c)) {
++      foreach(cflag_c, cflags_c) {
++        if (cflag_c == "-fstack-protector-strong") {
++          cflags_c -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_cc)) {
++      foreach(cflag_cc, cflags_cc) {
++        if (cflag_cc == "-fstack-protector-strong") {
++          cflags_cc -= [ "-fstack-protector-strong" ]
 +        }
 +      }
 +    }
@@ -380,10 +426,16 @@ index 00000000..232b7e2d
 +      }
 +    }
 +
++    if (!defined(ldflags)) {
++      ldflags = []
++    }
++
 +    if (bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key+bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (bti && !pac_ret) {
 +      cflags += [ "-mbranch-protection=bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (!bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key" ]
 +    }
@@ -413,9 +465,6 @@ index 00000000..232b7e2d
 +    }
 +    if (!defined(include_dirs)) {
 +      include_dirs = []
-+    }
-+    if (!defined(ldflags)) {
-+      ldflags = []
 +    }
 +
 +    if (defined(visibility) && visibility != []) {
@@ -584,6 +633,7 @@ index 00000000..232b7e2d
 +    target_path = get_label_info(":${target_name}", "label_no_toolchain")
 +    check_target(_check_target) {
 +      module_deps = []
++      module_ex_deps = []
 +      if (defined(invoker.deps)) {
 +        module_deps += invoker.deps
 +      }
@@ -591,7 +641,10 @@ index 00000000..232b7e2d
 +        module_deps += invoker.public_deps
 +      }
 +      if (defined(invoker.external_deps)) {
-+        module_ex_deps = invoker.external_deps
++        module_ex_deps += invoker.external_deps
++      }
++      if (defined(invoker.public_external_deps)) {
++        module_ex_deps += invoker.public_external_deps
 +      }
 +    }
 +  }
@@ -600,34 +653,114 @@ index 00000000..232b7e2d
 +  if (defined(invoker.innerapi_tags)) {
 +    is_chipsetsdk = false
 +    is_platformsdk = false
++    is_platformsdk_indirect = false
 +    is_passthrough = false
-+    foreach(tag, filter_include(invoker.innerapi_tags, [ "chipsetsdk*" ])) {
++    is_passthrough_indirect = false
++    is_llndk = false
++    is_chipsetsdk_indirect = false
++    is_chipsetsdk_sp = false
++    is_chipsetsdk_sp_indirect = false
++
++    foreach(tag, filter_include(invoker.innerapi_tags, [ "llndk" ])) {
++      is_llndk = true
++    }
++    foreach(tag, filter_include(invoker.innerapi_tags, [ "chipsetsdk" ])) {
 +      is_chipsetsdk = true
 +    }
-+    foreach(tag, filter_include(invoker.innerapi_tags, [ "platformsdk*" ])) {
++    foreach(tag,
++            filter_include(invoker.innerapi_tags, [ "chipsetsdk_indirect" ])) {
++      is_chipsetsdk_indirect = true
++    }
++    foreach(tag, filter_include(invoker.innerapi_tags, [ "chipsetsdk_sp" ])) {
++      is_chipsetsdk_sp = true
++    }
++    foreach(
++        tag,
++        filter_include(invoker.innerapi_tags, [ "chipsetsdk_sp_indirect" ])) {
++      is_chipsetsdk_sp_indirect = true
++    }
++    foreach(tag, filter_include(invoker.innerapi_tags, [ "platformsdk" ])) {
 +      is_platformsdk = true
 +    }
-+    foreach(tag, filter_include(invoker.innerapi_tags, [ "passthrough*" ])) {
++    foreach(tag,
++            filter_include(invoker.innerapi_tags, [ "platformsdk_indirect" ])) {
++      is_platformsdk_indirect = true
++    }
++    foreach(tag, filter_include(invoker.innerapi_tags, [ "passthrough" ])) {
 +      is_passthrough = true
 +    }
-+
-+    if (is_chipsetsdk && is_platformsdk) {
-+      auto_relative_install_dir = "chipset-pub-sdk"
-+    } else if (is_chipsetsdk) {
-+      auto_relative_install_dir = "chipset-sdk"
-+    } else if (is_platformsdk) {
-+      auto_relative_install_dir = "platformsdk"
++    foreach(tag,
++            filter_include(invoker.innerapi_tags, [ "passthrough_indirect" ])) {
++      is_passthrough_indirect = true
 +    }
++
++    if (is_chipsetsdk && (is_chipsetsdk_indirect || is_chipsetsdk_sp || is_chipsetsdk_sp_indirect)) {
++      assert(false, "chipsetsdk tags cannot coexist with [chipsetsdk_indirect,chipsetsdk_sp,chipsetsdk_sp_indirect]")
++    } else if (is_chipsetsdk_indirect && (is_chipsetsdk || is_chipsetsdk_sp || is_chipsetsdk_sp_indirect)) {
++      assert(false, "chipsetsdk_indirect tags cannot coexist with [chipsetsdk,chipsetsdk_sp,chipsetsdk_sp_indirect]")
++    } else if (is_chipsetsdk_sp && (is_chipsetsdk || is_chipsetsdk_indirect || is_chipsetsdk_sp_indirect)) {
++      assert(false, "chipsetsdk_sp tags cannot coexist with [chipsetsdk,chipsetsdk_indirect,chipsetsdk_sp_indirect]")
++    } else if (is_chipsetsdk_sp_indirect && (is_chipsetsdk || is_chipsetsdk_sp || is_chipsetsdk_indirect)) {
++      assert(false, "chipsetsdk_sp_indirect tags cannot coexist with [chipsetsdk,chipsetsdk_indirect,chipsetsdk_sp]")
++    }
++
++    if (is_platformsdk) {
++      auto_relative_install_dir = platformsdk_dir
++    }
++
++    if (is_platformsdk_indirect) {
++      auto_relative_install_dir = platformsdk_dir
++    }
++
++    if (is_chipsetsdk) {
++      auto_relative_install_dir = chipset_sdk_dir
++      if (is_platformsdk || is_platformsdk_indirect) {
++        softlink_path = platformsdk_dir
++      }
++    }
++
++    if (is_chipsetsdk_indirect) {
++      auto_relative_install_dir = chipset_sdk_dir
++      if (is_platformsdk || is_platformsdk_indirect) {
++        softlink_path = platformsdk_dir
++      }
++    }
++
++    if (is_chipsetsdk_sp) {
++      auto_relative_install_dir = chipset_sdk_sp_dir
++      if (is_platformsdk || is_platformsdk_indirect) {
++        softlink_path = platformsdk_dir
++      }
++    }
++
++    if (is_chipsetsdk_sp_indirect) {
++      auto_relative_install_dir = chipset_sdk_sp_dir
++      if (is_platformsdk || is_platformsdk_indirect) {
++        softlink_path = platformsdk_dir
++      }
++    }
++
 +    if (is_passthrough) {
-+      auto_relative_install_dir = chipset_passthrough_dir
++      auto_relative_install_dir = passthrough_dir
++    }
++    if (is_passthrough_indirect) {
++      auto_relative_install_dir = passthrough_indirect_dir
 +    }
 +
++    if (is_llndk) {
++      auto_relative_install_dir = llndk_dir
++    }
 +    is_ndk = false
 +    foreach(tag, filter_include(invoker.innerapi_tags, [ "ndk" ])) {
 +      is_ndk = true
 +    }
 +    if (is_ndk) {
-+      auto_relative_install_dir = "ndk"
++      if (is_llndk) {
++        softlink_path = ndk_dir
++        auto_relative_install_dir = llndk_dir
++      } else {
++        auto_relative_install_dir = ndk_dir
++      } 
 +    }
 +  }
 +
@@ -753,6 +886,12 @@ index 00000000..232b7e2d
 +      # update relative_install_dir if relative_install_dir defined in BUILD.gn
 +      if (defined(invoker.relative_install_dir)) {
 +        relative_install_dir = invoker.relative_install_dir
++      }
++
++      if (defined(invoker.innerapi_tags)) {
++        if (defined(softlink_path) && softlink_path != "") {
++          softlink_create_path = softlink_path
++        }
 +      }
 +
 +      # Passing shlib_type and innerapi_tags to generate_module_info
@@ -895,13 +1034,21 @@ index 00000000..232b7e2d
 +    configs += [ ":$_security_config_target" ]
 +
 +    if (defined(invoker.use_exceptions) && invoker.use_exceptions) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_exceptions") {
++          configs -= [ "//build/config/compiler:no_exceptions" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:exceptions" ]
-+      configs -= [ "//build/config/compiler:no_exceptions" ]
 +    }
 +
 +    if (defined(invoker.use_rtti) && invoker.use_rtti) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_rtti") {
++          configs -= [ "//build/config/compiler:no_rtti" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:rtti" ]
-+      configs -= [ "//build/config/compiler:no_rtti" ]
 +    }
 +
 +    if (!defined(cflags)) {
@@ -919,28 +1066,22 @@ index 00000000..232b7e2d
 +    pac_ret = false
 +    bti = false
 +    if (defined(invoker.branch_protector_ret)) {
-+      if (invoker.branch_protector_ret == "pac_ret") {
-+        # We need to remove stack_protector_ret_strong_config because it's conflict with pac-ret.
-+        foreach(config, configs) {
-+          if (config ==
-+              "//build/config/security:stack_protector_ret_strong_config") {
-+            configs -=
-+                [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          }
-+        }
++      if (invoker.branch_protector_ret == "pac_ret" ||
++          invoker.branch_protector_ret == "stack_protector_ret_all") {
 +        if (support_branch_protector_pac_ret) {
 +          pac_ret = true
-+        } else {
++        } else if (support_stack_protector_ret) {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
 +          configs +=
 +              [ "//build/config/security:stack_protector_ret_all_config" ]
 +        }
-+      }
-+
-+      if (support_stack_protector_ret &&
-+          invoker.branch_protector_ret == "stack_protector_ret_all") {
-+        configs -=
-+            [ "//build/config/security:stack_protector_ret_strong_config" ]
-+        configs += [ "//build/config/security:stack_protector_ret_all_config" ]
 +      }
 +
 +      # Nothing to do, supported by default.
@@ -948,16 +1089,32 @@ index 00000000..232b7e2d
 +          invoker.branch_protector_ret == "stack_protector_ret_strong") {
 +      }
 +    } else {
-+      if (support_stack_protector_ret) {
-+        if (defined(invoker.stack_protector_ret)) {
-+          configs -=
-+              [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          if (invoker.stack_protector_ret) {
++      if (defined(invoker.stack_protector_ret)) {
++        if (invoker.stack_protector_ret) {
++          if (support_branch_protector_pac_ret) {
++            pac_ret = true
++          } else if (support_stack_protector_ret) {
++            foreach(config, configs) {
++              if (config ==
++                  "//build/config/security:stack_protector_ret_strong_config") {
++                configs -= [
++                  "//build/config/security:stack_protector_ret_strong_config",
++                ]
++              }
++            }
 +            configs +=
 +                [ "//build/config/security:stack_protector_ret_all_config" ]
-+          } else {
-+            configs += [ "//build/config/security:stack_protector_config" ]
 +          }
++        } else {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
++          configs += [ "//build/config/security:stack_protector_config" ]
 +        }
 +      }
 +    }
@@ -969,10 +1126,36 @@ index 00000000..232b7e2d
 +      }
 +    }
 +
++    if (defined(cflags)) {
++      foreach(cflag, cflags) {
++        if (cflag == "-fstack-protector-strong") {
++          cflags -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_c)) {
++      foreach(cflag_c, cflags_c) {
++        if (cflag_c == "-fstack-protector-strong") {
++          cflags_c -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_cc)) {
++      foreach(cflag_cc, cflags_cc) {
++        if (cflag_cc == "-fstack-protector-strong") {
++          cflags_cc -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
 +    if (bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key+bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (bti && !pac_ret) {
 +      cflags += [ "-mbranch-protection=bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (!bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key" ]
 +    }
@@ -1087,8 +1270,13 @@ index 00000000..232b7e2d
 +      ]
 +    }
 +
-+    if (!defined(ldflags)) {
-+      ldflags = []
++    if (defined(lib_dirs)) {
++      not_allow_lib_dirs = filter_exclude(lib_dirs, valid_lib_dirs_list)
++      if (defined(lib_dirs_whitelist)) {
++        not_allow_lib_dirs = filter_exclude(not_allow_lib_dirs, lib_dirs_whitelist)
++      }
++      assert(not_allow_lib_dirs == [],
++              "${target_name} has invalid lib_dirs value: $not_allow_lib_dirs")
 +    }
 +    if (!defined(libs)) {
 +      libs = []
@@ -1127,7 +1315,6 @@ index 00000000..232b7e2d
 +          libs += [ "unwind" ]
 +        }
 +
-+        libs += [ rebase_path(libclang_rt_file) ]
 +        if (target_name != "libpcre2" && target_name != "libselinux" &&
 +            target_name != "libsec_shared" && target_name != "libsepol") {
 +          libs += [ "c++" ]
@@ -1285,6 +1472,7 @@ index 00000000..232b7e2d
 +    target_path = get_label_info(":${target_name}", "label_no_toolchain")
 +    check_target(_check_target) {
 +      module_deps = []
++      module_ex_deps = []
 +      if (defined(invoker.deps)) {
 +        module_deps += invoker.deps
 +      }
@@ -1292,7 +1480,10 @@ index 00000000..232b7e2d
 +        module_deps += invoker.public_deps
 +      }
 +      if (defined(invoker.external_deps)) {
-+        module_ex_deps = invoker.external_deps
++        module_ex_deps += invoker.external_deps
++      }
++      if (defined(invoker.public_external_deps)) {
++        module_ex_deps += invoker.public_external_deps
 +      }
 +    }
 +  }
@@ -1388,13 +1579,21 @@ index 00000000..232b7e2d
 +    configs += [ ":$_security_config_target" ]
 +
 +    if (defined(invoker.use_exceptions) && invoker.use_exceptions) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_exceptions") {
++          configs -= [ "//build/config/compiler:no_exceptions" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:exceptions" ]
-+      configs -= [ "//build/config/compiler:no_exceptions" ]
 +    }
 +
 +    if (defined(invoker.use_rtti) && invoker.use_rtti) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_rtti") {
++          configs -= [ "//build/config/compiler:no_rtti" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:rtti" ]
-+      configs -= [ "//build/config/compiler:no_rtti" ]
 +    }
 +
 +    if (!defined(cflags)) {
@@ -1405,28 +1604,22 @@ index 00000000..232b7e2d
 +    pac_ret = false
 +    bti = false
 +    if (defined(invoker.branch_protector_ret)) {
-+      if (invoker.branch_protector_ret == "pac_ret") {
-+        # We need to remove stack_protector_ret_strong_config because it's conflict with pac-ret.
-+        foreach(config, configs) {
-+          if (config ==
-+              "//build/config/security:stack_protector_ret_strong_config") {
-+            configs -=
-+                [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          }
-+        }
++      if (invoker.branch_protector_ret == "pac_ret" ||
++          invoker.branch_protector_ret == "stack_protector_ret_all") {
 +        if (support_branch_protector_pac_ret) {
 +          pac_ret = true
-+        } else {
++        } else if (support_stack_protector_ret) {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
 +          configs +=
 +              [ "//build/config/security:stack_protector_ret_all_config" ]
 +        }
-+      }
-+
-+      if (support_stack_protector_ret &&
-+          invoker.branch_protector_ret == "stack_protector_ret_all") {
-+        configs -=
-+            [ "//build/config/security:stack_protector_ret_strong_config" ]
-+        configs += [ "//build/config/security:stack_protector_ret_all_config" ]
 +      }
 +
 +      # Nothing to do, supported by default.
@@ -1434,16 +1627,56 @@ index 00000000..232b7e2d
 +          invoker.branch_protector_ret == "stack_protector_ret_strong") {
 +      }
 +    } else {
-+      if (support_stack_protector_ret) {
-+        if (defined(invoker.stack_protector_ret)) {
-+          configs -=
-+              [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          if (invoker.stack_protector_ret) {
++      if (defined(invoker.stack_protector_ret)) {
++        if (invoker.stack_protector_ret) {
++          if (support_branch_protector_pac_ret) {
++            pac_ret = true
++          } else if (support_stack_protector_ret) {
++            foreach(config, configs) {
++              if (config ==
++                  "//build/config/security:stack_protector_ret_strong_config") {
++                configs -= [
++                  "//build/config/security:stack_protector_ret_strong_config",
++                ]
++              }
++            }
 +            configs +=
 +                [ "//build/config/security:stack_protector_ret_all_config" ]
-+          } else {
-+            configs += [ "//build/config/security:stack_protector_config" ]
 +          }
++        } else {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
++          configs += [ "//build/config/security:stack_protector_config" ]
++        }
++      }
++    }
++
++    if (defined(cflags)) {
++      foreach(cflag, cflags) {
++        if (cflag == "-fstack-protector-strong") {
++          cflags -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_c)) {
++      foreach(cflag_c, cflags_c) {
++        if (cflag_c == "-fstack-protector-strong") {
++          cflags_c -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_cc)) {
++      foreach(cflag_cc, cflags_cc) {
++        if (cflag_cc == "-fstack-protector-strong") {
++          cflags_cc -= [ "-fstack-protector-strong" ]
 +        }
 +      }
 +    }
@@ -1455,10 +1688,16 @@ index 00000000..232b7e2d
 +      }
 +    }
 +
++    if (!defined(ldflags)) {
++      ldflags = []
++    }
++
 +    if (bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key+bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (bti && !pac_ret) {
 +      cflags += [ "-mbranch-protection=bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (!bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key" ]
 +    }
@@ -1567,6 +1806,7 @@ index 00000000..232b7e2d
 +    target_path = get_label_info(":${target_name}", "label_no_toolchain")
 +    check_target(_check_target) {
 +      module_deps = []
++      module_ex_deps = []
 +      if (defined(invoker.deps)) {
 +        module_deps += invoker.deps
 +      }
@@ -1574,7 +1814,10 @@ index 00000000..232b7e2d
 +        module_deps += invoker.public_deps
 +      }
 +      if (defined(invoker.external_deps)) {
-+        module_ex_deps = invoker.external_deps
++        module_ex_deps += invoker.external_deps
++      }
++      if (defined(invoker.public_external_deps)) {
++        module_ex_deps += invoker.public_external_deps
 +      }
 +    }
 +  }
@@ -1669,13 +1912,21 @@ index 00000000..232b7e2d
 +    configs += [ ":$_security_config_target" ]
 +
 +    if (defined(invoker.use_exceptions) && invoker.use_exceptions) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_exceptions") {
++          configs -= [ "//build/config/compiler:no_exceptions" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:exceptions" ]
-+      configs -= [ "//build/config/compiler:no_exceptions" ]
 +    }
 +
 +    if (defined(invoker.use_rtti) && invoker.use_rtti) {
++      foreach(config, configs) {
++        if (config == "//build/config/compiler:no_rtti") {
++          configs -= [ "//build/config/compiler:no_rtti" ]
++        }
++      }
 +      configs += [ "//build/config/compiler:rtti" ]
-+      configs -= [ "//build/config/compiler:no_rtti" ]
 +    }
 +
 +    if (!defined(cflags)) {
@@ -1686,28 +1937,22 @@ index 00000000..232b7e2d
 +    pac_ret = false
 +    bti = false
 +    if (defined(invoker.branch_protector_ret)) {
-+      if (invoker.branch_protector_ret == "pac_ret") {
-+        # We need to remove stack_protector_ret_strong_config because it's conflict with pac-ret.
-+        foreach(config, configs) {
-+          if (config ==
-+              "//build/config/security:stack_protector_ret_strong_config") {
-+            configs -=
-+                [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          }
-+        }
++      if (invoker.branch_protector_ret == "pac_ret" ||
++          invoker.branch_protector_ret == "stack_protector_ret_all") {
 +        if (support_branch_protector_pac_ret) {
 +          pac_ret = true
-+        } else {
++        } else if (support_stack_protector_ret) {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
 +          configs +=
 +              [ "//build/config/security:stack_protector_ret_all_config" ]
 +        }
-+      }
-+
-+      if (support_stack_protector_ret &&
-+          invoker.branch_protector_ret == "stack_protector_ret_all") {
-+        configs -=
-+            [ "//build/config/security:stack_protector_ret_strong_config" ]
-+        configs += [ "//build/config/security:stack_protector_ret_all_config" ]
 +      }
 +
 +      # Nothing to do, supported by default.
@@ -1715,16 +1960,56 @@ index 00000000..232b7e2d
 +          invoker.branch_protector_ret == "stack_protector_ret_strong") {
 +      }
 +    } else {
-+      if (support_stack_protector_ret) {
-+        if (defined(invoker.stack_protector_ret)) {
-+          configs -=
-+              [ "//build/config/security:stack_protector_ret_strong_config" ]
-+          if (invoker.stack_protector_ret) {
++      if (defined(invoker.stack_protector_ret)) {
++        if (invoker.stack_protector_ret) {
++          if (support_branch_protector_pac_ret) {
++            pac_ret = true
++          } else if (support_stack_protector_ret) {
++            foreach(config, configs) {
++              if (config ==
++                  "//build/config/security:stack_protector_ret_strong_config") {
++                configs -= [
++                  "//build/config/security:stack_protector_ret_strong_config",
++                ]
++              }
++            }
 +            configs +=
 +                [ "//build/config/security:stack_protector_ret_all_config" ]
-+          } else {
-+            configs += [ "//build/config/security:stack_protector_config" ]
 +          }
++        } else {
++          foreach(config, configs) {
++            if (config ==
++                "//build/config/security:stack_protector_ret_strong_config") {
++              configs -= [
++                "//build/config/security:stack_protector_ret_strong_config",
++              ]
++            }
++          }
++          configs += [ "//build/config/security:stack_protector_config" ]
++        }
++      }
++    }
++
++    if (defined(cflags)) {
++      foreach(cflag, cflags) {
++        if (cflag == "-fstack-protector-strong") {
++          cflags -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_c)) {
++      foreach(cflag_c, cflags_c) {
++        if (cflag_c == "-fstack-protector-strong") {
++          cflags_c -= [ "-fstack-protector-strong" ]
++        }
++      }
++    }
++
++    if (defined(cflags_cc)) {
++      foreach(cflag_cc, cflags_cc) {
++        if (cflag_cc == "-fstack-protector-strong") {
++          cflags_cc -= [ "-fstack-protector-strong" ]
 +        }
 +      }
 +    }
@@ -1736,10 +2021,16 @@ index 00000000..232b7e2d
 +      }
 +    }
 +
++    if (!defined(ldflags)) {
++      ldflags = []
++    }
++
 +    if (bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key+bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (bti && !pac_ret) {
 +      cflags += [ "-mbranch-protection=bti" ]
++      ldflags += [ "-Wl,-z,force-bti" ]
 +    } else if (!bti && pac_ret) {
 +      cflags += [ "-mbranch-protection=pac-ret+b-key" ]
 +    }
@@ -1804,5 +2095,49 @@ index 00000000..232b7e2d
 +    write_file("${target_out_dir}/${target_name}_deps_data.json",
 +               target_deps_data,
 +               "json")
++  }
++}
++
++template("ohos_shared_headers") {
++  assert(!defined(invoker.sources), "sources is not allowed to be defined.")
++  assert(defined(invoker.include_dirs), "include_dirs is must to be defined.")
++  assert(defined(invoker.subsystem_name), "subsystem_name is must to be defined.")
++  assert(defined(invoker.part_name), "part_name is must to be defined.")
++
++  if (defined(is_arkui_x) && is_arkui_x && defined(invoker.external_deps)) {
++    invoker.external_deps = []
++  }
++
++  deps_inner = []
++  if (defined(invoker.deps)) {
++    foreach(dep, invoker.deps) {
++      deps_inner += [ dep ]
++    }
++  }
++
++  if (defined(invoker.subsystem_name)) {
++    subsystem_name = invoker.subsystem_name
++  }
++
++  if (defined(invoker.part_name)) {
++    part_name = invoker.part_name
++  }
++
++  not_needed([ "subsystem_name", "part_name" ])
++
++  include_inner = []
++  foreach(include_dir, invoker.include_dirs) {
++    include_inner += [ include_dir ]
++  }
++  config("${target_name}_public_config") {
++    include_dirs = include_inner
++  }
++
++  group("${target_name}") {
++    if(!is_arkui_x){
++      check_flag = false
++    }
++    deps = deps_inner
++    public_configs = [ ":${target_name}_public_config" ]
 +  }
 +}
