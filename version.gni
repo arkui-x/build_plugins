@@ -13,11 +13,11 @@
 
 # ArkUI-X version
 declare_args() {
-  arkuix_sdk_version = "6.0.0.47"
+  arkuix_sdk_version = "6.0.0.48"
   arkuix_api_version = "20"
 
   # Release type, optional values: Betax, RCx...
-  arkuix_release_type = "Release"
+  arkuix_release_type = "Beta5"
   arkuix_meta_version = "1.0.0"
   arkuix_platform_version = "4.0.0"
 }
