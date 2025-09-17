@@ -1,1 +1,53 @@
-[]
+[
+    {
+        "repo": "foundation/graphic/graphic_2d/",
+        "patches": [
+            {
+                "type": "commit",
+                "commit": "fa6217e6b331ba1c3f02595fb90108b36190e340",
+                "commitMessage": "60releaseDivideFix",
+                "pr":"https://gitee.com/openharmony/graphic_graphic_2d/pulls/25126"
+            },
+            {
+                "type": "commit",
+                "commit": "b47cd2c2dde54c0502d8919b182195844e8da2e6",
+                "commitMessage": "同层渲染每帧结束时释放资源",
+                "pr":"https://gitee.com/openharmony/graphic_graphic_2d/pulls/25167"
+            },
+            {
+                "type": "commit",
+                "commit": "1846be6bef422985f82e86fbbf771c7aa768564b",
+                "commitMessage": "Log整改",
+                "pr":"https://gitee.com/openharmony/graphic_graphic_2d/pulls/25216"
+            },
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/graphic_2d_25244.diff",
+                "commitMessage": "fix rs codecheck",
+                "pr":"https://gitcode.com/openharmony/graphic_graphic_2d/pull/25507"
+            }
+        ]
+    },
+    {
+        "repo": "foundation/multimedia/image_framework/",
+        "patches": [
+            {
+                "type": "commit",
+                "commit": "ca46c2bc7c1457c557df9ef32aa4f2ac02c7eb64",
+                "commitMessage": "修复跨平台image xts测试套失败",
+                "pr":"https://gitee.com/openharmony/multimedia_image_framework/pulls/4468"
+            }
+        ]
+    },
+    {
+        "repo": "third_party/curl/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/third_party_curl_340.diff",
+                "commitMessage": "fix CVE-2025-9086",
+                "pr":"https://gitcode.com/openharmony/third_party_curl/pull/344"
+            }
+        ]
+    }
+]
