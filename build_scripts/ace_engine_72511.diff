@@ -1,0 +1,132 @@
+diff --git a/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp b/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp
+index a94640236e33422376b92602402b01b09d0495f5..0f483c4c91594ec935ecb21856748deaa5e4db06 100644
+--- a/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp
++++ b/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp
+@@ -5143,6 +5143,13 @@ void TextFieldPattern::ExecuteInsertValueCommand(const InsertCommandInfo& info)
+     auto isIME = (info.reason == InputReason::IME);
+     auto layoutProperty = GetLayoutProperty<TextFieldLayoutProperty>();
+     CHECK_NULL_VOID(layoutProperty);
++#if defined(IOS_PLATFORM)
++    if (info.compose.isActive && (insertValue.length() > 0 || info.unmarkText)) {
++        auto composeStart = info.compose.start;
++        auto composeEnd = info.compose.end;
++        DeleteByRange(composeStart, composeEnd);
++    }
++#endif
+     TwinklingByFocus();
+     auto start = selectController_->GetStartIndex();
+     auto end = selectController_->GetEndIndex();
+@@ -5791,13 +5798,18 @@ bool TextFieldPattern::CursorMoveDown()
+     return false;
+ }
+ 
+-void TextFieldPattern::Delete(int32_t start, int32_t end)
++void TextFieldPattern::DeleteByRange(int32_t& start, int32_t& end)
+ {
+     SwapIfLarger(start, end);
+     TAG_LOGI(AceLogTag::ACE_TEXT_FIELD, "Handle Delete within [%{public}d, %{public}d]", start, end);
+     contentController_->erase(start, end - start);
+     UpdateSelection(start);
+     selectController_->MoveCaretToContentRect(start);
++}
++
++void TextFieldPattern::Delete(int32_t start, int32_t end)
++{
++    DeleteByRange(start, end);
+     if (isLongPress_) {
+         CancelGestureSelection();
+     }
+@@ -5964,6 +5976,22 @@ void TextFieldPattern::UpdateEditingValue(const std::shared_ptr<TextEditingValue
+             value->selection.baseOffset -= deleteSize;
+         }
+     }
++#ifdef CROSS_PLATFORM
++    if (value->isDelete) {
++        HandleOnDelete(true);
++        return;
++    } else {
++#ifdef IOS_PLATFORM
++        compose_ = value->compose;
++        unmarkText_ = value->unmarkText;
++#endif
++        if (value->appendText.empty()) {
++            return;
++        }
++        InsertValue(UtfUtils::Str8DebugToStr16(value->appendText), true);
++        return;
++    }
++#endif
+ #endif
+     UpdateEditingValueToRecord();
+     contentController_->SetTextValue(result);
+@@ -10882,6 +10910,12 @@ void TextFieldPattern::AddInsertCommand(const std::u16string& insertValue, Input
+     InsertCommandInfo info;
+     info.insertValue = insertValue;
+     info.reason = reason;
++#if defined(IOS_PLATFORM)
++    info.compose.start = compose_.GetStart();
++    info.compose.end = compose_.GetEnd();
++    info.compose.isActive = compose_.IsValid();
++    info.unmarkText = unmarkText_;
++#endif
+     insertCommands_.emplace(info);
+     CloseSelectOverlay(true);
+     ScrollToSafeArea();
+diff --git a/frameworks/core/components_ng/pattern/text_field/text_field_pattern.h b/frameworks/core/components_ng/pattern/text_field/text_field_pattern.h
+index fa1e9faf41f55d79b8c56acbd74e384718f3caea..81fd05abb38444c2dd180bbaf289cc01302e07d5 100644
+--- a/frameworks/core/components_ng/pattern/text_field/text_field_pattern.h
++++ b/frameworks/core/components_ng/pattern/text_field/text_field_pattern.h
+@@ -192,9 +192,21 @@ struct PreviewTextInfo {
+     bool isIme;
+ };
+ 
++#if defined(IOS_PLATFORM)
++struct InsertCommandComposeInfo {
++    int32_t start;
++    int32_t end;
++    bool isActive;
++};
++#endif
++
+ struct InsertCommandInfo {
+     std::u16string insertValue;
+     InputReason reason;
++#if defined(IOS_PLATFORM)
++    InsertCommandComposeInfo compose;
++    bool unmarkText;
++#endif
+ };
+ 
+ struct InputCommandInfo {
+@@ -1591,6 +1603,7 @@ public:
+     void DeleteRange(int32_t start, int32_t end, bool isIME = true) override;
+ 
+     void DeleteTextRange(int32_t start, int32_t end, TextDeleteDirection direction);
++    void DeleteByRange(int32_t& start, int32_t& end);
+ 
+     bool SetCaretOffset(int32_t caretPostion) override;
+ 
+@@ -2269,6 +2282,11 @@ private:
+     OverflowMode lastOverflowMode_ = OverflowMode::SCROLL;
+     TextOverflow lastTextOverflow_ = TextOverflow::ELLIPSIS;
+ 
++#if defined(IOS_PLATFORM)
++    TextCompose compose_;
++    bool unmarkText_;
++#endif
++
+     // ----- multi thread state variables -----
+     bool initSurfacePositionChangedCallbackMultiThread_ = false;
+     bool initSurfaceChangedCallbackMultiThread_ = false;
+diff --git a/test/unittest/core/pattern/text_input/text_field_pattern_test.cpp b/test/unittest/core/pattern/text_input/text_field_pattern_test.cpp
+index 96265ecef23a875a7a96cfb15bba8056cf970eae..657395055b1737a4a52fc14566c51d13bb765d22 100644
+--- a/test/unittest/core/pattern/text_input/text_field_pattern_test.cpp
++++ b/test/unittest/core/pattern/text_input/text_field_pattern_test.cpp
+@@ -126,7 +126,6 @@ HWTEST_F(TextFieldPatternTest, TextPattern005, TestSize.Level1)
+     ASSERT_NE(pattern, nullptr);
+     pattern->isCustomKeyboardAttached_ = true;
+     auto func1 = ViewStackProcessor::GetInstance()->GetMainFrameNode();
+-    ;
+     auto func2 = [] {};
+     pattern->customKeyboard_ = AceType::Claim<UINode>(func1);
+     pattern->customKeyboardBuilder_ = func2;
