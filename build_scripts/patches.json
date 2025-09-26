@@ -49,5 +49,22 @@
                 "pr":"https://gitcode.com/openharmony/third_party_curl/pull/344"
             }
         ]
+    },
+    {
+        "repo": "foundation/arkui/ace_engine/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/ace_engine_72511.diff",
+                "commitMessage": "单行输入框onwilldelte和onwillchange等回调支持跨平台",
+                "pr":"https://gitcode.com/openharmony/arkui_ace_engine/pull/72511"
+            },
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/ace_engine_72398.diff",
+                "commitMessage": "fix HideMenuInSubWindow",
+                "pr":"https://gitcode.com/openharmony/arkui_ace_engine/pull/72398"
+            }
+        ]
     }
 ]
