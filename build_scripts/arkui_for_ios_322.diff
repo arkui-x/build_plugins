@@ -1,0 +1,51 @@
+diff --git a/capability/web/AceWeb.mm b/capability/web/AceWeb.mm
+index 56e681a189d1355fcbdcb711064365adf2c6516a..defd726089384ad4cbe05913ea328e0b93b0757e 100644
+--- a/capability/web/AceWeb.mm
++++ b/capability/web/AceWeb.mm
+@@ -73,6 +73,7 @@
+ #define NTC_ONFULLSCREENENTER             @"onFullScreenEnter"
+ #define NTC_ONFULLSCREENEXIT              @"onFullScreenExit"
+ #define NTC_ONINTERCEPTREQUEST            @"onInterceptRequest"
++#define NTC_REGISTEREDONINTERCEPTREQUEST  @"IsRegisteredOnInterceptRequest"
+ #define NTC_ONREFRESHACCESSED_HISTORYEVENT     @"onRefreshAccessedHistory"
+ #define WEBVIEW_PAGE_HALF                 2
+ #define NTC_TEXT_ZOOM_RATIO               @"textZoomRatio"
+@@ -1525,8 +1526,8 @@ static NSString *const kJavaScriptURLPrefix = @"javascript:";
+         decisionHandler(WKNavigationActionPolicyCancel);
+         return;
+     }
+-    if (![url hasPrefix:@"arkuixcustomscheme://"] && AceWebObjectWithIsRegisteredObjectEvent(
+-            [[self event_hashFormat:NTC_ONINTERCEPTREQUEST] UTF8String])) {
++    if (![url hasPrefix:@"arkuixcustomscheme://"] && AceWebObjectWithIsRegisteredOnInterceptRequest(
++            [[self event_hashFormat:NTC_REGISTEREDONINTERCEPTREQUEST] UTF8String])) {
+         NSString* customURL = [NSString stringWithFormat:@"arkuixcustomscheme://%@", url];
+         NSURLRequest* newRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:customURL]];
+         [webView loadRequest:newRequest];
+diff --git a/capability/web/AceWebPatternBridge.cpp b/capability/web/AceWebPatternBridge.cpp
+index cb8eb15f8ef229d8bc83d096ebca85d4eec54f47..35c9b65bac0ef30a57782535ffc1031fdae7e091 100644
+--- a/capability/web/AceWebPatternBridge.cpp
++++ b/capability/web/AceWebPatternBridge.cpp
+@@ -36,8 +36,8 @@ bool AceWebObjectWithResponseReturn(const std::string& id, const std::string& ev
+     return true;
+ }
+ 
+-bool AceWebObjectWithIsRegisteredObjectEvent(const std::string& eventId) {
+-    return OHOS::Ace::WebObjectEventManager::GetInstance().IsRegisteredObjectEvent(eventId);
++bool AceWebObjectWithIsRegisteredOnInterceptRequest(const std::string& eventId) {
++    return OHOS::Ace::WebObjectEventManager::GetInstance().IsRegisteredOnInterceptRequest(eventId);
+ }
+ 
+ void AceWebObjectWithUnResponseReturn(const std::string& id) {
+diff --git a/capability/web/AceWebPatternBridge.h b/capability/web/AceWebPatternBridge.h
+index f157606e07c0b9942cc173edb2fc64eadf48ef79..bc4f8390f9616eceed8bc27b7b49a8b788a74529 100644
+--- a/capability/web/AceWebPatternBridge.h
++++ b/capability/web/AceWebPatternBridge.h
+@@ -20,7 +20,7 @@
+ void AceWebObject(const std::string& id, const std::string& event,void* object);
+ bool AceWebObjectWithBoolReturn(const std::string& id, const std::string& event, void* object);
+ bool AceWebObjectWithResponseReturn(const std::string& id, const std::string& event, void* object);
+-bool AceWebObjectWithIsRegisteredObjectEvent(const std::string& eventId);
++bool AceWebObjectWithIsRegisteredOnInterceptRequest(const std::string& eventId);
+ void AceWebObjectWithUnResponseReturn(const std::string& id);
+ const OHOS::Ace::RefPtr<OHOS::Ace::WebResponse>& AceWebObjectGetResponse();
+ 

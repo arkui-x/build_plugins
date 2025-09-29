@@ -9,7 +9,18 @@
             },
             {
                 "type": "diff",
-                "commit": "build_plugins/build_scripts/webInterceptAndTextZoomRatio.diff"
+                "commit": "build_plugins/build_scripts/web_onInterceptRequest.diff"
+            }
+        ]
+    },
+    {
+        "repo": "foundation/arkui/ace_engine/adapter/ios/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/arkui_for_ios_322.diff",
+                "commitMessage": "修复未注册onInterceptRequest时拼接拦截头的问题",
+                "pr":"https://gitcode.com/arkui-x/arkui_for_ios/pull/322"
             }
         ]
     }
