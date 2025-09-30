@@ -1,0 +1,218 @@
+diff --git a/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.cpp b/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.cpp
+index 00c12313c94..9edda294b36 100644
+--- a/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.cpp
++++ b/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.cpp
+@@ -17,6 +17,10 @@
+ 
+ #include "bridge/js_frontend/frontend_delegate_impl.h"
+ 
++#ifdef IOS_PLATFORM
++#include <dispatch/dispatch.h>
++#endif
++
+ namespace OHOS::Ace {
+ namespace {
+ constexpr char WEB_METHOD_RELOAD[] = "reload";
+@@ -75,6 +79,7 @@ constexpr char WEB_EVENT_PAGEFINISH[] = "onPageFinished";
+ constexpr char WEB_EVENT_DOWNLOADSTART[] = "onDownloadStart";
+ constexpr char WEB_EVENT_LOADINTERCEPT[] = "onLoadIntercept";
+ constexpr char WEB_EVENT_ONINTERCEPTREQUEST[] = "onInterceptRequest";
++constexpr char WEB_EVENT_REGISTEREDONINTERCEPTREQUEST[] = "IsRegisteredOnInterceptRequest";
+ constexpr char WEB_EVENT_RUNJSCODE_RECVVALUE[] = "onRunJSRecvValue";
+ constexpr char WEB_EVENT_SCROLL[] = "onScroll";
+ constexpr char WEB_EVENT_SCALECHANGE[] = "onScaleChange";
+@@ -153,6 +158,8 @@ constexpr char WEB_CACHE_MODE[] = "cacheMode";
+ constexpr char NTC_CACHE_MODE[] = "cacheMode";
+ constexpr char WEB_IMAGE_ACCESS[] = "imageAccess";
+ constexpr char NTC_IMAGE_ACCESS[] = "imageAccess";
++constexpr char WEB_TEXT_ZOOM_RATIO[] = "textZoomRatio";
++constexpr char NTC_TEXT_ZOOM_RATIO[] = "textZoomRatio";
+ 
+ const char WEB_PARAM_NONE[] = "";
+ const char WEB_PARAM_AND[] = "#HWJS-&-#";
+@@ -171,6 +178,11 @@ constexpr int RESOURCESID_ONE = 1;
+ constexpr int RESOURCESID_TWO = 2;
+ constexpr int RESOURCESID_THREE = 3;
+ 
++constexpr int TIMEOUT_DURATION_MS = 15000;
++constexpr int POLLING_INTERVAL_MS = 50;
++constexpr int HTTP_STATUS_GATEWAY_TIMEOUT = 504;
++constexpr int TIMEOUT_SEMAPHORE_S = 20;
++
+ const std::string RESOURCE_VIDEO_CAPTURE = "TYPE_VIDEO_CAPTURE";
+ const std::string RESOURCE_AUDIO_CAPTURE = "TYPE_AUDIO_CAPTURE";
+ }
+@@ -940,6 +952,15 @@ void WebDelegateCross::RegisterWebObjectEvent()
+             }
+             return nullptr;
+         });
++    WebObjectEventManager::GetInstance().RegisterObjectEventWithBoolReturn(
++            MakeEventHash(WEB_EVENT_REGISTEREDONINTERCEPTREQUEST),
++            [weak = WeakClaim(this)](const std::string& param, void* object) -> bool {
++                auto delegate = weak.Upgrade();
++                if (delegate) {
++                    return delegate->IsRegisteredOnInterceptRequest();
++                }
++                return false;
++            });
+     WebObjectEventManager::GetInstance().RegisterObjectEvent(
+         MakeEventHash(WEB_EVENT_REFRESH_HISTORY),
+         [weak = WeakClaim(this)](const std::string& param, void* object) {
+@@ -1435,6 +1456,59 @@ bool WebDelegateCross::OnLoadIntercept(void* object)
+     return result;
+ }
+ 
++auto WaitForReady(std::function<bool()> checkFunc, int timeoutMs) -> bool
++{
++    const auto start = std::chrono::steady_clock::now();
++    const auto timeout = std::chrono::milliseconds(timeoutMs);
++
++    while (!checkFunc()) {
++        if (std::chrono::steady_clock::now() - start >= timeout) {
++            return false;
++        }
++        std::this_thread::sleep_for(std::chrono::milliseconds(POLLING_INTERVAL_MS));
++    }
++    return true;
++}
++
++RefPtr<WebResponse> TimeoutResponse()
++{
++    TAG_LOGE(AceLogTag::ACE_WEB, "OnInterceptRequest request has timed out.");
++    auto timeoutResponse = AceType::MakeRefPtr<WebResponse>();
++    std::string errorHtml = "<html><body><h1>Response Timeout</h1><p>The request has timed out.</p></body></html>";
++    std::string mimeType = "text/html";
++    std::string encoding = "utf-8";
++    std::string reason = "Response timed out";
++    timeoutResponse->SetData(errorHtml);
++    timeoutResponse->SetMimeType(mimeType);
++    timeoutResponse->SetEncoding(encoding);
++    timeoutResponse->SetStatusCode(HTTP_STATUS_GATEWAY_TIMEOUT);
++    timeoutResponse->SetReason(reason);
++    CHECK_NULL_RETURN(timeoutResponse, nullptr);
++    return timeoutResponse;
++}
++
++#ifdef IOS_PLATFORM
++RefPtr<WebResponse> WaitForResponse(const RefPtr<WebResponse>& result)
++{
++    __block auto realResult = result;
++    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
++    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
++        bool ready = WaitForReady([&] { return result->GetResponseStatus(); }, TIMEOUT_DURATION_MS);
++        if (!ready) {
++            realResult = TimeoutResponse();
++        }
++        dispatch_semaphore_signal(semaphore);
++        dispatch_release(semaphore);
++    });
++    dispatch_time_t timeout = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(TIMEOUT_SEMAPHORE_S * NSEC_PER_SEC));
++    if (dispatch_semaphore_wait(semaphore, timeout) != 0) {
++        dispatch_semaphore_signal(semaphore);
++        dispatch_release(semaphore);
++    }
++    return realResult;
++}
++#endif
++
+ RefPtr<WebResponse> WebDelegateCross::OnInterceptRequest(void* object)
+ {
+     ContainerScope scope(instanceId_);
+@@ -1469,9 +1543,35 @@ RefPtr<WebResponse> WebDelegateCross::OnInterceptRequest(void* object)
+             }
+         },
+         "ArkUIWebInterceptRequest");
++    if (!result) {
++        return nullptr;
++    }
++    auto isReady = result->GetResponseStatus();
++    if (!isReady) {
++#ifdef ANDROID_PLATFORM
++        isReady = WaitForReady([&] { return result->GetResponseStatus(); }, TIMEOUT_DURATION_MS);
++        if (!isReady) {
++            result = TimeoutResponse();
++        }
++#endif
++#ifdef IOS_PLATFORM
++        result = WaitForResponse(result);
++#endif
++    }
+     return result;
+ }
+ 
++bool WebDelegateCross::IsRegisteredOnInterceptRequest()
++{
++    auto webPattern = webPattern_.Upgrade();
++    CHECK_NULL_RETURN(webPattern, false);
++    auto webEventHub = webPattern->GetWebEventHub();
++    CHECK_NULL_RETURN(webEventHub, false);
++    auto propOnInterceptRequestEvent = webEventHub->GetOnInterceptRequestEvent();
++    CHECK_NULL_RETURN(propOnInterceptRequestEvent, false);
++    return true;
++}
++
+ void WebDelegateCross::OnPageVisible(const std::string& param)
+ {
+     ContainerScope scope(instanceId_);
+@@ -1918,7 +2018,18 @@ void WebDelegateCross::UpdateDatabaseEnabled(const bool& isDatabaseAccessEnabled
+ {}
+ 
+ void WebDelegateCross::UpdateTextZoomRatio(const int32_t& textZoomRatioNum)
+-{}
++{
++    if (textZoomRatioNum < 0 || textZoomRatioNum > INT32_MAX) {
++        TAG_LOGE(AceLogTag::ACE_WEB, "textZoomRatioNum is out of range");
++        return;
++    }
++    hash_ = MakeResourceHash();
++    updateTextZoomRatioMethod_ = MakeMethodHash(WEB_TEXT_ZOOM_RATIO);
++    std::stringstream paramStream;
++    paramStream << NTC_TEXT_ZOOM_RATIO << WEB_PARAM_EQUALS << textZoomRatioNum;
++    std::string param = paramStream.str();
++    CallResRegisterMethod(updateTextZoomRatioMethod_, param, nullptr);
++}
+ 
+ void WebDelegateCross::UpdateWebDebuggingAccess(bool isWebDebuggingAccessEnabled)
+ {}
+diff --git a/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.h b/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.h
+index 66c555d6382..fbc385307b2 100644
+--- a/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.h
++++ b/frameworks/core/components_ng/pattern/web/cross_platform/web_delegate_cross.h
+@@ -495,6 +495,7 @@ private:
+     void RecordWebEvent(Recorder::EventType eventType, const std::string& param) const;
+     void RunJsProxyCallback();
+     RefPtr<WebResponse> OnInterceptRequest(void* object);
++    bool IsRegisteredOnInterceptRequest();
+ 
+     WeakPtr<NG::WebPattern> webPattern_;
+     WeakPtr<PipelineBase> context_;
+@@ -548,6 +549,7 @@ private:
+     Method updateVerticalScrollBarAccess_;
+     Method updateBackgroundColor_;
+     Method updateMediaPlayGestureAccess_;
++    Method updateTextZoomRatioMethod_;
+ 
+     EventCallbackV2 onPageFinishedV2_;
+     EventCallbackV2 onPageStartedV2_;
+diff --git a/frameworks/core/components_ng/pattern/web/cross_platform/web_object_event.h b/frameworks/core/components_ng/pattern/web/cross_platform/web_object_event.h
+index 1f8af291753..0fdb6e54127 100644
+--- a/frameworks/core/components_ng/pattern/web/cross_platform/web_object_event.h
++++ b/frameworks/core/components_ng/pattern/web/cross_platform/web_object_event.h
+@@ -252,6 +252,17 @@ public:
+         return nullptr;
+     }
+ 
++    bool IsRegisteredOnInterceptRequest(const std::string& eventId)
++    {
++        auto event = eventObjectWithBoolReturnMap_.find(eventId);
++        if (event != eventObjectWithBoolReturnMap_.end() && event->second) {
++            return event->second("", nullptr);
++        } else {
++            LOGW("failed to find object eventIdWithResponseReturn = %{public}s", eventId.c_str());
++        }
++        return false;
++    }
++
+     const RefPtr<WebResourceRequestObject>& GetResourceRequestObject()
+     {
+         return resourceRequestObject_;
