@@ -64,6 +64,10 @@
                 "commit": "build_plugins/build_scripts/ace_engine_72398.diff",
                 "commitMessage": "fix HideMenuInSubWindow",
                 "pr":"https://gitcode.com/openharmony/arkui_ace_engine/pull/72398"
+            },
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/rich_editor_wechat_input_6.0.diff"
             }
         ]
     }
