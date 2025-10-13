@@ -4,9 +4,9 @@
         "patches": [
             {
                 "type": "commit",
-                "commit": "fa6217e6b331ba1c3f02595fb90108b36190e340",
-                "commitMessage": "60releaseDivideFix",
-                "pr":"https://gitee.com/openharmony/graphic_graphic_2d/pulls/25126"
+                "commit": "bdc59ecef0e9aa8c7249405a13913033b201e09b",
+                "commitMessage": "divideFixApplyRelease",
+                "pr":"https://gitee.com/openharmony/graphic_graphic_2d/pulls/25241"
             },
             {
                 "type": "commit",
