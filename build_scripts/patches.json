@@ -51,6 +51,28 @@
         ]
     },
     {
+        "repo": "third_party/icu/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/third_party_icu_399.diff",
+                "commitMessage": "fix CVE-2025-5222",
+                "pr":"https://gitcode.com/openharmony/third_party_icu/pull/399"
+            }
+        ]
+    },
+    {
+        "repo": "third_party/openssl/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/third_party_openssl_324.diff",
+                "commitMessage": "fix CVE-2025-9230",
+                "pr":"https://gitcode.com/openharmony/third_party_openssl/pull/324"
+            }
+        ]
+    },
+    {
         "repo": "foundation/arkui/ace_engine/",
         "patches": [
             {
