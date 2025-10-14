@@ -55,9 +55,9 @@
         "patches": [
             {
                 "type": "diff",
-                "commit": "build_plugins/build_scripts/ace_engine_72511.diff",
-                "commitMessage": "单行输入框onwilldelte和onwillchange等回调支持跨平台",
-                "pr":"https://gitcode.com/openharmony/arkui_ace_engine/pull/72511"
+                "commit": "build_plugins/build_scripts/ace_engine_73940.diff",
+                "commitMessage": "fix 跨平台textinput中文输入法无法删除最后一个字母&&选中中文拼音一起输入",
+                "pr":"https://gitcode.com/openharmony/arkui_ace_engine/pull/73940"
             },
             {
                 "type": "diff",
