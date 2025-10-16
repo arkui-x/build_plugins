@@ -46,10 +46,10 @@ index 974509b47aa..7e7b9c16066 100644
      bool unmarkText;
  #endif
 diff --git a/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.cpp b/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.cpp
-index 1473b839e88..16a36fcdb73 100644
+index 7b23188ca0c..dc6d303212e 100644
 --- a/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.cpp
 +++ b/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.cpp
-@@ -378,6 +378,16 @@ void RichEditorPattern::InsertValueInStyledString(
+@@ -370,6 +370,15 @@ void RichEditorPattern::InsertValueInStyledString(
  {
      CHECK_NULL_VOID(styledString_);
      IF_TRUE(shouldCommitInput && previewTextRecord_.IsValid(), FinishTextPreviewInner());
@@ -62,11 +62,10 @@ index 1473b839e88..16a36fcdb73 100644
 +        editingValue_->compose.Update(-1);
 +    }
 +#endif
-+
      int32_t changeStart = caretPosition_;
      int32_t changeLength = 0;
      if (textSelector_.IsValid()) {
-@@ -5066,13 +5076,26 @@ void RichEditorPattern::UpdateEditingValue(const std::shared_ptr<TextEditingValu
+@@ -5103,13 +5112,25 @@ void RichEditorPattern::UpdateEditingValue(const std::shared_ptr<TextEditingValu
      InsertValue(UtfUtils::Str8ToStr16(value->text), true);
  #else
      if (value->isDelete) {
@@ -86,7 +85,6 @@ index 1473b839e88..16a36fcdb73 100644
 +#else
          HandleOnDelete(true);
 +#endif
-+
      } else {
  #ifdef CROSS_PLATFORM
 -#ifdef IOS_PLATFORM
@@ -97,7 +95,7 @@ index 1473b839e88..16a36fcdb73 100644
  #ifdef ANDROID_PLATFORM
          if (value->appendText.empty()) {
              return;
-@@ -5565,6 +5588,19 @@ void RichEditorPattern::UpdateCaretInfoToController()
+@@ -5542,6 +5563,19 @@ void RichEditorPattern::UpdateCaretInfoToController()
      for (auto iter = spans_.begin(); iter != spans_.end(); iter++) {
          text += (*iter)->content;
      }
@@ -117,7 +115,7 @@ index 1473b839e88..16a36fcdb73 100644
      auto start = textSelector_.IsValid() ? textSelector_.GetTextStart() : caretPosition_;
      auto end = textSelector_.IsValid() ? textSelector_.GetTextEnd() : caretPosition_;
  #if defined(ENABLE_STANDARD_INPUT)
-@@ -6040,10 +6076,11 @@ void RichEditorPattern::InsertValueByOperationType(const std::u16string& insertV
+@@ -6003,10 +6037,11 @@ void RichEditorPattern::InsertValueByOperationType(const std::u16string& insertV
  bool RichEditorPattern::ProcessTextTruncationOperation(std::u16string& text, bool shouldCommitInput)
  {
  #if defined(IOS_PLATFORM)
@@ -131,7 +129,7 @@ index 1473b839e88..16a36fcdb73 100644
          return true;
      }
  #endif
-@@ -6098,9 +6135,12 @@ void RichEditorPattern::ProcessInsertValueMore(const std::u16string& text, Opera
+@@ -6061,9 +6096,12 @@ void RichEditorPattern::ProcessInsertValueMore(const std::u16string& text, Opera
          return;
      }
      ClearRedoOperationRecords();
@@ -147,7 +145,7 @@ index 1473b839e88..16a36fcdb73 100644
      }
  #endif
      InsertValueOperation(text, &record, operationType, shouldCommitInput);
-@@ -6158,8 +6198,10 @@ void RichEditorPattern::ProcessInsertValue(const std::u16string& insertValue, Op
+@@ -6121,8 +6159,10 @@ void RichEditorPattern::ProcessInsertValue(const std::u16string& insertValue, Op
          previewInputRecord_.Reset();
          undoManager_->ClearPreviewInputRecord();
  #if defined(IOS_PLATFORM)
@@ -161,11 +159,11 @@ index 1473b839e88..16a36fcdb73 100644
  #endif
          return;
 diff --git a/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.h b/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.h
-index d54a5e3c686..0fc3cff90a8 100644
+index d8c147fdb2c..bf179bf24f3 100644
 --- a/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.h
 +++ b/frameworks/core/components_ng/pattern/rich_editor/rich_editor_pattern.h
-@@ -1942,10 +1942,9 @@ private:
-     // record caret bottom position relative to window when keyboard avoid
+@@ -1918,10 +1918,9 @@ private:
+     bool requestFocusBySingleClick_ = false;
      std::optional<float> lastCaretPos_ = std::nullopt;
      int32_t touchedFingerCount_ = 0;
 -#if defined(IOS_PLATFORM)
