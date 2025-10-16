@@ -660,6 +660,42 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/foldsplitcontainer/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_foldsplitcontainer",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/exceptionprompt/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_exceptionprompt",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/gridobjectsortcomponent/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_gridobjectsortcomponent",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/chipgroup/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_chipgroup",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/multimodalinput_keycode/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:multimodalinput_keycode",
             "target_os": [
@@ -2337,6 +2373,27 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_tabtitlebar.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_tabtitlebar",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_exceptionprompt.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_exceptionprompt",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_gridobjectsortcomponent.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_gridobjectsortcomponent",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_chipgroup.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_chipgroup",
             "target_os": [
                 "darwin"
             ]
