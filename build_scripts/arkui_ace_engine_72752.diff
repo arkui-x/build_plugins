@@ -1,0 +1,13 @@
+diff --git a/frameworks/core/components_ng/image_provider/image_provider.cpp b/frameworks/core/components_ng/image_provider/image_provider.cpp
+index 044687c820a2eb1f4c344f2333b6930c488714ec..0f769a9d76f6bfa902c8c5f55de9d7cece95fab9 100644
+--- a/frameworks/core/components_ng/image_provider/image_provider.cpp
++++ b/frameworks/core/components_ng/image_provider/image_provider.cpp
+@@ -515,7 +515,7 @@ void ImageProvider::MakeCanvasImageHelper(const RefPtr<ImageObject>& obj, const
+     if (image) {
+         SuccessCallback(image, key, imageDecoderOptions.sync, obj->GetSourceInfo().GetContainerId());
+     } else {
+-        FailCallback(key, "Failed to decode image", obj->GetSourceInfo().GetContainerId());
++        FailCallback(key, "Failed to decode image", imageDecoderOptions.sync, obj->GetSourceInfo().GetContainerId());
+     }
+ }
+ } // namespace OHOS::Ace::NG
