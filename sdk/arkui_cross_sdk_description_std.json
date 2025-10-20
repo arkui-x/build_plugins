@@ -237,6 +237,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_componentsnapshot",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_componentutils",
             "target_os": [
@@ -1480,6 +1489,24 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_focuscontroller",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_focuscontroller",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_dragcontroller",
             "target_os": [
                 "linux",
@@ -1660,6 +1687,13 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_componentsnapshot.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_componentsnapshot",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_componentsnapshot.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_componentsnapshot",
             "target_os": [
                 "darwin"
@@ -2424,6 +2458,20 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libsystemdatetime.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libsystemdatetime",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_focuscontroller.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_focuscontroller",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_focuscontroller.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_focuscontroller",
             "target_os": [
                 "darwin"
             ]
