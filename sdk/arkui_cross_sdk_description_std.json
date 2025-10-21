@@ -1612,6 +1612,24 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/vibrator/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:vibrator",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/vibrator",
+            "module_label": "//plugins/vibrator/frameworks/android/java:vibrator_plugin_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -2570,6 +2588,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_selectionmenu.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_selectionmenu",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libvibrator.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libvibrator",
             "target_os": [
                 "darwin"
             ]
