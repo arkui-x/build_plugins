@@ -237,6 +237,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_componentsnapshot",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_componentutils",
             "target_os": [
@@ -383,6 +392,15 @@
 	    {
             "install_dir": "arkui-x/plugins/api/lib/buffer/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:buffer",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/fastbuffer/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:fastbuffer",
             "target_os": [
                 "linux",
                 "windows",
@@ -653,6 +671,42 @@
         {
             "install_dir": "arkui-x/plugins/api/lib/advanced/tabtitlebar/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_tabtitlebar",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/foldsplitcontainer/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_foldsplitcontainer",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/exceptionprompt/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_exceptionprompt",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/gridobjectsortcomponent/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_gridobjectsortcomponent",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/advanced/chipgroup/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_chipgroup",
             "target_os": [
                 "linux",
                 "windows",
@@ -1435,6 +1489,24 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_focuscontroller",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_focuscontroller",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_dragcontroller",
             "target_os": [
                 "linux",
@@ -1551,8 +1623,26 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/vibrator/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:vibrator",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/geo_location_manager",
             "module_label": "//plugins/geo_location_manager/frameworks/adapter/android:geolocationmanager_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/vibrator",
+            "module_label": "//plugins/vibrator/frameworks/android/java:vibrator_plugin_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -1633,6 +1723,13 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_componentsnapshot.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_componentsnapshot",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_componentsnapshot.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_componentsnapshot",
             "target_os": [
                 "darwin"
@@ -1865,6 +1962,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libbuffer.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbuffer",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfastbuffer.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfastbuffer",
             "target_os": [
                 "darwin"
              ]
@@ -2360,6 +2464,27 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_exceptionprompt.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_exceptionprompt",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_gridobjectsortcomponent.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_gridobjectsortcomponent",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_advanced_chipgroup.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_advanced_chipgroup",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libmultimodalinput_keycode.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libmultimodalinput_keycode",
             "target_os": [
@@ -2369,6 +2494,20 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libsystemdatetime.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libsystemdatetime",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_focuscontroller.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_focuscontroller",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_focuscontroller.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_focuscontroller",
             "target_os": [
                 "darwin"
             ]
@@ -2477,6 +2616,13 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libvibrator.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libvibrator",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
