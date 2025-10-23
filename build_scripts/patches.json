@@ -3,15 +3,19 @@
         "repo": "foundation/arkui/ace_engine/",
         "patches": [
             {
-                "type": "commit",
-                "commit": "62a0cd3f340f38d3f240aafa24ab69da4bed154a",
-                "commitMessage": "crossplatform web move to width,when pageOut"
-            },
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/web_onInterceptRequest.diff"
+            }
+        ]
+    },
+    {
+        "repo": "foundation/arkui/ace_engine/adapter/ios/",
+        "patches": [
             {
                 "type": "diff",
-                "commit": "build_plugins/build_scripts/arkui_ace_engine_72752.diff",
+                "commit": "build_plugins/build_scripts/arkui_for_ios_322.diff",
                 "commitMessage": "修复未注册onInterceptRequest时拼接拦截头的问题",
-                "pr": "https://gitcode.com/openharmony/arkui_ace_engine/pull/72752"
+                "pr":"https://gitcode.com/arkui-x/arkui_for_ios/pull/322"
             }
         ]
     }
