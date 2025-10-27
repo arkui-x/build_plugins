@@ -1623,26 +1623,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/api/lib/geo_location_manager/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:geolocationmanager",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/lib/vibrator/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:vibrator",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/lib/geo_location_manager",
-            "module_label": "//plugins/geo_location_manager/frameworks/adapter/android:geolocationmanager_java",
             "target_os": [
                 "linux",
                 "windows",
@@ -2618,13 +2600,6 @@
             "target_os": [
                 "darwin"
             ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/api/framework/arch_type/libgeolocationmanager.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libgeolocationmanager",
-            "target_os": [
-                "darwin"
-             ]
         },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libvibrator.framework",
