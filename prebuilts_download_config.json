@@ -156,7 +156,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/linux-x86/bin",
-          "file_path": "/openharmony/compiler/gn/20240416/gn-linux-x86-20240416.tar.gz",
+          "file_path": "/openharmony/compiler/gn/20250912/gn-linux-x86-20250912.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -171,7 +171,7 @@
         },
         {
           "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20250215.zip",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20251022.zip",
           "unzip_filename": "packing_tool"
         },
         {
@@ -237,7 +237,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
-          "file_path": "/openharmony/compiler/gn/20240416/gn-darwin-x86-20240416.tar.gz",
+          "file_path": "/openharmony/compiler/gn/20250929/gn-darwin-x86-20250929.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -257,7 +257,7 @@
         },
         {
           "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20250215.zip",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20251022.zip",
           "unzip_filename": "packing_tool"
         },
         {
@@ -293,7 +293,7 @@
       "copy_config": [
         {
           "unzip_dir": "prebuilts/build-tools/darwin-x86/bin",
-          "file_path": "/openharmony/compiler/gn/20240416/gn-darwin-x86-20240416.tar.gz",
+          "file_path": "/openharmony/compiler/gn/20250929/gn-darwin-x86-20250929.tar.gz",
           "unzip_filename": "gn"
         },
         {
@@ -308,7 +308,7 @@
         },
         {
           "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20250215.zip",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20251022.zip",
           "unzip_filename": "packing_tool"
         },
         {
