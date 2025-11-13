@@ -37,7 +37,7 @@ def build_xcframework(xcframework, framework, sim_framework):
 
 
 def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
-    cmd = ['unzip', sdk_zip_file]
+    cmd = ['unzip', '-o', sdk_zip_file]
     proc = subprocess.Popen(cmd, cwd=sdk_unzip_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
     proc.communicate()
     sdk_install_config = read_json_file(sdk_install_config)
@@ -106,21 +106,28 @@ def create_xcframework(sdk_zip_file, sdk_unzip_dir, sdk_install_config):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input-file', required=True)
-    parser.add_argument('--host-os', required=True)
+    parser.add_argument('--platform', required=True)
     parser.add_argument('--sdk-out-dir', required=True)
     parser.add_argument('--arch', required=True)
     parser.add_argument('--sdk-version', required=True)
     parser.add_argument('--release-type', required=True)
     args = parser.parse_args()
 
+    if args.platform != 'ios':
+        return
+
     current_dir = os.getcwd()
     sdk_zip_file = os.path.join(current_dir, args.sdk_out_dir, 'darwin/arkui-x-darwin-{}-{}-{}.zip'
                                .format(args.arch, args.sdk_version, args.release_type))
     sdk_unzip_dir = 'sdk_unzip_dir'
-    os.makedirs(sdk_unzip_dir, exist_ok=True)
+    if os.path.exists(sdk_unzip_dir):
+        try:
+            shutil.rmtree(sdk_unzip_dir)
+        except Exception as e:
+            subprocess.run(['rm', '-rf', sdk_unzip_dir], check=True)
 
-    if args.host_os == 'mac':
-        create_xcframework(sdk_zip_file, sdk_unzip_dir, args.input_file)
+    os.makedirs(sdk_unzip_dir, exist_ok=True)
+    create_xcframework(sdk_zip_file, sdk_unzip_dir, args.input_file)
 
 
 if __name__ == '__main__':
