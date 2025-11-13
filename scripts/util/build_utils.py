@@ -386,7 +386,8 @@ def do_zip(inputs,
            output,
            base_dir=None,
            compress_fn=None,
-           zip_prefix_path=None):
+           zip_prefix_path=None,
+           compression=zipfile.ZIP_STORED):
     """Creates a zip file from a list of files.
 
     Args:
@@ -405,7 +406,7 @@ def do_zip(inputs,
 
     # Sort by zip path to ensure stable zip ordering.
     input_tuples.sort(key=lambda tup: tup[0])
-    with zipfile.ZipFile(output, 'w') as outfile:
+    with zipfile.ZipFile(output, 'w', compression=compression) as outfile:
         for zip_path, fs_path in input_tuples:
             if zip_prefix_path:
                 zip_path = os.path.join(zip_prefix_path, zip_path)
@@ -416,7 +417,7 @@ def do_zip(inputs,
                                 compress=compress)
 
 
-def zip_dir(output, base_dir, compress_fn=None, zip_prefix_path=None):
+def zip_dir(output, base_dir, compress_fn=None, zip_prefix_path=None, compression=zipfile.ZIP_STORED):
     """Creates a zip file from a directory."""
     inputs = []
     for root, _, files in os.walk(base_dir):
@@ -428,7 +429,8 @@ def zip_dir(output, base_dir, compress_fn=None, zip_prefix_path=None):
                f,
                base_dir,
                compress_fn=compress_fn,
-               zip_prefix_path=zip_prefix_path)
+               zip_prefix_path=zip_prefix_path,
+               compression=compression)
 
 
 def matches_glob(path, filters):

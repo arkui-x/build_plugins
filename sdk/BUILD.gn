@@ -228,6 +228,8 @@ action_with_pydeps("arkui_cross_sdk_post") {
     arkuix_current_sdk_version,
     "--release-type",
     arkuix_release_type,
+    "--host-os",
+    host_os,
   ]
   outputs = [ _output ]
 }
