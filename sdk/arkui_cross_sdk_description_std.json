@@ -390,6 +390,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/fastbuffer/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:fastbuffer",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/convertxml/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:convertxml",
             "target_os": [
@@ -1766,6 +1775,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libbuffer.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libbuffer",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfastbuffer.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfastbuffer",
             "target_os": [
                 "darwin"
              ]
