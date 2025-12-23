@@ -1110,15 +1110,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/lib/third_party/arch_type",
-            "module_label": "//third_party/cJSON:cjson",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_fs",
             "target_os": [
