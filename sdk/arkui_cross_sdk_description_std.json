@@ -2623,6 +2623,13 @@
             "target_os": [
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres",
+            "module_label": "//interface/sdk:icudata",
+            "target_os": [
+                "darwin"
+            ]
         }
     ]
 }
