@@ -1,11 +1,1 @@
-[
-    {
-        "repo": "foundation/arkui/ace_engine/",
-        "patches": [
-            {
-                "type": "diff",
-                "commit": "build_plugins/build_scripts/78914.diff"
-            }
-        ]
-    }
-]
+[]
