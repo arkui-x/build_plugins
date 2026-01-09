@@ -1,0 +1,35 @@
+diff --git a/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp b/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp
+index 0d7f556964dc14dd878e43ef0166066325c389c4..39086a6991e59a6dddb1ca386566840425becac5 100644
+--- a/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp
++++ b/frameworks/core/components_ng/pattern/text_field/text_field_pattern.cpp
+@@ -9871,7 +9871,30 @@ void TextFieldPattern::TriggerAvoidOnCaretChange()
+     if (selectOverlay_) {
+         selectOverlay_->AddAvoidKeyboardCallback(isCustomKeyboardAttached_);
+     }
++#if defined(CROSS_PLATFORM)
++    if (pipeline->IsLayouting()) {
++        pipeline->GetTaskExecutor()->PostTask(
++            [weak = WeakClaim(this)] {
++                auto pattern = weak.Upgrade();
++                CHECK_NULL_VOID(pattern);
++                if (!pattern->HasFocus()) {
++                    return;
++                }
++                auto host = pattern->GetHost();
++                CHECK_NULL_VOID(host);
++                auto pipeline = host->GetContext();
++                CHECK_NULL_VOID(pipeline);
++                auto textFieldManager = DynamicCast<TextFieldManagerNG>(pipeline->GetTextFieldManager());
++                CHECK_NULL_VOID(textFieldManager);
++                textFieldManager->TriggerAvoidOnCaretChange();
++            },
++            TaskExecutor::TaskType::UI, "ArkUITextFieldScrollToSafeArea", PriorityType::IMMEDIATE);
++    } else {
++        textFieldManager->TriggerAvoidOnCaretChange();
++    }
++#else
+     textFieldManager->TriggerAvoidOnCaretChange();
++#endif
+     auto caretPos = textFieldManager->GetFocusedNodeCaretRect().Top() + textFieldManager->GetHeight();
+     SetLastCaretPos(caretPos);
+ }
