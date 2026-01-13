@@ -561,6 +561,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:gauge",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/advanced/dialog/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_dialog",
             "target_os": [
@@ -1648,6 +1657,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/gauge/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_gauge",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -2212,6 +2230,13 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:gauge",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libhitracemeter.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhitracemeter",
             "target_os": [
@@ -2627,6 +2652,13 @@
         {
             "install_dir": "arkui-x/engine/systemres",
             "module_label": "//interface/sdk:icudata",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_gauge.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_gauge",
             "target_os": [
                 "darwin"
             ]
