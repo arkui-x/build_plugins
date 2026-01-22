@@ -1666,6 +1666,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/graphics/text/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:graphics_text",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -2659,6 +2668,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_gauge.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_gauge",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libgraphics_text.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libgraphics_text",
             "target_os": [
                 "darwin"
             ]
