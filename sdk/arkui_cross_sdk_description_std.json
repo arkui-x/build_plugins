@@ -1605,6 +1605,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/systemres/intl/entity_recognition/etc/datetime",
+            "module_label": "//interface/sdk:systemres_datetime",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/intl/entity_recognition/etc/phonenumber",
+            "module_label": "//interface/sdk:systemres_phonenumber",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/advanced/composelistitem/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_composelistitem",
             "target_os": [
@@ -2619,6 +2637,20 @@
         {
             "install_dir": "arkui-x/engine/systemres/fonts",
             "module_label": "//interface/sdk:systemres_fonts",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/intl/entity_recognition/etc/datetime",
+            "module_label": "//interface/sdk:systemres_datetime",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/intl/entity_recognition/etc/phonenumber",
+            "module_label": "//interface/sdk:systemres_phonenumber",
             "target_os": [
                 "darwin"
             ]
