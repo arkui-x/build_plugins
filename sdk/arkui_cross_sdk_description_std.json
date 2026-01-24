@@ -418,6 +418,15 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/lib/data/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:data_distributedkvstore",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/data/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:data_relationalstore",
             "target_os": [
                 "linux",
@@ -1874,6 +1883,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libdata_relationalstore.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdata_relationalstore",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libdata_distributedkvstore.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdata_distributedkvstore",
             "target_os": [
                 "darwin"
             ]
