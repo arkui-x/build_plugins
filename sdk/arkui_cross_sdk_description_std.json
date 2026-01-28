@@ -624,6 +624,78 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:counter",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:sidebarcontainer",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:rowsplit",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:columnsplit",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:menu",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:menuitem",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:menuitemgroup",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:radio",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/advanced/dialog/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_dialog",
             "target_os": [
@@ -1774,6 +1846,42 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/counter/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_counter",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/linearsplit/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_linearsplit",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/sidebar/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_sidebar",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/radio/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_radio",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -2387,6 +2495,62 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:counter",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:sidebarcontainer",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:rowsplit",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:columnsplit",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:menu",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:menuitem",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:menuitemgroup",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:radio",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libhitracemeter.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhitracemeter",
             "target_os": [
@@ -2851,6 +3015,34 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_waterflow.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_waterflow",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_counter.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_counter",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_linearsplit.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_linearsplit",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_sidebar.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_sidebar",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_radio.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_radio",
             "target_os": [
                 "darwin"
             ]
