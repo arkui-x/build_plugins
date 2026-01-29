@@ -571,6 +571,42 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:marquee",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:stepper",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:stepperitem",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:slider",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:gauge",
             "target_os": [
                 "linux",
@@ -1803,6 +1839,33 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/marquee/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_marquee",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/stepper/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_stepper",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/slider/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_slider",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/gauge/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_gauge",
             "target_os": [
@@ -2454,6 +2517,34 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:marquee",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:stepper",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:stepperitem",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:slider",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:gauge",
             "target_os": [
                 "darwin"
@@ -2980,6 +3071,27 @@
         {
             "install_dir": "arkui-x/engine/systemres",
             "module_label": "//interface/sdk:icudata",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_marquee.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_marquee",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_stepper.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_stepper",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_slider.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_slider",
             "target_os": [
                 "darwin"
             ]
