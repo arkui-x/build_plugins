@@ -435,6 +435,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/pasteboard/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:pasteboard",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/pasteboard",
+            "module_label": "//plugins/pasteboard/platform/android:pasteboard_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/data/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:data_datasharepredicates",
             "target_os": [
@@ -2143,6 +2161,13 @@
             "target_os": [
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libpasteboard.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libpasteboard",
+            "target_os": [
+                "darwin"
+             ]
         },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libdata_preferences.framework",
