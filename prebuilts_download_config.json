@@ -171,7 +171,7 @@
         },
         {
           "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20251022.zip",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20260129.zip",
           "unzip_filename": "packing_tool"
         },
         {
@@ -257,7 +257,7 @@
         },
         {
           "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20251022.zip",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20260129.zip",
           "unzip_filename": "packing_tool"
         },
         {
@@ -308,7 +308,7 @@
         },
         {
           "unzip_dir": "prebuilts/packing_tool",
-          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20251022.zip",
+          "file_path": "/harmonyos/compiler/packing_tool/packing_tool_libs_20260129.zip",
           "unzip_filename": "packing_tool"
         },
         {
