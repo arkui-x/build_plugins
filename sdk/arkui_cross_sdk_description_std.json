@@ -813,6 +813,42 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:symbolglyph",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:richeditor",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:search",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:textclock",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/advanced/dialog/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_advanced_dialog",
             "target_os": [
@@ -2089,6 +2125,51 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/symbol/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_symbol",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/richeditor/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_richeditor",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/search/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_search",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/textclock/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_textclock",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_menu",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -2842,6 +2923,34 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:symbolglyph",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:richeditor",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:search",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:textclock",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libhitracemeter.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhitracemeter",
             "target_os": [
@@ -3404,6 +3513,41 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_calendarpicker.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_calendarpicker",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_symbol.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_symbol",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_search.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_search",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_richeditor.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_richeditor",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_textclock.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_textclock",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_menu.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_menu",
             "target_os": [
                 "darwin"
             ]
