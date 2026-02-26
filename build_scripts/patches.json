@@ -1,1 +1,12 @@
-[]
+[   
+    {
+        "repo": "foundation/arkui/ace_engine/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/ace_engine_0224.diff",
+                "commitMessage": "去掉image private日志"
+            }
+        ]
+    }
+]
