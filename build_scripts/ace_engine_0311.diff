@@ -1,0 +1,110 @@
+diff --git a/frameworks/core/components_ng/base/frame_node.cpp b/frameworks/core/components_ng/base/frame_node.cpp
+index 0fce3e7edab979b08c2f35fc476ceca097c65a47..c5e17230d1bc3c8a2c753cb05734d1c48e4a3590 100755
+--- a/frameworks/core/components_ng/base/frame_node.cpp
++++ b/frameworks/core/components_ng/base/frame_node.cpp
+@@ -4153,7 +4153,9 @@ int32_t FrameNode::GetAllDepthChildrenCount()
+ }
+ 
+ void FrameNode::OnAccessibilityEvent(
+-    AccessibilityEventType eventType, WindowsContentChangeTypes windowsContentChangeType) const
++    AccessibilityEventType eventType,
++    WindowsContentChangeTypes windowsContentChangeType,
++    bool sendByNode)
+ {
+     if (AceApplicationInfo::GetInstance().IsAccessibilityEnabled()) {
+         AccessibilityEvent event;
+@@ -4162,7 +4164,11 @@ void FrameNode::OnAccessibilityEvent(
+         event.nodeId = accessibilityId_;
+         auto pipeline = GetContext();
+         CHECK_NULL_VOID(pipeline);
+-        pipeline->SendEventToAccessibility(event);
++        if (sendByNode) {
++            pipeline->SendEventToAccessibilityWithNode(event, Claim(this));
++        } else {
++            pipeline->SendEventToAccessibility(event);
++        }
+     }
+ }
+ 
+diff --git a/frameworks/core/components_ng/base/frame_node.h b/frameworks/core/components_ng/base/frame_node.h
+index 08fc836eded6a337ce376bd561a264c85b37491a..2486a026ecbe25bb7112a6a2f9fe4af8d9a3e0cf 100755
+--- a/frameworks/core/components_ng/base/frame_node.h
++++ b/frameworks/core/components_ng/base/frame_node.h
+@@ -597,8 +597,9 @@ public:
+     int32_t GetAllDepthChildrenCount();
+ 
+     void OnAccessibilityEvent(
+-        AccessibilityEventType eventType, WindowsContentChangeTypes windowsContentChangeType =
+-                                              WindowsContentChangeTypes::CONTENT_CHANGE_TYPE_INVALID) const;
++        AccessibilityEventType eventType,
++        WindowsContentChangeTypes windowsContentChangeType = WindowsContentChangeTypes::CONTENT_CHANGE_TYPE_INVALID,
++        bool sendByNode = false);
+ 
+     void OnAccessibilityEventForVirtualNode(AccessibilityEventType eventType, int64_t accessibilityId);
+ 
+diff --git a/frameworks/core/components_ng/event/gesture_event_hub.cpp b/frameworks/core/components_ng/event/gesture_event_hub.cpp
+index e093565f539e59140931f7588e02767d17aaf2d0..c499436dfadede55441a1502b4396c3e109cec07 100644
+--- a/frameworks/core/components_ng/event/gesture_event_hub.cpp
++++ b/frameworks/core/components_ng/event/gesture_event_hub.cpp
+@@ -761,7 +761,7 @@ OnAccessibilityEventFunc GestureEventHub::GetOnAccessibilityEventFunc()
+         CHECK_NULL_VOID(gestureHub);
+         auto node = gestureHub->GetFrameNode();
+         CHECK_NULL_VOID(node);
+-        node->OnAccessibilityEvent(eventType);
++        node->OnAccessibilityEvent(eventType, WindowsContentChangeTypes::CONTENT_CHANGE_TYPE_INVALID, true);
+     };
+     return callback;
+ }
+@@ -848,7 +848,8 @@ bool GestureEventHub::ActClick(std::shared_ptr<JsonValue> secComphandle)
+     if (clickRecognizer) {
+         click = clickRecognizer->GetTapActionFunc();
+         click(info);
+-        host->OnAccessibilityEvent(AccessibilityEventType::CLICK);
++        host->OnAccessibilityEvent(
++            AccessibilityEventType::CLICK, WindowsContentChangeTypes::CONTENT_CHANGE_TYPE_INVALID, true);
+         return true;
+     }
+     return false;
+diff --git a/frameworks/core/components_ng/gestures/recognizers/click_recognizer.cpp b/frameworks/core/components_ng/gestures/recognizers/click_recognizer.cpp
+index 470078d153a90606b311c1545da71787b823c7d6..ad124fb65c7d0ae467d400d19f8fbc682b71aecc 100644
+--- a/frameworks/core/components_ng/gestures/recognizers/click_recognizer.cpp
++++ b/frameworks/core/components_ng/gestures/recognizers/click_recognizer.cpp
+@@ -758,7 +758,7 @@ OnAccessibilityEventFunc ClickRecognizer::GetOnAccessibilityEventFunc()
+         CHECK_NULL_VOID(recognizer);
+         auto node = recognizer->GetAttachedNode().Upgrade();
+         CHECK_NULL_VOID(node);
+-        node->OnAccessibilityEvent(eventType);
++        node->OnAccessibilityEvent(eventType, WindowsContentChangeTypes::CONTENT_CHANGE_TYPE_INVALID, true);
+     };
+     return callback;
+ }
+diff --git a/test/unittest/core/accessibility/js_accessibitlity_manager_test.cpp b/test/unittest/core/accessibility/js_accessibitlity_manager_test.cpp
+index 1813eaa4ca44957bef4f6249b48dafa53455a82c..105fa5cba6da82bb3fccde3bb38dd7f64a5dcc60 100644
+--- a/test/unittest/core/accessibility/js_accessibitlity_manager_test.cpp
++++ b/test/unittest/core/accessibility/js_accessibitlity_manager_test.cpp
+@@ -3678,4 +3678,24 @@ HWTEST_F(JsAccessibilityManagerTest, GetAccessibilityPrevFocusNode001, TestSize.
+     MockPipelineContext::TearDown();
+ }
+ 
++
++/**
++ * @tc.name: JsAccessibilityManager021
++ * @tc.desc: dump event test  DumpProcessEventParameters
++ * @tc.type: FUNC
++ */
++HWTEST_F(JsAccessibilityManagerTest, sendAccessibilitEvent001, TestSize.Level1)
++{
++    MockPipelineContext::SetUp();
++    auto context = NG::PipelineContext::GetCurrentContext();
++    ASSERT_NE(context, nullptr);
++    auto frameNode = FrameNode::CreateFrameNode("framenode", 1, AceType::MakeRefPtr<Pattern>(), false);
++    ASSERT_NE(frameNode, nullptr);
++    bool accessibilityEnableBackup = AceApplicationInfo::GetInstance().IsAccessibilityEnabled();
++    AceApplicationInfo::GetInstance().SetAccessibilityEnabled(true);
++    frameNode->OnAccessibilityEvent(
++            AccessibilityEventType::CLICK, WindowsContentChangeTypes::CONTENT_CHANGE_TYPE_INVALID, true);
++    AceApplicationInfo::GetInstance().SetAccessibilityEnabled(accessibilityEnableBackup);
++    MockPipelineContext::TearDown();
++}
+ } // namespace OHOS::Ace::NG
+\ No newline at end of file
