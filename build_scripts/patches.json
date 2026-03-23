@@ -5,11 +5,6 @@
             {
                 "type": "diff",
                 "commit": "build_plugins/build_scripts/web_onInterceptRequest.diff"
-            },
-            {
-                "type": "diff",
-                "commit": "build_plugins/build_scripts/ace_engine_0311.diff",
-                "commitMessage": "修复无障碍屏幕朗读"
             }
         ]
     }
