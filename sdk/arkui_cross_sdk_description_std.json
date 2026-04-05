@@ -2197,6 +2197,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/dynamic_resources/media",
+            "module_label": "//interface/sdk:timepicker_sound",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -3596,6 +3605,13 @@
         {
             "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_menu.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_menu",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/dynamic_resources/media",
+            "module_label": "//interface/sdk:timepicker_sound",
             "target_os": [
                 "darwin"
             ]
