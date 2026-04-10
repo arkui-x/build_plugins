@@ -2215,6 +2215,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/extras/stub/arch_type",
+            "module_label": "//arkcompiler/ets_runtime/ecmascript/compiler:stub.an",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
