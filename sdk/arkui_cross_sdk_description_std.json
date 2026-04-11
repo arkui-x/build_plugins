@@ -2208,7 +2208,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/dynamic_resources/media",
+            "install_dir": "arkui-x/engine/extras/media",
             "module_label": "//interface/sdk:timepicker_sound",
             "target_os": [
                 "linux",
@@ -3619,7 +3619,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/dynamic_resources/media",
+            "install_dir": "arkui-x/engine/extras/media",
             "module_label": "//interface/sdk:timepicker_sound",
             "target_os": [
                 "darwin"
