@@ -580,7 +580,7 @@
         },
         {
            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:ark_modifier",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_modifier:modifier",
             "target_os": [
                 "linux",
                 "windows",
@@ -3165,7 +3165,7 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:ark_modifier",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_modifier:modifier",
             "target_os": [
                 "darwin"
             ]
