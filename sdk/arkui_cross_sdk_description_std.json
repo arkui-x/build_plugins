@@ -76,6 +76,15 @@
         },
         {
             "install_dir": "arkui-x/engine",
+            "module_label": "//interface/sdk:engine_apiDepsConfig",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine",
             "module_label": "//interface/sdk:engine_apiconfig",
             "target_os": [
                 "linux",
