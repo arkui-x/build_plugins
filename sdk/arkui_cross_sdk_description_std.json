@@ -569,6 +569,24 @@
                 "darwin"
             ]
         },
+ 	    {
+ 	        "install_dir": "arkui-x/engine/systemres/abc",
+ 	        "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/engine/jsi:gen_jsEnumStyle_abc",
+ 	        "target_os": [
+ 	            "linux",
+ 	            "windows",
+ 	            "darwin"
+ 	        ]
+ 	    },
+ 	    {
+ 	        "install_dir": "arkui-x/engine/systemres/abc",
+ 	        "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/engine/jsi:gen_arkComponent_abc",
+ 	        "target_os": [
+ 	            "linux",
+ 	            "windows",
+ 	            "darwin"
+ 	        ]
+ 	    },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_mock:mock",
@@ -2801,6 +2819,20 @@
                 "darwin"
             ]
         },
+ 	    {
+ 	        "install_dir": "arkui-x/engine/systemres/abc",
+ 	        "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/engine/jsi:gen_jsEnumStyle_abc",
+ 	        "target_os": [
+ 	            "darwin"
+ 	        ]
+ 	    },
+ 	    {
+ 	        "install_dir": "arkui-x/engine/systemres/abc",
+ 	        "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/engine/jsi:gen_arkComponent_abc",
+ 	        "target_os": [
+ 	            "darwin"
+ 	        ]
+ 	    },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:ark_theme",
