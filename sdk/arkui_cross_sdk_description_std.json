@@ -1938,6 +1938,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/extras/symbol",
+            "module_label": "//interface/sdk:api_symbol_config",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/extras/symbol",
+            "module_label": "//interface/sdk:system_symbol_json",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/systemres/intl/entity_recognition/etc/phonenumber",
             "module_label": "//interface/sdk:systemres_phonenumber",
             "target_os": [
@@ -3419,6 +3437,20 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libaccessibility.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libaccessibility",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/extras/symbol",
+            "module_label": "//interface/sdk:api_symbol_config",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/extras/symbol",
+            "module_label": "//interface/sdk:system_symbol_json",
             "target_os": [
                 "darwin"
             ]
