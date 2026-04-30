@@ -625,6 +625,15 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:uicontext",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:ark_theme_control",
             "target_os": [
                 "linux",
@@ -2863,6 +2872,13 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:ark_theme",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:uicontext",
             "target_os": [
                 "darwin"
             ]
