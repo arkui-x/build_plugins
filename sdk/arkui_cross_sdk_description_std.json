@@ -562,6 +562,15 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_layoutalgorithm:layoutalgorithm",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:statemanagement",
             "target_os": [
                 "linux",
@@ -734,6 +743,15 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcounter",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:dynamiclayout",
             "target_os": [
                 "linux",
                 "windows",
@@ -2118,6 +2136,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/dynamiclayout/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_dynamiclayout",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/linearsplit/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_linearsplit",
             "target_os": [
@@ -2852,6 +2879,13 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_layoutalgorithm:layoutalgorithm",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:statemanagement",
             "target_os": [
                 "darwin"
@@ -2993,6 +3027,13 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:columnsplit",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:dynamiclayout",
             "target_os": [
                 "darwin"
             ]
@@ -3623,6 +3664,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_linearsplit.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_linearsplit",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_dynamiclayout.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_dynamiclayout",
             "target_os": [
                 "darwin"
             ]
