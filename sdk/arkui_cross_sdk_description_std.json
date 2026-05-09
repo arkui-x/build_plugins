@@ -1488,6 +1488,33 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/uitest",
+            "module_label": "//test/testfwk/arkxtest/uitest/adapter/screen_capture/android:screencapture_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/uitest",
+            "module_label": "//test/testfwk/arkxtest/uitest/adapter/display/android:display_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/uitest",
+            "module_label": "//test/testfwk/arkxtest/uitest/adapter/touch_inject/android:touchinject_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_statvfs",
             "target_os": [
