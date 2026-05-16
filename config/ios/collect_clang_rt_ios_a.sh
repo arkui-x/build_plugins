@@ -16,18 +16,25 @@
 set -e
 
 # Usage:
-#   collect_clang_rt_ios_a.sh <xcode_dev_dir> <out_lib_path>
-# It copies the best-match clang runtime builtins library:
-#   ${xcode_dev_dir}/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/<ver>/lib/darwin/libclang_rt.ios.a
-# into <out_lib_path>.
+#   collect_clang_rt_ios_a.sh <xcode_dev_dir> <out_lib_path> [ios|iossim]
+# Third arg selects which builtins archive to copy (default: ios = device):
+#   ios    -> libclang_rt.ios.a
+#   iossim -> libclang_rt.iossim.a (required when linking ios_clang_*_sim)
+# Output is always written to <out_lib_path> (often named libclang_rt.ios.a for stable ldflags).
 
 if [[ $# -lt 2 ]]; then
-  echo "Usage: $0 <xcode_dev_dir> <out_lib_path>" >&2
+  echo "Usage: $0 <xcode_dev_dir> <out_lib_path> [ios|iossim]" >&2
   exit 1
 fi
 
 xcode_dev_dir="$1"
 out_lib="$2"
+rt_kind="${3:-ios}"
+if [[ "$rt_kind" != "ios" && "$rt_kind" != "iossim" ]]; then
+  echo "Invalid runtime kind '$rt_kind' (use ios or iossim)" >&2
+  exit 1
+fi
+lib_basename="libclang_rt.${rt_kind}.a"
 
 if [[ -z "$xcode_dev_dir" || -z "$out_lib" ]]; then
   echo "Missing args." >&2
@@ -63,12 +70,12 @@ mkdir -p "$out_dir"
 
 best=""
 
-# Pick the highest semver-like clang directory that actually contains libclang_rt.ios.a.
+# Pick the highest semver-like clang directory that contains the requested lib.
 # clang directories may include: "17", "17.0.0", ...
 for d in "$clang_root"/*; do
   [[ -d "$d" ]] || continue
   ver="$(basename "$d")"
-  candidate="${d}/lib/darwin/libclang_rt.ios.a"
+  candidate="${d}/lib/darwin/${lib_basename}"
   if [[ -f "$candidate" ]]; then
     if [[ -z "$best" ]]; then
       best="$ver"
@@ -76,7 +83,7 @@ for d in "$clang_root"/*; do
       # Prefer full versions (e.g. 17.0.0) over partial ones (e.g. 17).
       # Then use sort -V for semver-ish ordering.
       best_dir="$clang_root/$best"
-      best_candidate="$best_dir/lib/darwin/libclang_rt.ios.a"
+      best_candidate="$best_dir/lib/darwin/${lib_basename}"
       if [[ "$best" == *.* && "$ver" != *.* ]]; then
         continue
       fi
@@ -93,11 +100,11 @@ for d in "$clang_root"/*; do
 done
 
 if [[ -z "$best" ]]; then
-  echo "Could not find libclang_rt.ios.a under: $clang_root" >&2
+  echo "Could not find ${lib_basename} under: $clang_root" >&2
   exit 1
 fi
 
-src="${clang_root}/${best}/lib/darwin/libclang_rt.ios.a"
+src="${clang_root}/${best}/lib/darwin/${lib_basename}"
 if [[ ! -f "$src" ]]; then
   echo "Resolved source missing: $src" >&2
   exit 1
