@@ -26,6 +26,11 @@ def main(argv):
                       choices=['iphoneos', 'iphonesimulator'],
                       help='Which SDK to find.')
   parser.add_argument('--xcode', action='store_true')
+  parser.add_argument('--clang-version',
+                      action='store_true',
+                      help='Print the Xcode clang runtime directory version (e.g. 17.0.0).')
+  parser.add_argument('--developer_dir',
+                      help='Xcode Contents/Developer directory (used with --clang-version).')
   args = parser.parse_args()
 
   command =  [
@@ -38,6 +43,46 @@ def main(argv):
 
   if args.xcode:
     command = ['xcodebuild', '-version']
+
+  if args.clang_version:
+    dev_dir = args.developer_dir
+    if not dev_dir:
+      dev_dir = subprocess.check_output(['xcode-select', '-p']).decode('utf-8').strip()
+    clang_root = os.path.join(
+        dev_dir,
+        'Toolchains',
+        'XcodeDefault.xctoolchain',
+        'usr',
+        'lib',
+        'clang')
+    entries = []
+    try:
+      entries = os.listdir(clang_root)
+    except FileNotFoundError:
+      raise Exception('clang root not found: %s' % clang_root)
+
+    # Prefer full semantic versions like 17.0.0.
+    def parse_semver(v):
+      parts = v.split('.')
+      # Normalize "17" -> (17,0,0) if needed.
+      parts = (parts + ['0', '0'])[:3]
+      return tuple(int(p) for p in parts)
+
+    full = []
+    partial = []
+    for e in entries:
+      if e.count('.') == 2 and all(x.isdigit() for x in e.split('.')):
+        full.append(e)
+      elif e.isdigit():
+        partial.append(e)
+
+    candidates = full if full else partial
+    if not candidates:
+      raise Exception('No clang versions found under %s' % clang_root)
+
+    best = max(candidates, key=parse_semver)
+    print(best)
+    return 0
 
   sdk_output = subprocess.check_output(command).decode('utf-8').strip()
 
