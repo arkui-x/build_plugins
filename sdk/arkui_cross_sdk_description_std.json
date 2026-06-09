@@ -1578,6 +1578,24 @@
              ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_storagestatistics",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/file",
+            "module_label": "//plugins/file/storage_statistics/android:storage_statistics_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/file",
             "module_label": "//plugins/file/photo_access_helper/android:photo_access_helper_java",
             "target_os": [
@@ -2689,6 +2707,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_photoaccesshelper.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_photoaccesshelper",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_storagestatistics.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_storagestatistics",
             "target_os": [
                 "darwin"
              ]
