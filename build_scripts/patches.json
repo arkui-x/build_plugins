@@ -8,5 +8,25 @@
                 "commitMessage": "去掉image private日志"
             }
         ]
+    },
+    {
+        "repo": "foundation/arkui/ace_engine/adapter/ios/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/arkui_for_ios_0610.diff",
+                "commitMessage": "修复鸿蒙智行iOS的最新众测版本捕获到的闪退记录"
+            }
+        ]
+    },
+    {
+        "repo": "foundation/arkui/ace_engine/adapter/android/",
+        "patches": [
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/arkui_for_android_0610.diff",
+                "commitMessage": "修复鸿蒙智行的Android的AcePlatformViewAosp崩溃问题"
+            }
+        ]
     }
 ]
