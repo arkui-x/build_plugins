@@ -1,0 +1,14 @@
+diff --git a/capability/java/src/ohos/ace/adapter/capability/platformview/AcePlatformViewAosp.java b/capability/java/src/ohos/ace/adapter/capability/platformview/AcePlatformViewAosp.java
+index 2b0b5390386d15ccc98746fc3144ebbda79fcfda..d38aab64c12c422a609068813796cbd92302f1db 100755
+--- a/capability/java/src/ohos/ace/adapter/capability/platformview/AcePlatformViewAosp.java
++++ b/capability/java/src/ohos/ace/adapter/capability/platformview/AcePlatformViewAosp.java
+@@ -113,6 +113,9 @@ public class AcePlatformViewAosp extends AcePlatformViewBase {
+                 }
+             }
+         });
++        if (viewWrapper == null) {
++            return;
++        }
+         ViewParent parent = viewWrapper.getParent();
+         if (parent instanceof ViewGroup) {
+             ViewGroup viewGroup = (ViewGroup) parent;
