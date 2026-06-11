@@ -1417,6 +1417,15 @@
         },
         {
             "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_fileuri",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/lib/file/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:file_streamrw",
             "target_os": [
                 "linux",
@@ -2497,6 +2506,13 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_fileuri.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libfile_fileuri",
+            "target_os": [
+                "darwin"
+            ]
         },
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libfile_streamrw.framework",
