@@ -542,6 +542,24 @@
                 "darwin"
             ]
         },
+	    {
+            "install_dir": "arkui-x/plugins/api/lib/ui_appearance",
+            "module_label": "//plugins/ui_appearance/android/java:ui_appearance_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+	    {
+            "install_dir": "arkui-x/plugins/api/lib/ui_appearance/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:uiappearance",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
         {
             "install_dir": "arkui-x/plugins/api/lib/display/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:display",
@@ -2974,6 +2992,13 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libdeviceinfo.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libdeviceinfo",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libuiappearance.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libuiappearance",
             "target_os": [
                 "darwin"
              ]
