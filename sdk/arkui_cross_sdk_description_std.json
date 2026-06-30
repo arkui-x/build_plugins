@@ -2190,6 +2190,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/arclist/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/component_ext/arc_list:arkui_arclist_android",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/arcscrollbar/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/component_ext/arc_scroll_bar:arkui_arcscrollbar_android",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/graphics/text/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:graphics_text",
             "target_os": [
