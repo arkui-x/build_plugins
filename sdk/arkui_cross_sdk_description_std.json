@@ -949,6 +949,15 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktoggle",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/advanced_ui_component/chipv2:chipv2",
             "target_os": [
                 "linux",
@@ -2415,6 +2424,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/toggle/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_toggle",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_menu",
             "target_os": [
@@ -3315,6 +3333,13 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktoggle",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/advanced_ui_component/chipv2:chipv2",
             "target_os": [
                 "darwin"
@@ -3967,6 +3992,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_textclock.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_textclock",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_toggle.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_toggle",
             "target_os": [
                 "darwin"
             ]
