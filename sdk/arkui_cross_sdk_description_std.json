@@ -778,6 +778,24 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktextpicker",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkdatepicker",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:dynamiclayout",
             "target_os": [
                 "linux",
@@ -851,6 +869,15 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkdatapanel",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkimageanimator",
             "target_os": [
                 "linux",
                 "windows",
@@ -2316,6 +2343,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/imageanimator/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_imageanimator",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/hyperlink/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_hyperlink",
             "target_os": [
@@ -2390,6 +2426,24 @@
         {
             "install_dir": "arkui-x/plugins/component/lib/richeditor/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_richeditor",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/textpicker/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_textpicker",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/datepicker/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_datepicker",
             "target_os": [
                 "linux",
                 "windows",
@@ -3182,6 +3236,20 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktextpicker",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkdatepicker",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:sidebarcontainer",
             "target_os": [
                 "darwin"
@@ -3239,6 +3307,13 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkdatapanel",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkimageanimator",
             "target_os": [
                 "darwin"
             ]
@@ -3909,6 +3984,13 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_imageanimator.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_imageanimator",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_hyperlink.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_hyperlink",
             "target_os": [
@@ -3953,6 +4035,20 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_search.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_search",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_textpicker.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_textpicker",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_datepicker.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_datepicker",
             "target_os": [
                 "darwin"
             ]
