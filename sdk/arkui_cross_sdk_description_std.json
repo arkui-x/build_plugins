@@ -129,6 +129,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/interfaces/native:ace_ndk_cross",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/lib/arkui",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ace_android_adapter_java",
             "target_os": [
@@ -2572,6 +2581,13 @@
         {
             "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_ios",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libace_ndk.framework",
+            "module_label": "//foundation/arkui/ace_engine/interfaces/native:libace_ndk",
             "target_os": [
                 "darwin"
              ]
