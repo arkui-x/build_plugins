@@ -2720,6 +2720,15 @@
                 "darwin"
             ]
         },
+	    {
+            "install_dir": "arkui-x/engine/systemres/domains",
+            "module_label": "//interface/sdk:effective_tld_names",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
         {
             "install_dir": "arkui-x/engine/extras/stub/arch_type",
             "module_label": "//arkcompiler/ets_runtime/ecmascript/compiler:stub.an",
@@ -4477,6 +4486,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_grid.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_grid",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/domains",
+            "module_label": "//interface/sdk:effective_tld_names",
             "target_os": [
                 "darwin"
             ]
