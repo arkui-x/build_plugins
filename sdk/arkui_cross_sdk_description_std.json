@@ -778,6 +778,24 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkselect",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arknavigator",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcounter",
             "target_os": [
                 "linux",
@@ -2595,6 +2613,24 @@
             ]
         },
         {
+            "install_dir":  "arkui-x/plugins/component/lib/select/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_select",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir":  "arkui-x/plugins/component/lib/navigator/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_navigator",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_menu",
             "target_os": [
@@ -3356,6 +3392,20 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:flowitem",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkselect",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arknavigator",
             "target_os": [
                 "darwin"
             ]
@@ -4264,8 +4314,22 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_select.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_select",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_datepicker.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_datepicker",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_navigator.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_navigator",
             "target_os": [
                 "darwin"
             ]
