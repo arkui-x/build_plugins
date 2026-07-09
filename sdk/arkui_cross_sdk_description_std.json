@@ -2667,6 +2667,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/bubble/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_bubble",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/toggle/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_toggle",
             "target_os": [
@@ -4435,6 +4444,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_textclock.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_textclock",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_bubble.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_bubble",
             "target_os": [
                 "darwin"
             ]
