@@ -41,13 +41,15 @@ config("compiler") {
     # Don't allow visible symbols from libgcc or libc++ to be
     # re-exported.
     "-Wl,--exclude-libs=libgcc.a",
-    "-Wl,--exclude-libs=libc++_static.a",
 
     # Don't allow visible symbols from libraries that contain
     # assembly code with symbols that aren't hidden properly.
     # http://crbug.com/448386
     "-Wl,--exclude-libs=libvpx_assembly_arm.a",
   ]
+  if (use_static_libcpp) {
+    ldflags += [ "-Wl,--exclude-libs=libc++_static.a" ]
+  }
 
   # $compile_api_level corresponds to the API level used for the sysroot path
   # calculation in //build/config/aosp/config.gni
@@ -134,9 +136,13 @@ config("runtime_library") {
     if (is_component_build || is_asan) {
       libs += [ "c++_shared" ]
     } else {
-      libs += [ "c++_static" ]
+      if (use_static_libcpp) {
+        libs += [ "c++_static" ]
+      }
     }
-    libs += [ "c++abi" ]
+    if (use_static_libcpp) {
+      libs += [ "c++abi" ]
+    }
   }
 
   # arm builds of libc++ starting in NDK r12 depend on unwind.

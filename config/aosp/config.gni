@@ -117,6 +117,11 @@ if (is_android || is_chromeos) {
     # Libc++ library directory. Override to use a custom libc++ binary.
     aosp_libcpp_lib_dir = ""
 
+    # Whether to link against libc++_static and c++abi.
+    # When false (default), libc++ symbols are deduplicated across shared libraries.
+    # When true, each shared library links its own copy of libc++_static and c++abi.
+    use_static_libcpp = false
+
     aosp_default_version_code = "1"
     aosp_default_version_name = "Developer Build"
 
