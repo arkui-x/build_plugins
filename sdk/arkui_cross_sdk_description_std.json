@@ -1030,6 +1030,24 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktextinput",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktextarea",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:calendarpicker",
             "target_os": [
                 "linux",
@@ -2604,6 +2622,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/textfield/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_textfield",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/timepicker/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_timepicker",
             "target_os": [
@@ -3697,6 +3724,20 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktextinput",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktextarea",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:alphabetindexer",
             "target_os": [
                 "darwin"
@@ -4286,6 +4327,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_span.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_span",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_textfield.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_textfield",
             "target_os": [
                 "darwin"
             ]
