@@ -805,51 +805,6 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arknavigator",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktabs",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkswiper",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkswiperindicator",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktabcontent",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcounter",
             "target_os": [
                 "linux",
@@ -1175,15 +1130,6 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkgriditem",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpanel",
             "target_os": [
                 "linux",
                 "windows",
@@ -2460,15 +2406,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/component/lib/panel/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_panel",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/component/lib/arclist/arch_type",
             "module_label": "//foundation/arkui/ace_engine/component_ext/arc_list:arkui_arclist_android",
             "target_os": [
@@ -2766,15 +2703,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/component/lib/sheet/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_sheet",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/component/lib/textclock/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_textclock",
             "target_os": [
@@ -2822,24 +2750,6 @@
         {
             "install_dir": "arkui-x/plugins/component/lib/select/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_select",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/lib/navigator/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_navigator",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/lib/tabswiper/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_tabswiper",
             "target_os": [
                 "linux",
                 "windows",
@@ -3637,41 +3547,6 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arknavigator",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktabs",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkswiper",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkswiperindicator",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktabcontent",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcounter",
             "target_os": [
                 "darwin"
@@ -3946,13 +3821,6 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkgriditem",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpanel",
             "target_os": [
                 "darwin"
             ]
@@ -4630,13 +4498,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_sheet.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_sheet",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_textpicker.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_textpicker",
             "target_os": [
@@ -4653,20 +4514,6 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_datepicker.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_datepicker",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_navigator.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_navigator",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_tabswiper.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_tabswiper",
             "target_os": [
                 "darwin"
             ]
@@ -4744,13 +4591,6 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_grid.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_grid",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_panel.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_panel",
             "target_os": [
                 "darwin"
             ]
