@@ -904,6 +904,87 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcommonshape",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkrect",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkshape",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcircle",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkellipse",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpath",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkline",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpolyline",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpolygon",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcounter",
             "target_os": [
                 "linux",
@@ -2856,6 +2937,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/shape/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_shape",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/textclock/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_textclock",
             "target_os": [
@@ -3789,6 +3879,69 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktabcontent",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcommonshape",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkrect",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkshape",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcircle",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkellipse",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpath",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkline",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpolyline",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkpolygon",
             "target_os": [
                 "darwin"
             ]
@@ -4776,6 +4929,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_sheet.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_sheet",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_shape.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_shape",
             "target_os": [
                 "darwin"
             ]
