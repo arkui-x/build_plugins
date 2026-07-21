@@ -705,6 +705,24 @@
             ]
         },
         {
+        "install_dir": "arkui-x/engine/systemres/abc",
+        "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcanvas",
+        "target_os": [
+            "linux",
+            "windows",
+            "darwin"
+        ]
+        },
+        {
+        "install_dir": "arkui-x/engine/systemres/abc",
+        "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkvideo",
+        "target_os": [
+            "linux",
+            "windows",
+            "darwin"
+        ]
+        },
+        {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:marquee",
             "target_os": [
@@ -2649,6 +2667,42 @@
             ]
         },
         {
+        "install_dir": "arkui-x/plugins/component/lib/canvas/arch_type",
+        "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_canvas",
+        "target_os": [
+            "linux",
+            "windows",
+            "darwin"
+        ]
+        },
+        {
+        "install_dir": "arkui-x/plugins/api/lib/canvas/arch_type",
+        "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_canvas",
+        "target_os": [
+            "linux",
+            "windows",
+            "darwin"
+        ]
+        },
+        {
+        "install_dir": "arkui-x/plugins/component/lib/video/arch_type",
+        "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_video",
+        "target_os": [
+            "linux",
+            "windows",
+            "darwin"
+        ]
+        },
+        {
+        "install_dir": "arkui-x/plugins/api/lib/video/arch_type",
+        "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_video",
+        "target_os": [
+            "linux",
+            "windows",
+            "darwin"
+        ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/rating/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_rating",
             "target_os": [
@@ -3758,6 +3812,20 @@
             ]
         },
         {
+      "install_dir": "arkui-x/engine/systemres/abc",
+      "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkcanvas",
+      "target_os": [
+        "darwin"
+      ]
+    },
+    {
+      "install_dir": "arkui-x/engine/systemres/abc",
+      "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkvideo",
+      "target_os": [
+        "darwin"
+      ]
+    },
+        {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkgauge",
             "target_os": [
@@ -4793,6 +4861,34 @@
                 "darwin"
             ]
         },
+        {
+      "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_canvas.framework",
+      "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_canvas",
+      "target_os": [
+        "darwin"
+      ]
+    },
+    {
+      "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_canvas.framework",
+      "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_canvas",
+      "target_os": [
+        "darwin"
+      ]
+    },
+    {
+      "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_video.framework",
+      "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_video",
+      "target_os": [
+        "darwin"
+      ]
+    },
+    {
+      "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_video.framework",
+      "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_video",
+      "target_os": [
+        "darwin"
+      ]
+    },
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_rating.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_rating",
