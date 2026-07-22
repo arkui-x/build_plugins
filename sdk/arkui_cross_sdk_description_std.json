@@ -1306,7 +1306,7 @@
                 "windows",
                 "darwin"
             ]
- 	    },
+        },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arklazygridlayout",
@@ -3047,6 +3047,15 @@
         {
             "install_dir": "arkui-x/plugins/component/lib/button/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_button",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/toolbaritem/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_toolbaritem",
             "target_os": [
                 "linux",
                 "windows",
