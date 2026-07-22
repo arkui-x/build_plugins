@@ -1300,6 +1300,15 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktoolbaritem",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arklazygridlayout",
             "target_os": [
                 "linux",
@@ -3036,6 +3045,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/toolbaritem/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_toolbaritem",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/dialog/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_dialog",
             "target_os": [
@@ -4247,6 +4265,13 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arktoolbaritem",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/advanced_ui_component/chipv2:chipv2",
             "target_os": [
                 "darwin"
@@ -5102,6 +5127,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_button.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_button",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_toolbaritem.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_toolbaritem",
             "target_os": [
                 "darwin"
             ]
