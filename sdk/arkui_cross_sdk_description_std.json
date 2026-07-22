@@ -1306,7 +1306,7 @@
                 "windows",
                 "darwin"
             ]
- 	    },
+        },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arklazygridlayout",
