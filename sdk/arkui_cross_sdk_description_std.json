@@ -1030,42 +1030,6 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arklazygridlayout",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkrefresh",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkgrid",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkgriditem",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/advanced_ui_component/chipv2:chipv2",
             "target_os": [
                 "linux",
@@ -2300,51 +2264,6 @@
         {
             "install_dir": "arkui-x/plugins/component/lib/gauge/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_gauge",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/lib/lazygridlayout/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_lazygridlayout",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/lib/refresh/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_refresh",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/lib/grid/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_grid",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/lib/arclist/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/component_ext/arc_list:arkui_arclist_android",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/lib/arcscrollbar/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/component_ext/arc_scroll_bar:arkui_arcscrollbar_android",
             "target_os": [
                 "linux",
                 "windows",
@@ -3616,34 +3535,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arklazygridlayout",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkrefresh",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkgrid",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkgriditem",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libhitracemeter.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libhitracemeter",
             "target_os": [
@@ -4346,27 +4237,6 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_uimaterial.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_uimaterial",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_lazygridlayout.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_lazygridlayout",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_refresh.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_refresh",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_grid.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_grid",
             "target_os": [
                 "darwin"
             ]
