@@ -3010,7 +3010,7 @@
         },
         {
             "install_dir": "arkui-x/plugins/component/lib/shape/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_shape",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_shapes",
             "target_os": [
                 "linux",
                 "windows",
@@ -5080,8 +5080,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_shape.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_shape",
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_shapes.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_shapes",
             "target_os": [
                 "darwin"
             ]
