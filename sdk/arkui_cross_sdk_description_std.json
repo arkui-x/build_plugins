@@ -237,6 +237,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/include/image",
+            "module_label": "//interface/sdk:image_native_header",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/lib/include/native_window",
             "module_label": "//interface/sdk:native_window",
             "target_os": [
@@ -2901,6 +2910,13 @@
         {
             "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include/arkui",
             "module_label": "//interface/sdk:arkui_header",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include/image",
+            "module_label": "//interface/sdk:image_native_header",
             "target_os": [
                 "darwin"
             ]
