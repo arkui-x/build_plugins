@@ -3000,15 +3000,6 @@
             ]
         },
         {
-            "install_dir": "arkui-x/plugins/component/lib/search/arch_type",
-            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_search",
-            "target_os": [
-                "linux",
-                "windows",
-                "darwin"
-            ]
-        },
-        {
             "install_dir": "arkui-x/plugins/component/lib/sheet/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_sheet",
             "target_os": [
@@ -5077,13 +5068,6 @@
         {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libarkui_symbol.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_symbol",
-            "target_os": [
-                "darwin"
-            ]
-        },
-        {
-            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_search.framework",
-            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_search",
             "target_os": [
                 "darwin"
             ]
