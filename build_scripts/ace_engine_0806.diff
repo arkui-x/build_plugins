@@ -94,3 +94,27 @@ index 4664160bd66..e7424ead0a5 100644
              continue;
          }
      }
+diff --git a/frameworks/core/image/image_loader.cpp b/frameworks/core/image/image_loader.cpp
+index bdee60a8c92..70a1c6cf939 100644
+--- a/frameworks/core/image/image_loader.cpp
++++ b/frameworks/core/image/image_loader.cpp
+@@ -283,16 +283,15 @@ std::shared_ptr<RSData> FileImageLoader::LoadImageData(const ImageSourceInfo& im
+     auto result = RSData::MakeFromFileName(realPath);
+     if (!result) {
+         TAG_LOGW(AceLogTag::ACE_IMAGE,
+-            "read data failed, filePath: %{private}s, realPath: %{private}s, "
+-            "src: %{private}s, fail reason: %{private}s.%{public}s.",
+-            filePath.c_str(), src.c_str(), realPath, strerror(errno), imageDfxConfig.ToStringWithoutSrc().c_str());
++            "read data failed, filePath: <private>, realPath: <private>, "
++            "src: <private>, fail reason: <private>.%{public}s.",imageDfxConfig.ToStringWithoutSrc().c_str());
+         errorInfo = { ImageErrorCode::GET_IMAGE_FILE_READ_DATA_FAILED, "read data failed." };
+         return nullptr;
+     } else {
+         loadResultInfo.fileSize = result->GetSize();
+         ACE_SCOPED_TRACE("LoadImageData result %s - %d", imageDfxConfig.ToStringWithSrc().c_str(),
+             static_cast<int32_t>(result->GetSize()));
+-        TAG_LOGI(AceLogTag::ACE_IMAGE, "Read data %{private}s - %{public}s : %{public}d", realPath,
++        TAG_LOGI(AceLogTag::ACE_IMAGE, "Read data <private> - %{public}s : %{public}d",
+             imageDfxConfig.ToStringWithoutSrc().c_str(), static_cast<int32_t>(result->GetSize()));
+     }
+     return BuildImageData(result);

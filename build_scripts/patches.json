@@ -4,7 +4,7 @@
         "patches": [
             {
                 "type": "diff",
-                "commit": "build_plugins/build_scripts/ace_engine_0224.diff",
+                "commit": "build_plugins/build_scripts/ace_engine_0806.diff",
                 "commitMessage": "去掉image private日志"
             }
         ]
