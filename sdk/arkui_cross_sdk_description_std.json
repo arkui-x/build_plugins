@@ -913,7 +913,7 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkswiperindicator",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkindicatorcomponent",
             "target_os": [
                 "linux",
                 "windows",
@@ -4009,7 +4009,7 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
-            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkswiperindicator",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_direct_component:arkindicatorcomponent",
             "target_os": [
                 "darwin"
             ]
