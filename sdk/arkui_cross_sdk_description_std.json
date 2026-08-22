@@ -138,6 +138,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/base/network:ace_network",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/lib/arkui",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ace_android_adapter_java",
             "target_os": [
@@ -3221,6 +3230,13 @@
             "target_os": [
                 "darwin"
              ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libace_network.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libace_network",
+            "target_os": [
+                "darwin"
+            ]            
         },
         {
             "install_dir": "arkui-x",
