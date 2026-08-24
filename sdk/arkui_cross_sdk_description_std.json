@@ -129,7 +129,7 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "install_dir": "arkui-x/plugins/api/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:ace_ndk",
             "target_os": [
                 "linux",
@@ -2613,7 +2613,7 @@
              ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libace_ndk.framework",
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/libace_ndk.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libace_ndk",
             "target_os": [
                 "darwin"
