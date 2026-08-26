@@ -634,6 +634,15 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_lazylayoutalgorithm:lazylayoutalgorithm",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:statemanagement",
             "target_os": [
                 "linux",
@@ -1049,6 +1058,33 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:dynamiclayout",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:lazydynamiclayout",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:lazycolumnlayout",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:lazywaterflowlayout",
             "target_os": [
                 "linux",
                 "windows",
@@ -2658,8 +2694,26 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/lazycolumnlayout/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_lazycolumnlayout",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/lib/lazygridlayout/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_lazygridlayout",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/lib/lazywaterflowlayout/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_lazywaterflowlayout",
             "target_os": [
                 "linux",
                 "windows",
@@ -3849,6 +3903,13 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_lazylayoutalgorithm:lazylayoutalgorithm",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend:statemanagement",
             "target_os": [
                 "darwin"
@@ -4179,6 +4240,27 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:dynamiclayout",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:lazydynamiclayout",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:lazycolumnlayout",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:lazywaterflowlayout",
             "target_os": [
                 "darwin"
             ]
@@ -5290,8 +5372,22 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_lazycolumnlayout.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_lazycolumnlayout",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_lazygridlayout.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_lazygridlayout",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_lazywaterflowlayout.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_lazywaterflowlayout",
             "target_os": [
                 "darwin"
             ]
