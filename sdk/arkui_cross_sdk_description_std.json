@@ -264,8 +264,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/lib/include/native_drwing",
-            "module_label": "//interface/sdk:native_drwing",
+            "install_dir": "arkui-x/engine/lib/include/native_drawing",
+            "module_label": "//interface/sdk:native_drawing",
             "target_os": [
                 "linux",
                 "windows",
@@ -3395,8 +3395,8 @@
             ]
         },
         {
-            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include/native_drwing",
-            "module_label": "//interface/sdk:native_drwing",
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libarkui_ios.framework/Headers/include/native_drawing",
+            "module_label": "//interface/sdk:native_drawing",
             "target_os": [
                 "darwin"
             ]
