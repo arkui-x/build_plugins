@@ -1138,6 +1138,15 @@
         },
         {
             "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:folderstack",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:menu",
             "target_os": [
                 "linux",
@@ -3225,6 +3234,15 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/component/lib/folderstack/arch_type",
+            "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_folderstack",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/engine/lib/arkui/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:arkui_menu",
             "target_os": [
@@ -4240,6 +4258,13 @@
         {
             "install_dir": "arkui-x/engine/systemres/abc",
             "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:columnsplit",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/systemres/abc",
+            "module_label": "//foundation/arkui/ace_engine/frameworks/bridge/declarative_frontend/ark_component/components:folderstack",
             "target_os": [
                 "darwin"
             ]
@@ -5423,6 +5448,13 @@
         {
             "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_xcomponent.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_xcomponent",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/plugins/component/framework/arch_type/libarkui_folderstack.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libarkui_folderstack",
             "target_os": [
                 "darwin"
             ]
