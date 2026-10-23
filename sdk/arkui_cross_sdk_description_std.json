@@ -1677,6 +1677,24 @@
             ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/lib/request.cachedownload/arch_type",
+            "module_label": "//plugins/request/cachedownload:request_cachedownload",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/lib/arkui/arch_type",
+            "module_label": "//plugins/request/cachedownload:cache_download_java",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/lib/request/arch_type",
             "module_label": "//foundation/arkui/ace_engine/adapter/android/build:request",
             "target_os": [
@@ -3140,6 +3158,13 @@
              ]
         },
         {
+            "install_dir": "arkui-x/plugins/api/framework/arch_type/librequest_cachedownload.framework",
+            "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:librequest_cachedownload",
+            "target_os": [
+                "darwin"
+             ]
+        },
+        {
             "install_dir": "arkui-x/plugins/api/framework/arch_type/libnet_connection.framework",
             "module_label": "//foundation/arkui/ace_engine/adapter/ios/build:libnet_connection",
             "target_os": [
@@ -4052,6 +4077,13 @@
         {
             "install_dir": "arkui-x/engine/framework/utils/arch_type/libbluetooth_common.framework",
             "module_label": "//plugins/bluetooth/common:libbluetooth_common",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/engine/framework/arkui/arch_type/libcache_download_core.framework",
+            "module_label": "//plugins/request/cachedownload:libcache_download_core",
             "target_os": [
                 "darwin"
             ]
