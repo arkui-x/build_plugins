@@ -114,6 +114,9 @@ def merge_sdk(sdk_home):
     elif host_os == 'darwin':
         sdk_dirs.append(os.path.join(sdk_home, "sdk/packages/ohos-sdk/darwin"))
         sdk_dirs.append(os.path.join(sdk_home, "arkuix-sdk/darwin"))
+
+    ohos_ets_package = None
+
     for sdk_path in sdk_dirs:
         os.chdir(sdk_path)
         os.system("ls -d */ | xargs rm -rf")
@@ -125,12 +128,30 @@ def merge_sdk(sdk_home):
         package_data = read_json_file('toolchains/oh-uni-package.json')
         if package_data:
             api_version = package_data.get('apiVersion')
+
+        ets_package_file = os.path.join(sdk_path, 'ets', 'oh-uni-package.json')
+        if os.path.exists(ets_package_file):
+            ohos_ets_package = ets_package_file
+
         os.chdir(sdk_home)
         for dirname in os.listdir(sdk_path):
             dirpath = os.path.join(sdk_path, dirname)
             if os.path.isdir(dirpath):
                 subprocess.run(['mkdir', '-p', api_version])
                 subprocess.run(['mv', dirpath, api_version])
+
+    if ohos_ets_package:
+        align_openharmony_ets_version(arkuix_sdk_save_path, ohos_ets_package)
+
+
+def align_openharmony_ets_version(arkuix_sdk_path, ohos_ets_package):
+    for root, dirs, files in os.walk(arkuix_sdk_path):
+        if os.path.basename(root) == 'ets' and 'openharmony' in root:
+            dest = os.path.join(root, 'oh-uni-package.json')
+            shutil.copy2(ohos_ets_package, dest)
+            print('Aligned openharmony/ets version info from %s' % ohos_ets_package)
+            return
+    print('[WARN] openharmony/ets directory not found in %s' % arkuix_sdk_path)
 
 
 def npm_install(target_dir):

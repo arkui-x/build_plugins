@@ -2863,6 +2863,15 @@
                 "windows",
                 "darwin"
             ]
+        },
+        {
+            "install_dir": "arkui-x/openharmony/ets",
+            "module_label": "//interface/sdk:openharmony_ets",
+            "target_os": [
+                "linux",
+                "windows",
+                "darwin"
+            ]
         }
     ],
     "ios": [
@@ -4724,6 +4733,13 @@
         {
             "install_dir": "arkui-x/engine/systemres/domains",
             "module_label": "//interface/sdk:effective_tld_names",
+            "target_os": [
+                "darwin"
+            ]
+        },
+        {
+            "install_dir": "arkui-x/openharmony/ets",
+            "module_label": "//interface/sdk:openharmony_ets",
             "target_os": [
                 "darwin"
             ]
