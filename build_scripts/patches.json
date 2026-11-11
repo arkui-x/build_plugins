@@ -26,6 +26,11 @@
                 "type": "diff",
                 "commit": "build_plugins/build_scripts/arkui_for_android_0610.diff",
                 "commitMessage": "修复鸿蒙智行的Android的AcePlatformViewAosp崩溃问题"
+            },
+            {
+                "type": "diff",
+                "commit": "build_plugins/build_scripts/arkui_for_android_1022.diff",
+                "commitMessage": "修复切回前台获取状态栏高度为0问题"
             }
         ]
     }
